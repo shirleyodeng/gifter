@@ -10,10 +10,48 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180305120048) do
+ActiveRecord::Schema.define(version: 20180305123131) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "events", force: :cascade do |t|
+    t.string "child_name"
+    t.string "child_photo"
+    t.string "name"
+    t.date "date"
+    t.string "account_name"
+    t.string "sort_code"
+    t.string "account_number"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_events_on_user_id"
+  end
+
+  create_table "gifts", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.string "photo"
+    t.bigint "event_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "price_cents", default: 0, null: false
+    t.index ["event_id"], name: "index_gifts_on_event_id"
+  end
+
+  create_table "participations", force: :cascade do |t|
+    t.text "gift_message"
+    t.string "state"
+    t.integer "amount_cents", default: 0, null: false
+    t.jsonb "payment"
+    t.bigint "gift_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["gift_id"], name: "index_participations_on_gift_id"
+    t.index ["user_id"], name: "index_participations_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -28,8 +66,15 @@ ActiveRecord::Schema.define(version: 20180305120048) do
     t.inet "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.string "photo"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "events", "users"
+  add_foreign_key "gifts", "events"
+  add_foreign_key "participations", "gifts"
+  add_foreign_key "participations", "users"
 end

@@ -1,0 +1,17 @@
+<h1>Purchase of gift <%= @participation.gift.name %></h1>
+<%= form_tag participation_payments_path(@participation) do %>
+  <article>
+    <label class="amount">
+      <span>Amount: <%= humanized_money_with_symbol(@participation.amount) %></span>
+    </label>
+  </article>
+
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+    data-name="Gift"
+    data-email="<%= current_user.email %>"
+    data-description="Teddy <%= @participation.g %>"
+    data-amount="<%= @participation.amount_cents %>"
+    data-currency="<%= @participation.amount.currency %>">
+  </script>
+<% end %>

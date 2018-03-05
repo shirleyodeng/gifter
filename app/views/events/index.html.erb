@@ -1,0 +1,9 @@
+<h1>This is <%= current_user.first_name %>'s dashboard</h1>
+<% @events.each do |event| %>
+  <%= link_to event.name, event_gifts_path(event) %>
+  <%= event.date %>
+  <%= event.child_name %>
+  <%= event.child_photo %>
+<% end %>
+
+<%= link_to "Add event", new_event_path %>

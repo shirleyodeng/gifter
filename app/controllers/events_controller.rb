@@ -5,16 +5,17 @@ class EventsController < ApplicationController
     @events = policy_scope(Event)
   end
 
-  def show
-  end
-
   def new
     @event = Event.new
+    authorize @event
   end
 
   def create
     @event = Event.new(event_params)
+    @event.user = current_user
+    authorize @event
     @event.save
+    redirect_to event_gifts_path(@event)
   end
 
   def destroy

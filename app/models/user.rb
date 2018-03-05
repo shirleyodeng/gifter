@@ -7,7 +7,6 @@ class User < ApplicationRecord
   has_many :gifts, through: :events
   validates :first_name, presence: true
   validates :last_name, presence: true
-  validates :photo, presence: true
   mount_uploader :photo, PhotoUploader
 
   def is_parent?

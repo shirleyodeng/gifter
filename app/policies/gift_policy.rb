@@ -10,6 +10,6 @@ class GiftPolicy < ApplicationPolicy
   end
 
   def destroy?
-    record.user == user
+    record.event.user == user
   end
 end

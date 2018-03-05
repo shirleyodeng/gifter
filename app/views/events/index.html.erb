@@ -1,4 +1,4 @@
-<%= cl_image_tag user.avatar, height: 50, width: 50, crop: :thumb, gravity: :face, class: "user-avatar" %>
+<%= cl_image_tag("default-profile-image", width: 100, height: 100, crop: :thumb, gravity: :face) %>
 <h1><%= user.first_name %>'s Dashboard</h1>
 
 <div class="row">
@@ -17,3 +17,4 @@
     </div>
   <% end %>
 </div>
+

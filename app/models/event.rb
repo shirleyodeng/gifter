@@ -1,5 +1,6 @@
 class Event < ApplicationRecord
   belongs_to :user
+  has_many :gifts, dependent: :destroy
   validates :name, presence: true
   validates :date, presence: true
   validates :child_name, presence: true

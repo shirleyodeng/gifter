@@ -2,6 +2,8 @@ class GiftsController < ApplicationController
   before_action :set_gift, only: [:show, :edit, :update, :destroy]
 
   def index
+    @gifts = policy_scope(Gift)
+    @event = Event.find(params[:event_id])
   end
 
   def show
@@ -9,21 +11,32 @@ class GiftsController < ApplicationController
 
   def new
     @gift = Gift.new
+    @event = Event.find(params[:event_id])
+    authorize @gift
   end
 
   def create
     @gift = Gift.new(gift_params)
+    @event = Event.find(params[:event_id])
+    @gift.event = @event
+    # @gift.user = current_user
+    authorize @gift
     @gift.save
+    redirect_to event_gifts_path(@event)
   end
 
   def edit
   end
 
   def update
+    @gift.update(gift_params)
+    redirect_to event_gift_path(@gift)
   end
 
   def destroy
+    @event = Event.find(params[:event_id])
     @gift.destroy
+    redirect_to event_gifts_path(@event)
   end
 
   private
@@ -34,6 +47,6 @@ class GiftsController < ApplicationController
   end
 
   def gift_params
-    params.require(:gift).permit(:name, :description, :photo, :price)
+    params.require(:gift).permit(:name, :description, :photo, :photo_cache, :price)
   end
 end

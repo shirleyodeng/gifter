@@ -1,0 +1,16 @@
+<%= link_to "Edit your profile", edit_user_path(current_user) %>
+
+<h1>This is your events dashboard</h1>
+<%= @event.name %>
+<%= @event.date %>
+<%= link_to "Add a gift", new_event_gift_path %>
+
+<% @gifts.each do |gift| %>
+  <%= gift.name %>
+  <%= gift.photo %>
+  <%= gift.description %>
+  <%= gift.price %>
+  <%= gift.id %>
+  <%= link_to "Delete", event_gift_path(event_id: @event.id, id: gift.id), method: :delete %>
+<% end %>
+

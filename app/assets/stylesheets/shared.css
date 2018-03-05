@@ -1,0 +1,59 @@
+// Components for everything
+
+.nav-bar-yellow {
+  color: $yellow;
+}
+
+.nav-bar-red {
+  color: $red;
+}
+
+.yellow {
+  color: $yellow;
+}
+
+.red {
+  color: $red;
+}
+
+// Decide the width and height for these as you go.
+.white-btn-long {
+  background-color: $white;
+  color: $dark-gray;
+}
+
+.white-btn-short {
+  background-color: $white;
+  color: $dark-gray;
+}
+
+.red-btn-long {
+  background-color: $red;
+  color: $white;
+}
+
+.red-btn-short {
+  background-color: $red;
+  color: $white;
+}
+
+.avatar-large {
+  border-radius: 50%;
+  width: 66px;
+  height: 66px;
+}
+
+.avatar-small {
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+}
+
+// Create the format for event cards / gift cards here. Dimensions should be almost the same.
+// Remember that .card is a bootstrap component so name it something different.
+
+
+
+
+
+

@@ -19,12 +19,12 @@
 // Decide the width and height for these as you go.
 .white-btn-long {
   background-color: $white;
-  color: $gray;
+  color: $dark-gray;
 }
 
 .white-btn-short {
   background-color: $white;
-  color: $gray;
+  color: $dark-gray;
 }
 
 .red-btn-long {

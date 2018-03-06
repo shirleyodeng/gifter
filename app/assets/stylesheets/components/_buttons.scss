@@ -68,6 +68,12 @@
   letter-spacing: 0.5px;
   font-weight: normal;
   text-shadow: 0 -1px 0 #354C8C;
+  a {
+    color: #FFF;
+    &:hover {
+      text-decoration: none;
+    }
+  }
   &:before {
     content: "";
     box-sizing: border-box;
@@ -80,16 +86,15 @@
     background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/14082/icon_facebook.png') 8px 8px no-repeat;
   }
   &:hover {
-    outline: none;
     text-decoration: none;
-    color: white;
     background-color: #5B7BD5;
+    color: #FFF;
     background-image: linear-gradient(#5B7BD5, #4864B1);
   }
   &:focus {
     outline: none;
     text-decoration: none;
-    color: white;
+    color: #FFF;
     background-color: #5B7BD5;
     background-image: linear-gradient(#5B7BD5, #4864B1);
   }

@@ -285,7 +285,7 @@ Devise.setup do |config|
     token_params: { parse: :json },
     scope: 'email',
     info_fields: 'email,first_name,last_name',
-    image_size: 'square',  # 50x50, guaranteed ratio
+    image_size: 'normal',
     secure_image_url: true,
     display: 'popup'
 end

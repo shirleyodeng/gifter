@@ -1,4 +1,3 @@
-
 <div class="container fill-high yellow-background">
 
   <%= cl_image_tag "default-profile-image", width: 70, height: 70, crop: :thumb, gravity: :face, class: "avatar-lg user-default-image" %>
@@ -70,6 +69,32 @@
         </div>
     <% end %>
   </div>
+
+  <div class="row">
+    <div class="events-container">
+      <% if @upcoming_events.length == 0 %>
+        <h2> You have no upcoming events </h2>
+      <% else %>
+        <% @upcoming_events.each do |event| %>
+          <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+            <div class="events-container">
+              <h2>Your Upcoming Events</h2>
+              <div class="event-card">
+                <div class="event-information">
+                  <%= cl_image_tag event.child_photo, height: 50, width: 50, crop: :thumb, gravity: :face, class: "user-avatar" %>
+                  <%= event.child_name %>'s <%= event.name %>
+                </div>
+                <%= link_to "+", event_gifts_path(event), class: "card-link" %>
+              </div>
+            </div>
+          </div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+
+    <%= link_to "Add event", new_event_path, class: "btn-yellow" %>
 
   <div class="red-banner">
   </div>

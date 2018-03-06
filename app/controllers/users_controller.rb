@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   def update
     authorize @user
     @user.update(user_params)
-    redirect_to :root
+    redirect_to events_path
   end
 
 private

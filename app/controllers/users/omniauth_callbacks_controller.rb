@@ -25,7 +25,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     page = request.env['omniauth.origin']
     if request.env['omniauth.params']['popup']
       @page = page
-      render 'sessions/callback', layout: false
+      render 'devise/sessions/callback', layout: false
     else
       redirect_to page
     end

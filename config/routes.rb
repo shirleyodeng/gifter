@@ -8,4 +8,7 @@ Rails.application.routes.draw do
   resources :participations, only: [:show, :create] do
     resources :payments, only: [:new, :create]
   end
+
+  get 'users/auth/facebook/callback' => 'sessions#create'
+  get 'users/auth/failure' => 'sessions#failure'
 end

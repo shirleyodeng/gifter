@@ -13,6 +13,7 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
+    # raise
     @event.user = current_user
     authorize @event
     @event.save

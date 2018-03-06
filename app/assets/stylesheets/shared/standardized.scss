@@ -1,0 +1,25 @@
+// Buttons in /components/_buttons.scss
+
+.yellow {
+  color: $yellow;
+}
+
+.red {
+  color: $red;
+}
+
+.avatar-lg {
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+}
+
+.avatar-sm {
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+}
+
+h1 {
+  font-weight: 700;
+}

@@ -17,5 +17,3 @@
 <%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
   <%= link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name) %><br />
 <% end -%>
-
-<%= link_to "Log in with Facebook", '/users/auth/facebook', class: "btn-facebook", { width: '460', height: '460' } %><br />

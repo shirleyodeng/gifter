@@ -24,7 +24,7 @@
 
 
   <% if @events.length == 0 %>
-      <h2> You are not hosting any events.</h2> <% link_to "Add an event!", event_path(event) %>
+      <h2> You are not hosting any events.</h2> <% link_to "Add an event!", new_event_path(@events) %>
   <% else %>
     <% @events.each do |event| %>
       <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">

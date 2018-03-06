@@ -1,49 +1,77 @@
-.user-dashboard-container {
+.yellow-background {
+  background-color: $yellow;
+  min-height: 100vh;
+  color: $red;
+  padding-top: 3rem;
+  padding-bottom: 7.5rem;
   align-items: center;
+  text-align: center;
+  width: 100%;
+  padding-right: 0px;
+  padding-left: 0px;
+  h1 {
+    margin-top: 10px;
+  }
 }
 
-img {
-  border-radius: 50%;
+.user-default-image {
+  border: 5px solid $red;
+  margin-bottom: 5px;
+}
+
+.user-avatar {
   display: block;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 10px;
+  border-radius: 50%;
+  border: 5px solid $red;
 }
 
-.user-name {
-  text-align: center;
+.red-banner {
+  background-color: $red;
+  width: 100%;
+  height: 30px;
 }
 
 .event-card {
   text-align: center;
-  letter-spacing: 2px;
-  width: 219px;
-  height: 340px;
-  background-color: white;
-  color: black;
-}
-
-.user-avatar {
-  border-radius: 50%;
-  img {
-    border: 5px solid $yellow;
-  }
+  background-color: rgb(253, 253, 253);
+  width: 220px;
+  height: 250px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 40px;
+  font-family: "Poppins", "sans-serif";
 }
 
 .events-container {
   margin: auto;
   h2 {
     padding-top: 20px;
-    padding-bottom: 20px;
+    padding-bottom: 30px;
+    text-align: center;
+    font-size: 30px
   }
 }
 
+.event-card:hover {
+  transform: scale(1.1);
+  box-shadow: 1px 1px 1px;
+}
+
 .event-information {
-  letter-spacing: 2px;
-  margin-top: 5px;
-  font-size: 24px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-size: 20px;
   margin-bottom: 5px;
+  font-weight: 500;
+  p {
+    padding-top: 10px;
+  }
 }
 
 .card-link {
   margin-top: 5px;
 }
+

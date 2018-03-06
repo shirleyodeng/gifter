@@ -13,6 +13,9 @@
         <div class="form-actions">
           <%= f.button :submit, "Log in" %>
         </div>
+
+        <h2>or</h2>
+        <%= link_to "Log in with Facebook", '/users/auth/facebook', class: "btn-facebook" %><br />
       <% end %>
       <%= render "devise/shared/links" %>
     </div>

@@ -13,7 +13,7 @@ gem 'pundit'
 gem 'figaro'
 gem 'cloudinary'
 gem 'carrierwave', '~> 1.2'
-gem 'cloudinary'
+gem 'omniauth-facebook'
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.3'

@@ -3,6 +3,7 @@ class EventsController < ApplicationController
 
   def index
     @events = policy_scope(Event)
+    @upcoming_events = Event.where(user: !current_user)
   end
 
   def new

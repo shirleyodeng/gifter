@@ -10,9 +10,9 @@ gem 'puma'
 gem 'rails', '5.1.5'
 gem 'redis'
 gem 'pundit'
-
-gem 'cloudinary'
+gem 'figaro'
 gem 'carrierwave', '~> 1.2'
+gem 'cloudinary'
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.3'

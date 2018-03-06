@@ -1,0 +1,31 @@
+.yellow {
+ color: $yellow;
+}
+
+.red {
+ color: $red;
+}
+
+.avatar-lg {
+ border-radius: 50%;
+ width: 70px;
+ height: 70px;
+}
+
+.avatar-sm {
+ border-radius: 50%;
+ width: 36px;
+ height: 36px;
+}
+
+.background-yellow {
+ padding: 30px;
+ background-color: $yellow;
+ height: 100vh;
+}
+
+.background-red {
+ padding: 30px;
+ background-color: $red;
+ height: 100vh;
+}

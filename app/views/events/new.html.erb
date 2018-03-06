@@ -1,26 +1,33 @@
-<h1>This is the Events New Page</h1>
+  <div class="col-xs-6 col-xs-offset-3">
+    <h1>Create a new event</h1>
 
-<%= simple_form_for(@event) do |f| %>
+    <%= simple_form_for(@event) do |f| %>
 
-  <div class="form-inputs">
-    Your child's photo
-    <%= f.input :child_photo, label: false %>
-    <%= f.input :child_photo_cache, as: :hidden %>
-    Child's name:
-    <%= f.input :child_name, required: true, label: false %>
-    Event name:
-    <%= f.input :name, required: true, label: false %>
-    Event date:
-    <%= f.input :date, required: true, label: false %>
-    Account name:
-    <%= f.input :account_name, label: false %>
-    Sort code:
-    <%= f.input :sort_code, label: false %>
-    Account number:
-    <%= f.input :account_number, label: false %>
-  </div>
+    <div class="form-inputs">
+          Upload your child's photo
+        <span style="display: none">
+          <%= f.input :child_photo, label: false %>
+          <%= f.input :child_photo_cache, as: :hidden %>
+        </span>
+      </label>
+        Child's name:
+        <%= f.input :child_name, required: true, label: false %>
+        Event name:
+        <%= f.input :name, required: true, label: false %>
+        Event date:
+        <%= f.input :date, required: true, label: false %>
+        <strong><p>Bank details where you would like to receive gift contributions</p></strong>
+        Account name:
+        <%= f.input :account_name, label: false %>
+        Sort code:
+        <%= f.input :sort_code, label: false %>
+        Account number:
+        <%= f.input :account_number, label: false %>
+      </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Create an event" %>
-  </div>
-<% end %>
+      <div class="form-actions">
+        <%= f.button :submit, "Create an event" %>
+        <% end %>
+      </div>
+    </div>
+

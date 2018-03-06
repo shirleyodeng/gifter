@@ -27,6 +27,10 @@
 .welcome-container {
   width: 70%;
   margin-top: -80px;
+  p {
+    font-weight: 500;
+    font-size: 20px;
+  }
 }
 
 .banner-font {
@@ -45,6 +49,7 @@
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
+  min-height: 600px;
 }
 
 .white-font {

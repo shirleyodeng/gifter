@@ -13,7 +13,7 @@
       <% @gifts.each do |gift| %>
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
           <div class="gift-card">
-            <%= cl_image_tag (gift.photo), width: 190, height: 190, crop: :fill, class: "gift-photo" %>
+            <%= cl_image_tag gift.photo, width: 190, height: 190, crop: :fill, class: "gift-photo" %>
             <div class="gift-info">
               <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal<%= gift.id %>"><%=gift.name %></button>
               <div id="myModal<%= gift.id %>" class="modal" role="dialog">

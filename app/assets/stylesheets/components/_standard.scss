@@ -1,31 +1,53 @@
 .yellow {
- color: $yellow;
+  color: $yellow;
 }
 
 .red {
- color: $red;
+  color: $red;
 }
 
 .avatar-lg {
- border-radius: 50%;
- width: 70px;
- height: 70px;
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
 }
 
 .avatar-sm {
- border-radius: 50%;
- width: 36px;
- height: 36px;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
 }
 
 .background-yellow {
- padding: 30px;
- background-color: $yellow;
- height: 100vh;
+  padding: 30px;
+  background-color: $yellow;
+  height: 100vh;
 }
 
 .background-red {
- padding: 30px;
- background-color: $red;
- height: 100vh;
+  padding: 30px;
+  background-color: $red;
+}
+
+h1 {
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+h2 {
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+h3 {
+  font-weight: 700;
+  font-family: "Poppins";
+}
+
+.body-red {
+  background-color: $red;
+}
+
+.body-yellow {
+  background-color: $yellow;
 }

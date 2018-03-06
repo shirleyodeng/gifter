@@ -1,7 +1,74 @@
-<div class="user-dashboard-container red-background"
+<div class="container fill-high yellow-background">
 
-  <%= cl_image_tag("default-profile-image", width: 100, height: 100, crop: :thumb, gravity: :face) %>
+  <%= cl_image_tag "default-profile-image", width: 70, height: 70, crop: :thumb, gravity: :face, class: "avatar-lg user-default-image" %>
   <h1 class="user-name"><%= current_user.first_name.capitalize %>'s Dashboard</h1>
+
+  <div class="events-container">
+    <% if @upcoming_events.length == 0 %>
+      <h2 style="margin-left: 30px;"> You have no upcoming events </h2>
+    <% else %>
+      <h2>Your Upcoming Events!</h2>
+        <div class="row">
+          <% if @upcoming_events.length >= 4 %>
+            <% @upcoming_events.each do |event| %>
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="events-container">
+                  <div class="event-card">
+                    <div class="event-information">
+                      <%= cl_image_tag (event.child_photo), height: 50, width: 50, crop: :thumb, gravity: :face, class: "user-avatar" %>
+                      <%= event.child_name.capitalize %>'s <%= event.name.capitalize %>
+                    </div>
+                    <%= link_to "+", event_gifts_path(event), class: "card-link" %>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          <% elsif @upcoming_events.length == 3 %>
+            <% @upcoming_events.each do |event| %>
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                <div class="events-container">
+                  <div class="event-card">
+                    <div class="event-information">
+                      <%= cl_image_tag (event.child_photo), height: 50, width: 50, crop: :thumb, gravity: :face, class: "user-avatar" %>
+                      <%= event.child_name.capitalize %>'s <%= event.name.capitalize %>
+                    </div>
+                    <%= link_to "+", event_gifts_path(event), class: "card-link" %>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          <% elsif @upcoming_events.length == 2 %>
+            <% @upcoming_events.each do |event| %>
+              <div class="col-xs-12 col-sm-6 col-md-4 col-md-offset-2 col-lg-3 col-lg-offest-3">
+                <div class="events-container">
+                  <div class="event-card">
+                    <div class="event-information">
+                      <%= cl_image_tag (event.child_photo), height: 50, width: 50, crop: :thumb, gravity: :face, class: "user-avatar" %>
+                      <%= event.child_name.capitalize %>'s <%= event.name.capitalize %>
+                    </div>
+                    <%= link_to "+", event_gifts_path(event), class: "card-link" %>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          <% elsif @upcoming_events.length == 1 %>
+            <% @upcoming_events.each do |event| %>
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="events-container">
+                  <div class="event-card">
+                    <div class="event-information">
+                      <%= cl_image_tag (event.child_photo), height: 50, width: 50, crop: :thumb, gravity: :face, class: "user-avatar" %>
+                      <%= event.child_name.capitalize %>'s <%= event.name.capitalize %>
+                    </div>
+                    <%= link_to "+", event_gifts_path(event), class: "card-link" %>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+    <% end %>
+  </div>
 
   <div class="row">
     <div class="events-container">
@@ -29,6 +96,88 @@
 
     <%= link_to "Add event", new_event_path, class: "btn-yellow" %>
 
+  <div class="red-banner">
   </div>
-</div>
 
+  <div class=events-container>
+    <% if @events.length == 0 %>
+      <h2 style="margin-left: 30px;" > You are not hosting any events.</h2> <% link_to "Add an event!", new_event_path(@events) %>
+    <% else %>
+      <h2 style="margin-left: 30px;" >Your hosting events</h2>
+        <div class="row">
+
+          <% if @events.length >= 4 %>
+            <% @events.each do |event| %>
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="events-container">
+                  <div class="event-card">
+                    <div class="event-information">
+                      <%= cl_image_tag event.child_photo, height: 50, width: 50, crop: :thumb, gravity: :face, class: "user-avatar" %>
+                      <p><%= event.child_name.capitalize %></p>
+                      <p><%= event.name.capitalize %></p>
+                    </div>
+                  <%= link_to "+", event_gifts_path(event), class: "card-link" %>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+
+          <% if @events.length == 3 %>
+            <% @events.each do |event| %>
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                <div class="events-container">
+                  <div class="event-card">
+                    <div class="event-information">
+                      <%= cl_image_tag event.child_photo, height: 50, width: 50, crop: :thumb, gravity: :face, class: "user-avatar" %>
+                      <p><%= event.child_name.capitalize %></p>
+                      <p><%= event.name.capitalize %></p>
+                    </div>
+                  <%= link_to "+", event_gifts_path(event), class: "card-link" %>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+
+          <% if @events.length == 2 %>
+            <% @events.each do |event| %>
+              <div class="col-xs-12 col-sm-6 col-md-4 col-md-offset-2 col-lg-3 col-lg-offest-3">
+                <div class="events-container">
+                  <div class="event-card">
+                    <div class="event-information">
+                      <%= cl_image_tag event.child_photo, height: 50, width: 50, crop: :thumb, gravity: :face, class: "user-avatar" %>
+                      <p><%= event.child_name.capitalize %></p>
+                      <p><%= event.name.capitalize %></p>
+                    </div>
+                  <%= link_to "+", event_gifts_path(event), class: "card-link" %>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+
+          <% if @events.length == 1 %>
+            <% @events.each do |event| %>
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="events-container">
+                  <div class="event-card">
+                    <div class="event-information">
+                      <%= cl_image_tag event.child_photo, height: 50, width: 50, crop: :thumb, gravity: :face, class: "user-avatar" %>
+                      <p><%= event.child_name %></p>
+                      <p><%= event.name %></p>
+                    </div>
+                  <%= link_to "+", event_gifts_path(event), class: "card-link" %>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+    <% end %>
+  </div>
+
+
+  <%= link_to "Add event", new_event_path, class: "btn-red" %>
+
+</div>

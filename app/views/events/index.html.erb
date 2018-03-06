@@ -21,26 +21,6 @@
               </div>
             </div>
           </div>
-        <% end %>
-      <% end %>
-    </div>
-
-    <div class=events-container
-      <% if @events.length == 0 %>
-          <h2> You are not hosting any events.</h2> <% link_to "Add an event!", new_event_path(@events) %>
-      <% else %>
-        <% @events.each do |event| %>
-          <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="events-container">
-              <h2>Your Hosting Events</h2>
-              <div class="event-card">
-                <div class="event-information">
-                  <%= cl_image_tag event.child_photo, height: 50, width: 50, crop: :thumb, gravity: :face, class: "user-avatar" %>
-                  <p><%= event.child_name %></p>
-                  <p><%= event.name %></p>
-                </div>
-                <%= link_to "+", event_gifts_path(event), class: "card-link" %>
-              </div>
             </div>
           </div>
         <% end %>

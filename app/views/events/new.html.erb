@@ -3,14 +3,21 @@
 <%= simple_form_for(@event) do |f| %>
 
   <div class="form-inputs">
-    <%= f.input :child_photo %>
+    Your child's photo
+    <%= f.input :child_photo, label: false %>
     <%= f.input :child_photo_cache, as: :hidden %>
-    <%= f.input :child_name, required: true %>
-    <%= f.input :name, required: true %>
-    <%= f.input :date, required: true %>
-    <%= f.input :account_name %>
-    <%= f.input :sort_code %>
-    <%= f.input :account_number %>
+    Child's name:
+    <%= f.input :child_name, required: true, label: false %>
+    Event name:
+    <%= f.input :name, required: true, label: false %>
+    Event date:
+    <%= f.input :date, required: true, label: false %>
+    Account name:
+    <%= f.input :account_name, label: false %>
+    Sort code:
+    <%= f.input :sort_code, label: false %>
+    Account number:
+    <%= f.input :account_number, label: false %>
   </div>
 
   <div class="form-actions">

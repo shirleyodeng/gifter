@@ -3,6 +3,8 @@
   <%= cl_image_tag "default-profile-image", width: 70, height: 70, crop: :thumb, gravity: :face, class: "avatar-lg user-default-image" %>
   <h1 class="user-name"><%= current_user.first_name.capitalize %>'s Dashboard</h1>
 
+  <div class="red-banner"></div>
+
   <div class="events-container">
     <% if @upcoming_events.length == 0 %>
       <h2 style="margin-left: 30px;"> You have no upcoming events </h2>
@@ -26,7 +28,7 @@
                         </div>
                         <div class="event-box">
                           <%= cl_image_tag "sad_face", height: 50, width: 50, crop: :thumb, gravity: :face, class: "user-dashboard-icon" %>
-                          <p class="icon-hover-text gray-text">Send invites</p>
+                          <p class="icon-hover-text gray-text">Make a contribution</p>
                         </div>
                         <div class="event-box">
                           <%= cl_image_tag "mail", height: 50, width: 50, crop: :thumb, gravity: :face, class: "user-dashboard-icon" %>
@@ -56,7 +58,7 @@
                         </div>
                         <div class="event-box">
                           <%= cl_image_tag "sad_face", height: 50, width: 50, crop: :thumb, gravity: :face, class: "user-dashboard-icon" %>
-                          <p class="icon-hover-text gray-text">Send invites</p>
+                          <p class="icon-hover-text gray-text">Make a contribution</p>
                         </div>
                         <div class="event-box">
                           <%= cl_image_tag "mail", height: 50, width: 50, crop: :thumb, gravity: :face, class: "user-dashboard-icon" %>
@@ -85,7 +87,7 @@
                         </div>
                         <div class="event-box">
                           <%= cl_image_tag "sad_face", height: 50, width: 50, crop: :thumb, gravity: :face, class: "user-dashboard-icon" %>
-                          <p class="icon-hover-text gray-text">Send invites</p>
+                          <p class="icon-hover-text gray-text">Make a contribution</p>
                         </div>
                         <div class="event-box">
                           <%= cl_image_tag "mail", height: 50, width: 50, crop: :thumb, gravity: :face, class: "user-dashboard-icon" %>
@@ -113,7 +115,7 @@
                         </div>
                         <div class="event-box">
                           <%= cl_image_tag "sad_face", height: 50, width: 50, crop: :thumb, gravity: :face, class: "user-dashboard-icon" %>
-                          <p class="icon-hover-text gray-text">Send invites</p>
+                          <p class="icon-hover-text gray-text">Make a contribution</p>
                         </div>
                         <div class="event-box">
                           <%= cl_image_tag "mail", height: 50, width: 50, crop: :thumb, gravity: :face, class: "user-dashboard-icon" %>
@@ -165,6 +167,7 @@
                             <p class="icon-hover-text red-text">View messages</p>
                           </div>
                         </div>
+                        <div class="red-text delete-button"><%= link_to "x", event_path(event), method: :delete %></div>
                       </div>
                     </div>
                   </div>
@@ -196,6 +199,7 @@
                           <p class="icon-hover-text red-text">View messages</p>
                         </div>
                       </div>
+                      <div class="red-text delete-button"><%= link_to "x", event_path(event), method: :delete %></div>
                     </div>
                   </div>
                 </div>
@@ -225,6 +229,7 @@
                           <p class="icon-hover-text red-text">View messages</p>
                         </div>
                       </div>
+                      <div class="red-text delete-button"><%= link_to "x", event_path(event), method: :delete %></div>
                     </div>
                   </div>
                 </div>
@@ -254,6 +259,7 @@
                           <p class="icon-hover-text red-text">View messages</p>
                         </div>
                       </div>
+                      <div class="red-text delete-button"><%= link_to "x", event_path(event), method: :delete %></div>
                     </div>
                   </div>
                 </div>

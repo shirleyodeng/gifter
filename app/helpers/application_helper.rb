@@ -3,7 +3,7 @@ module ApplicationHelper
     add_default_class(html_options)
     convert_popup_attributes(html_options)
 
-    link_to t('.login_with_link', provider: provider), url, html_options
+    link_to t('.log_in_with_facebook', provider: provider), url, html_options
   end
 
   private

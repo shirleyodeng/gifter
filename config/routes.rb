@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root to: 'pages#home'
-  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks', registrations: "registrations" }
   resources :users, only: [:edit, :update]
   resources :events, except: [:show, :edit, :update] do
     resources :gifts
@@ -9,6 +9,5 @@ Rails.application.routes.draw do
     resources :payments, only: [:new, :create]
   end
 
-  get 'users/auth/facebook/callback' => 'sessions#create'
-  get 'users/auth/failure' => 'sessions#failure'
+  resources :invites
 end

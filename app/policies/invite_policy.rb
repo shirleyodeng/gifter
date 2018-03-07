@@ -1,7 +1,7 @@
-class EventPolicy < ApplicationPolicy
+class InvitePolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.where(creator: user)
+      scope.all
     end
   end
 
@@ -10,6 +10,6 @@ class EventPolicy < ApplicationPolicy
   end
 
   def destroy?
-    record.creator == user
+    record.user == user
   end
 end

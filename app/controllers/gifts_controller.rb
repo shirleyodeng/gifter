@@ -4,6 +4,7 @@ class GiftsController < ApplicationController
   def index
     @gifts = policy_scope(Gift)
     @event = Event.find(params[:event_id])
+    @invite = Invite.new
   end
 
   def show

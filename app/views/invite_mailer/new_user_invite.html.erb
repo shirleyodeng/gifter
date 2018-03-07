@@ -1,0 +1,6 @@
+<p>Hi <%= @invite.email %>,</p>
+
+<p><%=@invite.sender.first_name %> has invited you to join Gifter to contribute to <%=@invite.event.child_name %>'s <%=@invite.event.name %></p>
+<%= link_to "View gift options", @invite_url %>
+
+<p>See ya!</p>

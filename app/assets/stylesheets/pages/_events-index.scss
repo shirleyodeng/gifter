@@ -1,3 +1,15 @@
+.yellow-text{
+  color: $yellow;
+}
+
+.red-text {
+  color: $red;
+}
+
+.gray-text {
+  color: $dark-gray;
+}
+
 .yellow-background {
   background-color: $yellow;
   min-height: 100vh;
@@ -15,17 +27,32 @@
 }
 
 .user-default-image {
-  border: 5px solid $red;
-  margin-bottom: 5px;
-}
-
-.user-avatar {
   display: block;
   margin-left: auto;
   margin-right: auto;
   margin-top: 10px;
   border-radius: 50%;
   border: 5px solid $red;
+}
+
+.user-icon-image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  border-radius: 50%;
+  border: 4px solid $red;
+  // position: absolute;
+  // right: 10px;
+  // top: 0px;
+}
+
+.user-dashboard-icon {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  transition: all 0.4s;
 }
 
 .red-banner {
@@ -37,41 +64,84 @@
 .event-card {
   text-align: center;
   background-color: rgb(253, 253, 253);
-  width: 220px;
-  height: 250px;
+  width: 350px;
+  height: 200px;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 40px;
   font-family: "Poppins", "sans-serif";
+  // position: relative;
 }
 
 .events-container {
   margin: auto;
+  align-items: center;
   h2 {
-    padding-top: 20px;
-    padding-bottom: 30px;
     text-align: center;
-    font-size: 30px
+    font-size: 30px;
+    padding-bottom: 10px;
   }
+  padding-bottom: 40px;
 }
 
 .event-card:hover {
-  transform: scale(1.1);
   box-shadow: 1px 1px 1px;
 }
 
 .event-information {
-  padding-top: 15px;
-  padding-bottom: 15px;
-  font-size: 20px;
-  margin-bottom: 5px;
-  font-weight: 500;
-  p {
-    padding-top: 10px;
-  }
+  align-items: center;
+  // font-size: 20px;
+  padding-right: 20px;
+  padding-left: 20px;
+  padding-top: 20px;
 }
 
-.card-link {
-  margin-top: 5px;
+.event-icons {
+  display: flex;
+  justify-content: space-evenly;
 }
 
+.user-index-button {
+  margin-top: 40px;
+}
+
+.event-title {
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 550;
+  opacity: 0.9;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+
+.icon-hover-text {
+  position: absolute;
+  font-size: 12px;
+  top: 97%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 100px;
+  opacity: 0;
+  transition: opacity 0.4s;
+
+}
+
+.event-box {
+  position: relative;
+}
+
+
+.event-box:hover .user-dashboard-icon {
+  transform: translateY(-8px);
+}
+
+.event-box:hover .icon-hover-text {
+  opacity: 1;
+}
+
+.custom {
+  margin-left: 3.15%;
+  margin-right: 3.15%;
+}

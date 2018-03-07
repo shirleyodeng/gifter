@@ -34,6 +34,10 @@
                       <div class="modal-pay">
                         <%= image_tag "jamjar.jpg" %>
                         <p><%= gift.price %></p>
+                        <%= form_tag participations_path do %>
+                          <%= hidden_field_tag 'gift_id', gift.id %>
+                          <%= submit_tag 'Contribute', class: 'btn-red' %>
+                        <% end %>
                       </div>
                     </div>
                   </div>

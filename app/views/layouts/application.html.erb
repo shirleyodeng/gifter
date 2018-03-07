@@ -9,7 +9,9 @@
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
-  <% if params[:controller] == "pages" && params[:action] == "home" %>
+  <% if params[:controller] == 'payments' && params[:action] == "new" %>
+    <% body_class = "body-white" %>
+  <% elsif params[:controller] == "pages" && params[:action] == "home" %>
     <% body_class = "body-red" %>
   <% elsif params[:controller] == "gifts" && params[:action] == "index" %>
     <% body_class = "body-yellow" %>
@@ -22,6 +24,5 @@
     <%= yield %>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
-    <%= render 'shared/footer' %>
   </body>
 </html>

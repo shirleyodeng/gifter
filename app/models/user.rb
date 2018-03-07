@@ -13,7 +13,11 @@ class User < ApplicationRecord
 
 
   def is_parent?
-    Event.where(user_id: self.id).any? ? true : false
+    Event.where(creator: self).any? ? true : false
+  end
+
+  def is_guest?
+    Guest.where(user: self).any? ? true : false
   end
 
   def self.find_for_facebook_oauth(auth)
@@ -34,7 +38,6 @@ class User < ApplicationRecord
       user.remote_photo_url = auth.info.image
       user.save
     end
-
     return user
   end
 end

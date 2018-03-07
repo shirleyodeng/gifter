@@ -1,0 +1,55 @@
+.payment-container {
+  text-align: center;
+}
+
+.payment-head {
+  margin-top: 40px;
+}
+
+.payment-box {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.payment-info {
+  font-family: "Poppins";
+  text-align: left;
+  padding: 20px;
+  h4 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+  p {
+    font-size: 16px;
+    font-weight: 700;
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+}
+
+.stripe-payment {
+  padding: 20px;
+  margin-top: 60px;
+}
+
+.gift-form-actions {
+  display: none !important;
+}
+
+.stripe-button-el {
+  margin-top: 20px;
+  background-color: $red !important ;
+  background-image: none !important ;
+  box-shadow: none;
+  font-family: "Quicksand";
+}
+
+.stripe-button-el span {
+  background-color: $red !important ;
+  background-image: none !important ;
+  box-shadow: none;
+  font-family: "Quicksand" !important ;
+}

@@ -26,3 +26,25 @@ function centerPopup(linkUrl, width, height) {
             ',height=' + height + ',left=' + left + ',top=' + top;
     return window.open(url, 'authPopup', windowFeatures);
 }
+
+const stripe = document.getElementById("stuff").value
+console.log(stripe)
+
+// const stripe_btn = document.querySelector(".gift-form-actions")
+// console.log(stripe_btn)
+
+// const stripemessage = (element) => {
+//   element.addEventListener("click", (event) => {
+//     if (!confirm("Are you sure you want to delete?")) {
+//       event.preventDefault();
+//     }
+//   });
+// };
+
+// stripe_btn.bindConfirm();
+
+// <input type="button" value="Click Me!" onclick="submitForms()" />
+// submitForms = function(){
+//     document.getElementById("message_form").submit();
+//     document.getElementById("form2").submit();
+// }

@@ -12,8 +12,9 @@
 }
 
 .btn-yellow:hover {
-  color: rgb(51, 51, 51);
+  color: white;
   text-decoration: none;
+  background-color: yellow;
 }
 
 .btn-red {
@@ -32,6 +33,7 @@
 .btn-red:hover {
   color: white;
   text-decoration: none;
+  background-color: red;
 }
 
 .btn-grey {
@@ -50,6 +52,7 @@
 .btn-grey:hover {
   text-decoration: none;
   color: white;
+  background-color: rgb(181, 180, 179);
 }
 
 .btn-facebook {

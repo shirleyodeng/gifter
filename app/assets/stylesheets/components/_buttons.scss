@@ -12,8 +12,9 @@
 }
 
 .btn-yellow:hover {
-  color: rgb(51, 51, 51);
+  color: white;
   text-decoration: none;
+  background-color: yellow;
 }
 
 .btn-red {
@@ -32,12 +33,13 @@
 .btn-red:hover {
   color: rgb(51, 51, 51);
   text-decoration: none;
+  background-color: red;
 }
 
 .btn-grey {
   background-color: #FAF9F7;
   border: none;
-  color: rgb(51, 51, 51);
+  color: rgb(112, 111, 108);
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
@@ -49,7 +51,9 @@
 
 .btn-grey:hover {
   text-decoration: none;
+  footer-updates
   color: $red;
+  background-color: rgb(181, 180, 179);
 }
 
 .btn-facebook {
@@ -103,4 +107,9 @@
   &:active {
     box-shadow: inset 0 0 0 32px rgba(0,0,0,0.1);
   }
+}
+
+.btn-facebook {
+  font-family: "Quicksand";
+  font-weight: 500;
 }

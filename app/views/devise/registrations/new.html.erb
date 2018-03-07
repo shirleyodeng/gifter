@@ -7,6 +7,9 @@
         <%= f.error_notification %>
 
         <div class="form-inputs">
+          <% if @token != nil %>
+            <%= hidden_field_tag :invite_token, @token %>
+          <% end %>
           <%= f.input :first_name, required: true %>
           <%= f.input :last_name, required: true %>
           <%= f.input :email, required: true, autofocus: true %>
@@ -20,7 +23,7 @@
       <% end %>
 
       <h2>or</h2>
-      <%= link_to "Sign up with Facebook", '/users/auth/facebook', class: "btn-facebook" %><br />
+      <%= link_to_login_with 'Facebook', '/users/auth/facebook', { width: '460', height: '500' } %><br />
 
       <%= render "devise/shared/links" %>
     </div>

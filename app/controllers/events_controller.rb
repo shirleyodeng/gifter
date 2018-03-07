@@ -3,7 +3,7 @@ class EventsController < ApplicationController
 
   def index
     @events = policy_scope(Event)
-    @upcoming_events = Event.where(user: !current_user)
+    @upcoming_events = Guest.where(user: current_user)
   end
 
   def new
@@ -13,8 +13,7 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
-    # raise
-    @event.user = current_user
+    @event.creator = current_user
     authorize @event
     @event.save
     redirect_to event_gifts_path(@event)

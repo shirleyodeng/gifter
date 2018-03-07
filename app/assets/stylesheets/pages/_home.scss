@@ -44,8 +44,8 @@
 }
 
 .explainer {
-  padding: 80px 0;
-  background: url("http://res.cloudinary.com/dj2d1zdlv/image/upload/v1520279705/background-image.jpg");
+  padding: 10px 0;
+  background: url("http://res.cloudinary.com/dj2d1zdlv/image/upload/v1520431310/background-image.jpg");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -65,10 +65,16 @@
 }
 
 .padding-bottom {
-  padding-bottom: 30px;
+  padding-bottom: 0;
 }
 
-// #AVATAR
+.cause-item {
+  max-width: 530px;
+  background-color: $yellow;
+}
+
+// CAUSES
+//Avatar
 
 .people-box {
   padding: 20px;
@@ -137,3 +143,8 @@
 .people-description {
   font-size: 16px;
   }
+
+.padding-top-btn {
+  position: relative;
+  top: 300px;
+}

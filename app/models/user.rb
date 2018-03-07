@@ -1,12 +1,15 @@
 class User < ApplicationRecord
+  validates :first_name, presence: true
+  validates :last_name, presence: true
   mount_uploader :photo, PhotoUploader
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: [:facebook]
-  has_many :events, dependent: :destroy
+  has_many :guests
+  has_many :events, through: :guests
   has_many :gifts, through: :events
-  validates :first_name, presence: true
-  validates :last_name, presence: true
+  has_many :invitations, class_name: "Invite", foreign_key: 'recipient_id'
+  has_many :sent_invites, class_name: "Invite", foreign_key: 'sender_id'
 
 
   def is_parent?

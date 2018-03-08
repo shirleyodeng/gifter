@@ -1,7 +1,7 @@
 <div class="background-yellow">
   <div class="event-dashboard">
     <%= cl_image_tag @event.child_photo, crop: :fill, class: "avatar-lg"%>
-    <h1>Welcome to <%= @event.child_name %>'s <%=@event.name %></h1>
+    <h1>Welcome to <%= @event.child_name.capitalize %>'s <%=@event.name.capitalize %></h1>
     <%= link_to "Delete", event_path(@event), method: :delete %></li>
     <p><%= link_to "Add a gift", new_event_gift_path %></p>
     <a href data-toggle="modal" data-target="#myModal" id="edit">Invite</a>
@@ -13,39 +13,7 @@
       <% else %>
         <% @gifts.each do |gift| %>
           <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="gift-card">
-              <%= cl_image_tag gift.photo, width: 190, height: 190, crop: :fill, class: "gift-photo" %>
-              <div class="gift-info">
-                <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal<%= gift.id %>"><%=gift.name %></button>
-                <div id="myModal<%= gift.id %>" class="modal" role="dialog">
-                  <div class="modal-dialog">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <div class="modal-title">
-                          <p>You have selected</p>
-                          <h4><%= gift.name %></h4>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="modal-body">
-                      <div class="modal-info">
-                        <%= cl_image_tag (gift.photo), width: 200, height: 200, crop: :fill, class: "gift-photo" %>
-                        <p><%= gift.description %></p>
-                      </div>
-                      <div class="modal-pay">
-                        <%= image_tag "jamjar.jpg" %>
-                        <p><%= gift.price %></p>
-                        <%= form_tag participations_path do %>
-                          <%= hidden_field_tag 'gift_id', gift.id %>
-                          <%= submit_tag 'Contribute', class: 'btn-red' %>
-                        <% end %>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <%= render 'giftcard', gift: gift %>
           </div>
         <% end %>
       <% end %>

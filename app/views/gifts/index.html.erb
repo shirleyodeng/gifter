@@ -2,9 +2,14 @@
   <div class="event-dashboard">
     <%= cl_image_tag @event.child_photo, crop: :fill, class: "avatar-lg"%>
     <h1>Welcome to <%= @event.child_name %>'s <%=@event.name %></h1>
-    <%= link_to "Delete", event_path(@event), method: :delete %></li>
-    <p><%= link_to "Add a gift", new_event_gift_path %></p>
-    <a href data-toggle="modal" data-target="#myModal" id="edit">Invite</a>
+    <%# if policy(Gift).create? %>
+    <% if @event.creator == current_user %>
+      <ul class="list-unstyled">
+        <li><%= link_to "Delete", event_path(@event), method: :delete %></li>
+        <li><%= link_to "Add a gift", new_event_gift_path %></li>
+        <li><a href data-toggle="modal" data-target="#myModal" id="edit">Invite</a></li>
+      </ul>
+    <% end %>
   </div>
 
   <div class="container fill-high">

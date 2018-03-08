@@ -160,11 +160,11 @@
                             <p class="icon-hover-text yellow-text"><%= event.child_name.capitalize %>'s gifts</p>
                           </div>
                           <div class="event-box">
-                            <a href data-toggle="modal" data-target="#myModal" id="edit">
+                            <a href data-toggle="modal" data-target="#myModal-<%= event.id %>" id="edit">
                               <%= cl_image_tag "envelope", height: 50, width: 50, crop: :thumb, gravity: :face, class: "user-dashboard-icon" %>
                               <p class="icon-hover-text gray-text">Send invites</p>
                             </a>
-                            <div class="modal fade" id="myModal" role="dialog">
+                            <div class="modal fade" id="#myModal-<%= event.id %>" role="dialog">
                               <div class="modal-dialog modal-md">
                                 <div class="modal-content">
                                   <div class="modal-header text-center">
@@ -172,9 +172,7 @@
                                     <h3 class="form-title spacing blue-font text-center">Invite your friends and family</h3>
                                   </div>
                                   <div class="modal-body text-center">
-                                    <div class="">
-                                      <%= render 'shared/eventpageform', event_id: event.id %>
-                                    </div>
+                                    <%= render 'shared/eventpageform', event_id: event.id %>
                                   </div>
                                 </div>
                               </div>
@@ -209,11 +207,11 @@
                           <p class="icon-hover-text yellow-text"><%= event.child_name.capitalize %>'s gifts</p>
                         </div>
                         <div class="event-box">
-                          <a href data-toggle="modal" data-target="#myModal" id="edit">
+                          <a href data-toggle="modal" data-target="#myModal-<%= event.id %>" id="edit">
                             <%= cl_image_tag "envelope", height: 50, width: 50, crop: :thumb, gravity: :face, class: "user-dashboard-icon" %>
                             <p class="icon-hover-text gray-text">Send invites</p>
                           </a>
-                          <div class="modal fade" id="myModal" role="dialog">
+                          <div class="modal fade" id="#myModal-<%= event.id %>" role="dialog">
                             <div class="modal-dialog modal-md">
                               <div class="modal-content">
                                 <div class="modal-header text-center">
@@ -221,9 +219,7 @@
                                   <h3 class="form-title spacing blue-font text-center">Invite your friends and family</h3>
                                 </div>
                                 <div class="modal-body text-center">
-                                  <div class="">
-                                    <%= render 'shared/eventpageform', event_id: event.id %>
-                                  </div>
+                                  <%= render 'shared/eventpageform', event_id: event.id %>
                                 </div>
                               </div>
                             </div>
@@ -248,19 +244,23 @@
                 <div class="events-container">
                   <div class="event-card">
                     <div class="event-information">
-                      <div><%= cl_image_tag event.child_photo, height: 50, width: 50, crop: :thumb, gravity: :face, class: "user-icon-image" %></div>
-                      <div class="event-title"><%= event.child_name.capitalize %>'s <%= event.name.capitalize %></div>
+                      <div><%= cl_image_tag event.child_photo, height: 50, width: 50, crop: :thumb, gravity: :face, class: "user-icon-image" %>
+
+                      </div>
+                      <div class="event-title"><%= event.child_name.capitalize %>'s <%= event.name.capitalize %>
+
+                      </div>
                       <div class="event-icons">
                         <div class="event-box">
                           <%= link_to (cl_image_tag "box", height: 50, width: 50, crop: :thumb, gravity: :face), event_gifts_path(event), class: "user-dashboard-icon" %>
                           <p class="icon-hover-text yellow-text"><%= event.child_name.capitalize %>'s gifts</p>
                         </div>
                         <div class="event-box">
-                          <a href data-toggle="modal" data-target="#myModal" id="edit">
+                          <a href data-toggle="modal" data-target="#myModal-<%= event.id %>" id="edit">
                             <%= cl_image_tag "envelope", height: 50, width: 50, crop: :thumb, gravity: :face, class: "user-dashboard-icon" %>
                             <p class="icon-hover-text gray-text">Send invites</p>
                           </a>
-                          <div class="modal fade" id="myModal" role="dialog">
+                          <div class="modal fade" id="myModal-<%= event.id %>" role="dialog">
                             <div class="modal-dialog modal-md">
                               <div class="modal-content">
                                 <div class="modal-header text-center">
@@ -268,9 +268,7 @@
                                   <h3 class="form-title spacing blue-font text-center">Invite your friends and family</h3>
                                 </div>
                                 <div class="modal-body text-center">
-                                  <div class="">
-                                    <%= render 'shared/eventpageform', event_id: event.id %>
-                                  </div>
+                                  <%= render 'shared/eventpageform', event_id: event.id %>
                                 </div>
                               </div>
                             </div>
@@ -303,11 +301,11 @@
                           <p class="icon-hover-text yellow-text"><%= event.child_name.capitalize %>'s gifts</p>
                         </div>
                         <div class="event-box">
-                          <a href data-toggle="modal" data-target="#myModal" id="edit">
+                          <a href data-toggle="modal" data-target="#myModal-<%= event.id %>" id="edit">
                             <%= cl_image_tag "envelope", height: 50, width: 50, crop: :thumb, gravity: :face, class: "user-dashboard-icon" %>
                             <p class="icon-hover-text gray-text">Send invites</p>
                           </a>
-                          <div class="modal fade" id="myModal" role="dialog">
+                          <div class="modal fade" id="#myModal-<%= event.id %>" role="dialog">
                             <div class="modal-dialog modal-md">
                               <div class="modal-content">
                                 <div class="modal-header text-center">
@@ -315,9 +313,7 @@
                                   <h3 class="form-title spacing blue-font text-center">Invite your friends and family</h3>
                                 </div>
                                 <div class="modal-body text-center">
-                                  <div class="">
-                                    <%= render 'shared/eventpageform', event_id: event.id %>
-                                  </div>
+                                  <%= render 'shared/eventpageform', event_id: event.id %>
                                 </div>
                               </div>
                             </div>

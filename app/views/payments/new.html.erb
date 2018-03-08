@@ -1,28 +1,16 @@
 <div class="payment-container">
   <div class="payment-head red">
-    <h1>You are about to make <%=@participation.gift.event.child_name%>'s day</h1>
+    <h1>You are about to make <%=@participation.gift.event.child_name.capitalize%>'s day!</h1>
   </div>
 
 <div class="payment-box">
    <div class="payment-info">
     <p>You are contributing to</p>
-    <h4><%= @participation.gift.name %></h4>
+    <h4><%= @participation.gift.name.downcase %></h4>
     <%= cl_image_tag (@participation.gift.photo), width: 190, height: 190, crop: :fill, class: "gift-photo" %>
   </div>
 
   <div class="stripe-payment">
-    <div id="participation-form-1">
-      <%= simple_form_for [@participation], html: { id: :message_form } do |f| %>
-        <div class="gift-form-inputs">
-          <%= f.input :gift_message, placeholder: "(Optional) Write some words to accompany your contribution", input_html: {id: "stuff"} %>
-        </div>
-
-        <div class="gift-form-actions { display: none }">
-          <%= f.button :submit, "Send" %>
-        </div>
-      <% end %>
-    </div>
-
     <div id="participation-form-2">
       <%= form_tag participation_payments_path(@participation) do %>
         <article>

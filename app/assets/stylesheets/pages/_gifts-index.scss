@@ -1,3 +1,15 @@
+.light-yellow {
+  background-color: $light-yellow;
+}
+
+.light-red {
+  background-color: $light-red;
+}
+
+.light-gray {
+  background-color: $light-gray;
+}
+
 .event-dashboard {
   text-align: center;
   color: $red;
@@ -15,6 +27,14 @@
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 40px;
+  &:hover {
+  box-shadow: 1px 1px 1px;
+  color: $red;
+  }
+}
+
+.gift-card:hover {
+  box-shadow: 3px 3px 3px $red;
 }
 
 .gift-info {
@@ -102,4 +122,28 @@
 
 .button.close {
   color: $dark-gray;
+}
+
+.modal-background-color {
+  background-color: $white;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.avatar-container {
+  display: flex;
+  align-items: center;
+  margin-left: 45px;
+  img {
+    margin-left: -45px;
+  }
+}
+
+.jar img {
+  margin-left: -22px;
+  position: absolute;
+}
+
+.avatar-xs {
+  border-radius: 50%;
 }

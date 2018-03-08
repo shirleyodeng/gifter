@@ -17,6 +17,17 @@
   background-color: $yellow;
 }
 
+.btn-gift {
+  font-family: "Poppins" !important;
+  background-color: transparent;
+  color: $dark-gray;
+  border: none;
+  padding-top: 5px;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
 .btn-red {
   background-color: $red;
   border: none;
@@ -51,7 +62,7 @@
 
 .btn-grey:hover {
   text-decoration: none;
-  color: $white;
+  color: $red;
   background-color: $light-gray;
 }
 

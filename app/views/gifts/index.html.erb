@@ -16,34 +16,10 @@
             <div class="gift-card">
               <%= cl_image_tag gift.photo, width: 190, height: 190, crop: :fill, class: "gift-photo" %>
               <div class="gift-info">
-                <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal<%= gift.id %>"><%=gift.name %></button>
-                <div id="myModal<%= gift.id %>" class="modal" role="dialog">
-                  <div class="modal-dialog">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <div class="modal-title">
-                          <p>You have selected</p>
-                          <h4><%= gift.name %></h4>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="modal-body">
-                      <div class="modal-info">
-                        <%= cl_image_tag (gift.photo), width: 200, height: 200, crop: :fill, class: "gift-photo" %>
-                        <p><%= gift.description %></p>
-                      </div>
-                      <div class="modal-pay">
-                        <%= image_tag "jamjar.jpg" %>
-                        <p><%= gift.price %></p>
-                        <%= form_tag participations_path do %>
-                          <%= hidden_field_tag 'gift_id', gift.id %>
-                          <%= submit_tag 'Contribute', class: 'btn-red' %>
-                        <% end %>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                  <%= form_tag participations_path do %>
+                    <%= hidden_field_tag 'gift_id', gift.id %>
+                    <%= submit_tag gift.name, class: "btn-gift" %>
+                  <% end %>
               </div>
             </div>
           </div>

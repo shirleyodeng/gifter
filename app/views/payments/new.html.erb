@@ -5,12 +5,24 @@
 
 <div class="payment-box">
    <div class="payment-info">
-    <p>You are contributing to</p>
+    <p>You have selected</p>
     <h4><%= @participation.gift.name %></h4>
     <%= cl_image_tag (@participation.gift.photo), width: 190, height: 190, crop: :fill, class: "gift-photo" %>
   </div>
 
   <div class="stripe-payment">
+    <%= image_tag "jamjar.jpg" %>
+    <div class="contributers">
+      <% if @participation.gift.event.guests.length == 0 %> Be the first to contribute towards <%= @participation.gift.event.child_name.capitalize %>'s <%= @participation.gift.name %>!
+      <% else %>
+        <% @users.each do |user| %>
+         <p><%= @participation.gift.event.guests.first_name.capitalize %> have contriubted.</p>
+        <% end %>
+      <% end %>
+
+
+
+
     <div id="participation-form-1">
       <%= simple_form_for [@participation], html: { id: :message_form } do |f| %>
         <div class="gift-form-inputs">

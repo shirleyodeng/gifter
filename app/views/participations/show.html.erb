@@ -1,6 +1,61 @@
-<h1>Order</h1>
-<ul>
-  <li>Status: <%= @participation.state %></li>
-  <li>Item: <%= @participation.gift.name %></li>
-  <li>Amount: <%= humanized_money_with_symbol(@participation.amount) %></li>
-<ul>
+<div class="payment-container">
+  <div class="payment-head red">
+    <h1>You are about to make <%=@participation.gift.event.child_name%>'s day</h1>
+  </div>
+
+<div class="payment-box">
+   <div class="payment-info">
+    <p>You have selected</p>
+    <h4><%= @participation.gift.name %></h4>
+    <%= cl_image_tag (@participation.gift.photo), width: 190, height: 190, crop: :fill, class: "gift-photo" %>
+  </div>
+
+  <div class="stripe-payment">
+    <%= image_tag "jamjar.jpg" %>
+    <div class="contributers">
+      <% if @participation.gift.event.guests.length == 0 %> Be the first to contribute towards <%= @participation.gift.event.child_name.capitalize %>'s <%= @participation.gift.name %>!
+      <% else %>
+        <% @users.each do |user| %>
+         <p><%= @participation.gift.event.guests.first_name.capitalize %> have contriubted.</p>
+        <% end %>
+      <% end %>
+
+
+
+
+    <div id="participation-form-1">
+      <%= simple_form_for [@participation], html: { id: :message_form } do |f| %>
+        <div class="gift-form-inputs">
+          <%= f.input :gift_message, placeholder: "(Optional) Write some words to accompany your contribution", input_html: {id: "stuff"} %>
+        </div>
+
+        <div class="gift-form-actions { display: none }">
+          <%= f.button :submit, "Send" %>
+        </div>
+      <% end %>
+    </div>
+
+    <div id="participation-form-2">
+      <%= form_tag participation_payments_path(@participation) do %>
+        <article>
+          <label class="amount">
+            <span>Amount: <%= humanized_money_with_symbol(@participation.amount) %></span>
+          </label>
+        </article>
+
+        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button text-center { display: none }"
+          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+          data-name="Gift"
+          data-email="<%= current_user.email %>"
+          data-description="<%= @participation.gift.description %>"
+          data-amount="<%= @participation.amount_cents %>"
+          data-currency="<%= @participation.amount.currency %>">
+        </script>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+
+

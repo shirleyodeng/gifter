@@ -1,7 +1,8 @@
 class PaymentsController < ApplicationController
-  before_action :set_participation
+  before_action :set_participation, except: [:new]
 
   def new
+    @participation = Participation.find(params[:participation_id])
     authorize @participation
   end
 

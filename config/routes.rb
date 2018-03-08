@@ -5,9 +5,10 @@ Rails.application.routes.draw do
   resources :events, except: [:show] do
     resources :gifts
   end
+
   resources :participations, only: [:show, :create] do
+
     resources :payments, only: [:new, :create]
   end
-
   resources :invites
 end

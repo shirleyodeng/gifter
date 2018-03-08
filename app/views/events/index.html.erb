@@ -51,7 +51,7 @@
                   <div class="event-title">
                     <h4><%= event.child_name.capitalize %>'s <%= event.name.capitalize %></h4>
                     <p>Date: <%= event.date %></p>
-                    <p>Invited by: <%= event.creator.first_name %> <%= event.creator.last_name %></p>
+                    <p>Invited by: <%= event.creator.first_name.capitalize %> <%= event.creator.last_name.capitalize %></p>
                   </div>
 
                   <div class="event-box">
@@ -62,7 +62,7 @@
                   <div class="event-box">
                     <a href data-toggle="modal" data-target="#myModal-<%= event.id %>" id="edit">
                       <%= cl_image_tag "envelope", height: 50, width: 50, crop: :thumb, gravity: :face, class: "user-dashboard-icon" %>
-                      <p class="icon-hover-text red">Send invites</p>
+                      <p class="icon-hover-text gray">Send invites</p>
                     </a>
                     <div class="modal fade" id="myModal-<%= event.id %>" role="dialog">
                       <div class="modal-dialog modal-md">

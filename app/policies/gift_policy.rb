@@ -6,7 +6,7 @@ class GiftPolicy < ApplicationPolicy
   end
 
   def create?
-    return true
+    true
   end
 
   def destroy?

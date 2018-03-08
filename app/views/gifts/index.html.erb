@@ -2,7 +2,7 @@
   <div class="event-dashboard">
     <%= cl_image_tag @event.child_photo, crop: :fill, class: "avatar-lg"%>
     <h1>Welcome to <%= @event.child_name.capitalize %>'s <%=@event.name.capitalize %></h1>
-    <% if policy(@event).create? %>
+    <% if policy(@event).update? %>
       <ul class="list-unstyled">
         <li><%= link_to "Delete", event_path(@event), method: :delete %></li>
         <li><%= link_to "Add a gift", new_event_gift_path %></li>

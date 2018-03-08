@@ -27,15 +27,19 @@
                           <h4><%= gift.name %></h4>
                         </div>
                       </div>
-                      <div class="modal-body">
-                        <div class="modal-info">
-                          <%= cl_image_tag (gift.photo), width: 200, height: 200, crop: :fill, class: "gift-photo" %>
-                          <p><%= gift.description %></p>
-                        </div>
-                        <div class="modal-pay">
-                          <%= image_tag "jamjar.jpg" %>
-                          <p><%= gift.price %></p>
-                        </div>
+                    </div>
+                    <div class="modal-body">
+                      <div class="modal-info">
+                        <%= cl_image_tag (gift.photo), width: 200, height: 200, crop: :fill, class: "gift-photo" %>
+                        <p><%= gift.description %></p>
+                      </div>
+                      <div class="modal-pay">
+                        <%= image_tag "jamjar.jpg" %>
+                        <p><%= gift.price %></p>
+                        <%= form_tag participations_path do %>
+                          <%= hidden_field_tag 'gift_id', gift.id %>
+                          <%= submit_tag 'Contribute', class: 'btn-red' %>
+                        <% end %>
                       </div>
                     </div>
                   </div>
@@ -58,7 +62,7 @@
       </div>
       <div class="modal-body text-center">
         <div class="">
-          <%= render 'shared/form' %>
+          <%= render 'shared/giftpageform' %>
         </div>
       </div>
     </div>

@@ -1,4 +1,4 @@
-class GiftPolicy < ApplicationPolicy
+class PaymentPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
@@ -7,9 +7,5 @@ class GiftPolicy < ApplicationPolicy
 
   def create?
     true
-  end
-
-  def destroy?
-    record.event.user == user
   end
 end

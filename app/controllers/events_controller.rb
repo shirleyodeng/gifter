@@ -3,7 +3,8 @@ class EventsController < ApplicationController
 
   def index
     @events = policy_scope(Event)
-    @upcoming_events = Guest.where(user: current_user)
+    @guests = Guest.where(user: current_user)
+    @invite = Invite.new
   end
 
   def new

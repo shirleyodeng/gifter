@@ -31,7 +31,7 @@
 }
 
 .btn-red:hover {
-  color: white;
+  color: rgb(51, 51, 51);
   text-decoration: none;
   background-color: red;
 }
@@ -51,7 +51,7 @@
 
 .btn-grey:hover {
   text-decoration: none;
-  color: white;
+  color: $red;
   background-color: rgb(181, 180, 179);
 }
 
@@ -106,4 +106,9 @@
   &:active {
     box-shadow: inset 0 0 0 32px rgba(0,0,0,0.1);
   }
+}
+
+.btn-facebook {
+  font-family: "Quicksand";
+  font-weight: 500;
 }

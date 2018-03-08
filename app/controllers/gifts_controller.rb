@@ -2,9 +2,14 @@ class GiftsController < ApplicationController
   before_action :set_gift, only: [:show, :edit, :update, :destroy]
 
   def index
-    @gifts = policy_scope(Gift)
     @event = Event.find(params[:event_id])
-    @invite = Invite.new
+    @gifts = @event.gifts
+    @gifts = policy_scope(@gifts)
+    if @event.guests.where(user: current_user).present? || @event.creator == current_user
+      @invite = Invite.new
+    else
+      redirect_to root_path
+    end
   end
 
   def show

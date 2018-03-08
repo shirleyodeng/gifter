@@ -1,3 +1,15 @@
+.light-yellow {
+  background-color: $light-yellow;
+}
+
+.light-red {
+  background-color: $light-red;
+}
+
+.light-gray {
+  background-color: $light-gray;
+}
+
 .event-dashboard {
   text-align: center;
   color: $red;
@@ -19,6 +31,10 @@
   box-shadow: 1px 1px 1px;
   color: $red;
   }
+}
+
+.gift-card:hover {
+  box-shadow: 3px 3px 3px $red;
 }
 
 .gift-info {

@@ -6,6 +6,9 @@
   color: $red;
 }
 
+.gray {
+  color: $dark-gray;
+}
 .avatar-lg {
   border-radius: 50%;
   width: 70px;
@@ -44,6 +47,12 @@ h3 {
   font-family: "Poppins";
 }
 
+h4 {
+  font-weight: 550;
+  font-family: "Poppins";
+  font-size: 18px;
+}
+
 .body-red {
   background-color: $red;
 }
@@ -54,4 +63,9 @@ h3 {
 
 .body-white {
   background-color: $white;
+}
+
+.body-light-yellow {
+  padding: 30px;
+  background-color: $light-yellow;
 }

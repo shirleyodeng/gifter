@@ -1,0 +1,94 @@
+<div class="container">
+  <div class="dashboard-container">
+    <h1 class="user-name red text-center"><%= current_user.first_name.capitalize %>'s Dashboard</h1>
+
+    <div class="events-container">
+      <h2>Invited Events</h2>
+      <% if current_user.is_guest? %>
+        <div class="event-container">
+          <% @guests.each do |guest| %>
+            <div class="event-card">
+              <div class="event-flex">
+                <div><%= cl_image_tag guest.event.child_photo, height: 50, width: 50, class: "user-icon-image" %>
+                </div>
+                <div class="event-title">
+                  <%= guest.event.child_name.capitalize %>'s <%= guest.event.name.capitalize %>
+                </div>
+                <div class="event-icons">
+                  <div class="event-box">
+                    <%= link_to (cl_image_tag "box", height: 50, width: 50, crop: :thumb, gravity: :face), event_gifts_path(guest.event), class: "user-dashboard-icon" %>
+                    <p class="icon-hover-text yellow-text"><%= guest.event.child_name.capitalize %>'s gifts</p>
+                  </div>
+                  <div class="event-box">
+                    <%= cl_image_tag "sad_face", height: 50, width: 50, crop: :thumb, gravity: :face, class: "user-dashboard-icon" %>
+                      <p class="icon-hover-text gray-text">Make a contribution</p>
+                  </div>
+                  <div class="event-box">
+                    <%= cl_image_tag "mail", height: 50, width: 50, crop: :thumb, gravity: :face, class: "user-dashboard-icon" %>
+                    <p class="icon-hover-text red-text">View messages</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% else %>
+        <p> You currently have no upcoming events </p>
+      <% end %>
+    </div>
+
+
+    <div class="red-banner">
+    </div>
+
+    <div class="events-container">
+      <h2>Host Events</h2>
+      <%= link_to "Add event", new_event_path, class: "btn-red user-index-button" %>
+      <% if current_user.is_parent? %>
+        <% @events.each do |event| %>
+            <div class="event-card">
+              <div class="event-flex">
+                <%= cl_image_tag event.child_photo, height: 50, width: 50, class: "avatar-lg" %>
+                  <div class="event-title">
+                    <h4><%= event.child_name.capitalize %>'s <%= event.name.capitalize %></h4>
+                    <p>Date: <%= event.date %></p>
+                  </div>
+                  <div class="event-box">
+                    <%= link_to (cl_image_tag "box", height: 50, width: 50, crop: :thumb, gravity: :face), event_gifts_path(event), class: "user-dashboard-icon" %>
+                    <p class="icon-hover-text yellow-text"><%= event.child_name.capitalize %>'s gifts</p>
+                  </div>
+                  <div class="event-box">
+                    <a href data-toggle="modal" data-target="#myModal-<%= event.id %>" id="edit">
+                      <%= cl_image_tag "envelope", height: 50, width: 50, crop: :thumb, gravity: :face, class: "user-dashboard-icon" %>
+                      <p class="icon-hover-text gray-text">Send invites</p>
+                    </a>
+                    <div class="modal fade" id="myModal-<%= event.id %>" role="dialog">
+                      <div class="modal-dialog modal-md">
+                        <div class="modal-content">
+                          <div class="modal-header text-center">
+                            <button type="button" class="close" data-dismiss="modal">x</button>
+                            <h3 class="form-title spacing blue-font text-center">Invite your friends and family</h3>
+                          </div>
+                          <div class="modal-body text-center">
+                            <%= render 'shared/eventpageform', event_id: event.id %>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="event-box">
+                    <%= cl_image_tag "mail", height: 50, width: 50, crop: :thumb, gravity: :face, class: "user-dashboard-icon" %>
+                    <p class="icon-hover-text red-text">View messages</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <div class="delete-button red"><%= link_to "x", event_path(event), method: :delete %></div>
+        <% end %>
+      <% else %>
+        <h2> You are currently not hosting any events.</h2> <% link_to "Add an event!", new_event_path(@events) %>
+      <% end %>
+    </div>
+
+  </div>
+</div>

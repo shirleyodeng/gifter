@@ -263,10 +263,9 @@
             </tr>
             <tr>
               <td class="free-text">
-                <%= cl_image_tag @invite.event.child_photo, crop: :fill, class: "avatar-lg"%>
                 <strong><p>Hi there!</p></strong>
                 <p><strong class="red"><%=@invite.sender.first_name%> <%=@invite.sender.last_name%> </strong>has invited you to join Gifter to contribute to <strong class="red"><%=@invite.event.child_name %>'s <%=@invite.event.name %></strong> on <%= @invite.event.date %>.</p>
-                <strong><p clas="text-center"><%= link_to "Visit Gifter", @invite_url %></strong> to see this gift as well as others that <%=@invite.event.child_name %> has chosen and make his day.</p>
+                <strong><p clas="text-center"><%= link_to "Visit Gifter", @invite_url %></strong> to see this gift as well as others that <%=@invite.event.child_name %> has chosen.</p>
                 <tr>
                   <td class="w320">
                     <table cellpadding="0" cellspacing="0" width="0%" align="center">

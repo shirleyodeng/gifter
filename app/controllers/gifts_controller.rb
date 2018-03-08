@@ -20,7 +20,6 @@ class GiftsController < ApplicationController
     @gift = Gift.new(gift_params)
     @event = Event.find(params[:event_id])
     @gift.event = @event
-    raise
     authorize @gift
     @gift.save
     redirect_to event_gifts_path(@event)

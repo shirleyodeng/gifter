@@ -29,6 +29,10 @@
   margin-bottom: 40px;
 }
 
+.gift-card:hover {
+  box-shadow: 3px 3px 3px $red;
+}
+
 .gift-info {
   h3 {
     margin-top: 10px;

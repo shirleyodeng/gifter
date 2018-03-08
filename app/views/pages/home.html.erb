@@ -1,25 +1,25 @@
-<div class="home-container">
-  <section class="red-background">
-    <div class="welcome-container text-center padding">
-      <div class="row">
-        <div class="mx-auto mb-5">
-          <h2 class="banner-font">Let's gift something meaningful</h2>
-          <p class="padding-bottom increase-font">Help your child get a head start with gifter</p>
-          <%= link_to "Get started", events_path, class: "btn-grey" %>
+<div class="min-container">
+  <div class="home-container">
+    <section class="red-background">
+      <div class="welcome-container text-center padding">
+        <div class="row">
+          <div class="mx-auto mb-5">
+            <h2 class="banner-font">Let's gift something meaningful</h2>
+            <p class="padding-bottom increase-font">Help your child get a head start with gifter</p>
+            <%= link_to "Get started", events_path, class: "btn-grey" %>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
-  <section class="content-section">
-    <div class="container text-center">
-      <div class="row">
-        <div class="mx-auto mb-5">
-          <h3 class="red">What We Do & Why We Do It</h3>
-          <p>Gifter makes it easy to start investing in your child’s future by encouraing friends and family to fundraise towards purposeful gifts and experiences.</p>
-        </div>
-      </div>
-    </div>
+    </section>
     <section class="content-section">
+      <div class="container text-center">
+        <div class="row">
+          <div class="mx-auto mb-5">
+            <h3 class="red">What we do & why we do it</h3>
+            <p>Gifter makes it easy to start investing in your child’s future by encouraing friends and family to fundraise towards purposeful gifts and experiences.</p>
+          </div>
+        </div>
+      </div>
       <div class="container">
         <div class="card col-xs-12 col-sm-4">
           <strong><p>Children</p></strong>
@@ -36,87 +36,86 @@
         <div class="text-center">
           <a class="btn-red" href="#services">Find out more</a>
         </div>
-      </div>
+      </section>
+      <section>
+        <div class="explainer" id="how-it-works">
+          <h3 class="text-center red">How it works</h3>
+          <div class="container text-center">
+            <div class="mx-auto mb-5"></div>
+            <a class="btn-yellow padding-top-btn" href="">Get started</a>
+          </div>
+        </div>
+      </section>
     </section>
-    <section>
-      <div class="explainer" id="how-it-works">
-        <h3 class="text-center red">How it works</h3>
-        <div class="container text-center">
-          <div class="mx-auto mb-5"></div>
-          <a class="btn-yellow padding-top-btn" href="">Get started</a>
-        </div>
-      </div>
-    </section>
-  </section>
 
-  <div class="people" id="people">
-    <h1 class="red">Meet the team</h1>
-    <div class="people-box">
-      <div class="people-card">
-        <div class="team-avatar">
-          <%= cl_image_tag("kat", width: 100, height: 100, crop: :thumb, gravity: :face) %>
-          <div class="overlay">
-            <%= cl_image_tag("katsmall", width: 100, height: 100, crop: :thumb, gravity: :face) %>
+    <div class="people" id="people">
+      <h1 class="red">Meet the team</h1>
+      <div class="people-box">
+        <div class="people-card">
+          <div class="team-avatar">
+            <%= cl_image_tag("kat", width: 100, height: 100, crop: :thumb, gravity: :face) %>
+            <div class="overlay">
+              <%= cl_image_tag("katsmall", width: 100, height: 100, crop: :thumb, gravity: :face) %>
+            </div>
+          </div>
+          <div class="people-info">
+            <h3>Kat</h3>
+            <p>Founder</p>
+            <p class="people-description">Colouring in expert</p>
           </div>
         </div>
-        <div class="people-info">
-          <h3>Kat</h3>
-          <p>Founder</p>
-          <p class="people-description">Colouring in expert</p>
+
+        <div class="people-card">
+          <div class="team-avatar">
+            <%= cl_image_tag("shirley", width: 100, height: 100, crop: :thumb, gravity: :face) %>
+            <div class="overlay">
+              <%= cl_image_tag("chocolate", width: 100, height: 100, crop: :thumb, gravity: :face) %>
+            </div>
+          </div>
+          <div class="people-info">
+            <h3>Shirley</h3>
+            <p>Senior Developer</p>
+            <p class="people-description">Chocaholic</p>
+          </div>
+        </div>
+
+        <div class="people-card">
+          <div class="team-avatar">
+            <%= cl_image_tag("amina", width: 100, height: 100, crop: :thumb, gravity: :face) %>
+            <div class="overlay">
+              <%= cl_image_tag("kebab", width: 100, height: 100, crop: :thumb, gravity: :face) %>
+            </div>
+          </div>
+          <div class="people-info">
+            <h3>Amina</h3>
+            <p>Developer</p>
+            <p class="people-description">Kebab Connoisseur</p>
+          </div>
+        </div>
+
+        <div class="people-card">
+          <div class="team-avatar">
+            <%= cl_image_tag("alisa", width: 100, height: 100, crop: :thumb, gravity: :face) %>
+            <div class="overlay">
+              <%= cl_image_tag("potato", width: 100, height: 100, crop: :thumb, gravity: :face) %>
+            </div>
+          </div>
+          <div class="people-info">
+            <h3>Alisa</h3>
+            <p>Head of Design</p>
+            <p class="people-description">Potato Lover</p>
+          </div>
         </div>
       </div>
 
-      <div class="people-card">
-        <div class="team-avatar">
-          <%= cl_image_tag("shirley", width: 100, height: 100, crop: :thumb, gravity: :face) %>
-          <div class="overlay">
-            <%= cl_image_tag("chocolate", width: 100, height: 100, crop: :thumb, gravity: :face) %>
-          </div>
-        </div>
-        <div class="people-info">
-          <h3>Shirley</h3>
-          <p>Senior Developer</p>
-          <p class="people-description">Chocaholic</p>
-        </div>
-      </div>
-
-      <div class="people-card">
-        <div class="team-avatar">
-          <%= cl_image_tag("amina", width: 100, height: 100, crop: :thumb, gravity: :face) %>
-          <div class="overlay">
-            <%= cl_image_tag("kebab", width: 100, height: 100, crop: :thumb, gravity: :face) %>
-          </div>
-        </div>
-        <div class="people-info">
-          <h3>Amina</h3>
-          <p>Developer</p>
-          <p class="people-description">Kebab Connoisseur</p>
-        </div>
-      </div>
-
-      <div class="people-card">
-        <div class="team-avatar">
-          <%= cl_image_tag("alisa", width: 100, height: 100, crop: :thumb, gravity: :face) %>
-          <div class="overlay">
-            <%= cl_image_tag("potato", width: 100, height: 100, crop: :thumb, gravity: :face) %>
-          </div>
-        </div>
-        <div class="people-info">
-          <h3>Alisa</h3>
-          <p>Head of Design</p>
-          <p class="people-description">Potato Lover</p>
-        </div>
-      </div>
+    <div class="text-center">
+      <%= mail_to "info@gifter.tech" do %>
+      <strong class="btn-red">Send us an email</strong>
+      <% end %>
+      <a href="mailto:info@gifter.tech"></a>
     </div>
-
-  <div class="text-center">
-    <%= mail_to "info@gifter.tech" do %>
-    <strong class="btn-red">Send us an email</strong>
-    <% end %>
-    <a href="mailto:info@gifter.tech"></a>
   </div>
- </div>
-
+</div>
 
 
 

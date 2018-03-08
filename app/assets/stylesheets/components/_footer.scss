@@ -1,12 +1,22 @@
-.footer {
-  background: transprent;
-  height: 70px;
+.footer-yellow {
+  background: $red;
   padding: 0px 50px;
-  color: $dark-gray;
+  color: $yellow;
   hr {
     margin-top: 0;
     margin-bottom: 10px;
     border-top: 2px solid $yellow;
+  }
+}
+
+.footer-red {
+  background: $yellow;
+  padding: 0px 50px;
+  color: $red;
+  hr {
+    margin-top: 0;
+    margin-bottom: 10px;
+    border-top: 2px solid $red;
   }
 }
 
@@ -15,15 +25,29 @@
 }
 
 .footer-tag {
-  color: $yellow;
   font-size: 14px;
 }
 
-.footer-links {
+.footer-links-yellow {
   padding-top: 15px;
   padding-bottom: 20px;
   a {
     color: $yellow;
+    opacity: 1;
+    text-decoration: none;
+    font-size: 24px;
+    padding: 0px 10px;
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+}
+
+.footer-links-red {
+  padding-top: 15px;
+  padding-bottom: 20px;
+  a {
+    color: $red;
     opacity: 1;
     text-decoration: none;
     font-size: 24px;

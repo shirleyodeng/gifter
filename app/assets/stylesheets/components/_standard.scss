@@ -69,3 +69,7 @@ h4 {
   padding: 30px;
   background-color: $light-yellow;
 }
+
+.min-container {
+  min-height: calc(100vh - 70px);
+}

@@ -1,40 +1,42 @@
-<div class="background-yellow">
-  <div class="event-dashboard">
-    <%= cl_image_tag @event.child_photo, crop: :fill, class: "avatar-lg"%>
-    <h1>Welcome to <%= @event.child_name.capitalize %>'s <%=@event.name.capitalize %></h1>
-    <% if policy(@event).update? %>
-      <ul class="list-unstyled">
-        <li><%= link_to "Delete", event_path(@event), method: :delete %></li>
-        <li><%= link_to "Add a gift", new_event_gift_path %></li>
-        <li><a href data-toggle="modal" data-target="#myModal" id="edit">Invite</a></li>
-      </ul>
-    <% end %>
-  </div>
-
-  <div class="container fill-high">
-    <div class="row">
-      <% if @gifts.length == 0 %>
-      <% else %>
-        <% @gifts.each do |gift| %>
-          <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-            <%= render 'giftcard', gift: gift %>
-          </div>
-        <% end %>
+<div class="min-container">
+  <div class="background-yellow">
+    <div class="event-dashboard">
+      <%= cl_image_tag @event.child_photo, crop: :fill, class: "avatar-lg"%>
+      <h1>Welcome to <%= @event.child_name.capitalize %>'s <%=@event.name.capitalize %></h1>
+      <% if policy(@event).update? %>
+        <ul class="list-unstyled">
+          <li><%= link_to "Delete", event_path(@event), method: :delete %></li>
+          <li><%= link_to "Add a gift", new_event_gift_path %></li>
+          <li><a href data-toggle="modal" data-target="#myModal" id="edit">Invite</a></li>
+        </ul>
       <% end %>
     </div>
-  </div>
-</div>
 
-<div class="modal fade" id="myModal" role="dialog">
-  <div class="modal-dialog modal-md">
-    <div class="modal-content">
-      <div class="modal-header text-center">
-        <button type="button" class="close" data-dismiss="modal">x</button>
-        <h3 class="form-title spacing blue-font text-center">Invite your friends and family</h3>
+    <div class="container fill-high">
+      <div class="row">
+        <% if @gifts.length == 0 %>
+        <% else %>
+          <% @gifts.each do |gift| %>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+              <%= render 'giftcard', gift: gift %>
+            </div>
+          <% end %>
+        <% end %>
       </div>
-      <div class="modal-body text-center">
-        <div class="">
-          <%= render 'shared/giftpageform' %>
+    </div>
+  </div>
+
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-md">
+      <div class="modal-content">
+        <div class="modal-header text-center">
+          <button type="button" class="close" data-dismiss="modal">x</button>
+          <h3 class="form-title spacing blue-font text-center">Invite your friends and family</h3>
+        </div>
+        <div class="modal-body text-center">
+          <div class="">
+            <%= render 'shared/giftpageform' %>
+          </div>
         </div>
       </div>
     </div>

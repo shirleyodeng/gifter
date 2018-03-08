@@ -1,20 +1,8 @@
 <div class="navbar-wagon">
   <!-- Logo -->
-  <% if params[:controller] == 'payments' && params[:action] == "new" %>
-    <%= link_to root_path, class: "navbar-wagon-brand" do %>
-      <%= cl_image_tag "logo-red", height: 50 %>
-    <% end %>
-  <% elsif params[:controller] == "pages" && params[:action] == "home" %>
+  <% if params[:controller] == "pages" && params[:action] == "home" %>
     <%= link_to root_path, class: "navbar-wagon-brand" do %>
       <%= cl_image_tag "logo-yellow", height: 50 %>
-    <% end %>
-  <% elsif params[:controller] == "gifts" && params[:action] == "index" %>
-      <%= link_to root_path, class: "navbar-wagon-brand" do %>
-    <%= cl_image_tag "logo-red", height: 50 %>
-      <% end %>
-  <% elsif params[:controller] == "events" && params[:action] == "index" %>
-    <%= link_to root_path, class: "navbar-wagon-brand" do %>
-      <%= cl_image_tag "logo-red", height: 50 %>
     <% end %>
   <% else %>
     <%= link_to root_path, class: "navbar-wagon-brand" do %>
@@ -91,4 +79,3 @@
     </div>
   </div>
 </div>
-

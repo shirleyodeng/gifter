@@ -1,38 +1,35 @@
 <div class="min-container">
-  <div class="white">
-    <div class="col-xs-6 col-xs-offset-3 ">
-      <h2 class="red">Let's create a new event</h2>
-      <%= simple_form_for @event, :html => {:"runat" => 'server'} do |f| %>
-        Upload your child's photo
-        <div class="form-inputs">
-          <img id="blah" class= "avatar-child src="#" alt="your image" style="visibility: hidden;" />
-          <%= f.input :child_photo_cache, as: :hidden %>
-          <%= f.input :child_photo, label: false %>
-          Child's name:
-          <%= f.input :child_name, required: true, label: false %>
-          Occasion:
-          <%= f.input :name, required: true, label: false %>
-          Event date:
-          <%= f.input :date, required: true, label: false %>
-          <strong><p>Add bank account details where you would like to receive gift contributions</p></strong>
-          Account name:
-          <%= f.input :account_name, label: false %>
-          Sort code:
-          <%= f.input :sort_code, label: false %>
-          Account number:
-          <%= f.input :account_number, label: false %>
-        </div>
-
-        <div class="form-actions">
-          <label class="btn-red">
-            Submit
-            <span style="display: none">
-              <%= f.button :submit %>
-            </span>
-          </label>
-        </div>
-      <% end %>
-    </div>
+  <div class="col-xs-6 col-xs-offset-3 ">
+    <h2 class="red">Let's create a new event</h2>
+    <%= simple_form_for @event, :html => {:"runat" => 'server'} do |f| %>
+      Upload your child's photo
+      <div class="form-inputs">
+        <img id="blah" class= "avatar-child src="#" alt="your image" style="visibility: hidden;" />
+        <%= f.input :child_photo_cache, as: :hidden %>
+        <%= f.input :child_photo, label: false %>
+        Child's name:
+        <%= f.input :child_name, required: true, label: false %>
+        Occasion:
+        <%= f.input :name, required: true, label: false %>
+        Event date:
+        <%= f.input :date, required: true, label: false %>
+        <strong><p>Add bank account details where you would like to receive gift contributions</p></strong>
+        Account name:
+        <%= f.input :account_name, label: false %>
+        Sort code:
+        <%= f.input :sort_code, label: false %>
+        Account number:
+        <%= f.input :account_number, label: false %>
+      </div>
+      <div class="form-actions">
+        <label class="btn-red">
+          Submit
+          <span style="display: none">
+            <%= f.button :submit %>
+          </span>
+        </label>
+      </div>
+    <% end %>
   </div>
 </div>
 

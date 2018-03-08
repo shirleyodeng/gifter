@@ -1,65 +1,23 @@
-<!-- <div class="footer">
-  <div class="footer-links">
-    <a href="#"><i class="fa fa-github"></i></a>
-    <a href="#"><i class="fa fa-instagram"></i></a>
-    <a href="#"><i class="fa fa-facebook"></i></a>
-    <a href="#"><i class="fa fa-twitter"></i></a>
-    <a href="#"><i class="fa fa-linkedin"></i></a>
-  </div>
-  <div class="footer-copyright">
-    This footer is made with <i class="fa fa-heart"></i> at Gifter
-  </div>
-</div> -->
-
-
-<footer class="footer-distributed">
-
-  <div class="footer-left">
-
-    <h3>Gifter</h3>
-
+<div class="footer">
+  <div class="footer-content text-center">
+    <%= cl_image_tag "logo-yellow", width: 100 %>
+    <p class="footer-tag">Let's gift something meaningful</p>
+    <hr style="width:30%">
+    <p class="yellow">Let's keep in touch</p>
+    <form accept-charset="UTF-8" action="/" method="get">
+      <input name="utf8" type="hidden" value="&#x2713;" />
+      <input id="q" name="email" type="text" />
+      <input name="commit" class="btn-subscribe" type="submit" value="Subscribe" />
+    </form>
     <div class="footer-links">
-     <%= link_to "Home", root_path %>
-     ·
-     <%= link_to "About", root_path + "#home-box" %>
-     ·
-     <%= link_to "Team", root_path + "#people" %>
-    </div>
-
-    <p class="footer-company-name">Gifter &copy; 2018</p>
-  </div>
-
-  <div class="footer-center">
-
-    <div>
-      <i class="fa fa-map-marker"></i>
-      <p><span>Unit 13, 138 Kingsland Rd, London E2 8DY</span> London, UK</p>
-    </div>
-
-    <div>
-      <i class="fa fa-phone"></i>
-      <p>+44 (0) 2078 123456</p>
-    </div>
-
-    <div>
-      <i class="fa fa-envelope"></i>
-      <p>info@gifter.com</p>
-    </div>
-
-  </div>
-
-  <div class="footer-right">
-
-    <div class="footer-icons">
-
-      <a href="#"><i class="fa fa-github"></i></a>
       <a href="#"><i class="fa fa-instagram"></i></a>
       <a href="#"><i class="fa fa-facebook"></i></a>
       <a href="#"><i class="fa fa-twitter"></i></a>
       <a href="#"><i class="fa fa-linkedin"></i></a>
-
     </div>
-
+    <div class="footer-tag">
+      <!-- <p>This footer is made with <i class="fa fa-heart"></i> at Gifter</p> -->
+      <p>Copyright © 2018 Gifter</p>
+    </div>
   </div>
-
-</footer>
+</div>

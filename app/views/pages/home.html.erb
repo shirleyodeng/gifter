@@ -1,4 +1,3 @@
-
 <div class="home-container">
   <section class="red-background">
     <div class="welcome-container text-center padding">
@@ -40,21 +39,19 @@
       </div>
     </section>
     <section>
-      <div class="explainer">
+      <div class="explainer" id="how-it-works">
         <h3 class="text-center red">How it works</h3>
         <div class="container text-center">
           <div class="mx-auto mb-5"></div>
           <a class="btn-yellow padding-top-btn" href="">Get started</a>
         </div>
       </div>
-
-    </div>
+    </section>
   </section>
 
   <div class="people" id="people">
     <h1 class="red">Meet the team</h1>
     <div class="people-box">
-
       <div class="people-card">
         <div class="team-avatar">
           <%= cl_image_tag("kat", width: 100, height: 100, crop: :thumb, gravity: :face) %>
@@ -110,15 +107,14 @@
           <p class="people-description">Potato Lover</p>
         </div>
       </div>
-
     </div>
-    <div class="text-center">
-      <%= mail_to "info@gifter.tech" do %>
-      <strong class="btn-red">Send us an email</strong>
-      <% end %>
-       <a href="mailto:info@gifter.tech">
-     </a>
-   </div>
+
+  <div class="text-center">
+    <%= mail_to "info@gifter.tech" do %>
+    <strong class="btn-red">Send us an email</strong>
+    <% end %>
+    <a href="mailto:info@gifter.tech"></a>
+  </div>
  </div>
 
 

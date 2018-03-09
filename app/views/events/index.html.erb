@@ -7,11 +7,11 @@
         <h2>You are invited to</h2>
         <% if current_user.is_guest? %>
             <% @guests.each do |guest| %>
-              <div class="event-card light-yellow">
+              <div class="event-card light-gray hover-yellow">
                 <div class="event-flex">
                   <%= cl_image_tag guest.event.child_photo, height: 50, width: 50, class: "avatar-lg" %>
                   <div class="event-title">
-                    <h4><%= guest.event.child_name.capitalize %>'s <%= guest.event.name.capitalize %></h4>
+                    <h4><%= guest.event.child_name.capitalize %>'s <%= guest.event.name %></h4>
                     <p>Date: <%= guest.event.date %></p>
                     <p>Invited by: <%= guest.event.creator.first_name %> <%= guest.event.creator.last_name %></p>
                   </div>
@@ -20,8 +20,13 @@
                     <p class="icon-hover-text yellow"><%= guest.event.child_name.capitalize %>'s gifts</p>
                   </div>
                   <div class="event-box">
-                    <%= cl_image_tag "sad_face", height: 50, width: 50, crop: :thumb, gravity: :face, class: "user-dashboard-icon" %>
-                        <p class="icon-hover-text gray">Contribute</p>
+                    <% if current_user.participations.where(gift_id: guest.event.gifts).empty? %>
+                      <%= link_to (cl_image_tag "sad_face", height: 50, width: 50, crop: :thumb, gravity: :face, class: "user-dashboard-icon"), event_gifts_path(guest.event)%>
+                      <p class="icon-hover-text gray">Contribute</p>
+                    <% else %>
+                      <%= link_to (cl_image_tag "happy", height: 50, width: 50, crop: :thumb, gravity: :face, class: "user-dashboard-icon"), event_gifts_path(guest.event) %>
+                      <p class="icon-hover-text gray">Thank you</p>
+                    <% end %>
                   </div>
                   <div class="event-box">
                     <%= cl_image_tag "mail", height: 50, width: 50, crop: :thumb, gravity: :face, class: "user-dashboard-icon" %>
@@ -44,7 +49,7 @@
         <%= link_to "Add event", new_event_path, class: "btn-grey user-index-button" %>
         <% if current_user.is_parent? %>
           <% @events.each do |event| %>
-              <div class="event-card light-gray">
+              <div class="event-card light-gray hover-red">
 
                 <div class="event-flex">
 

@@ -14,8 +14,14 @@
   text-align: center;
   color: $red;
   padding: 30px;
+  position: relative;
   h1 {
     margin-top: 10px;
+    margin-bottom: 0px;
+  }
+  p {
+    color: $dark-gray;
+    margin-bottom: 0px;
   }
 }
 
@@ -146,4 +152,34 @@
 
 .avatar-xs {
   border-radius: 50%;
+}
+
+
+.gift-links {
+  font-weight: 600;
+  a {
+    color: $dark-gray;
+  }
+}
+
+.gift-links:hover {
+  a {
+    color: $red;
+  }
+}
+
+.fa.fa-trash {
+  color: $red;
+  position: absolute;
+  right: 250px;
+  top: 130px;
+}
+
+.background-yellow {
+  text-align: center;
+}
+
+.event-info-header {
+  margin-bottom: 10px;
+  font-size: 16px;
 }

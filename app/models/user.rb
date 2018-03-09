@@ -6,6 +6,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: [:facebook]
   has_many :guests
+  has_many :participations
   has_many :events, through: :guests
   has_many :gifts, through: :events
   has_many :invitations, class_name: "Invite", foreign_key: 'recipient_id'

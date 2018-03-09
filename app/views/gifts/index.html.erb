@@ -4,7 +4,7 @@
       <div class="event-info-header">
         <%= cl_image_tag @event.child_photo, crop: :fill, class: "avatar-lg"%>
         <h1>Welcome to <%= @event.child_name.capitalize %>'s <%=@event.name %></h1>
-        <p><%= @event.date.to_time.strftime("%A %e %B %Y")%> | Invited by: <%= @event.creator.first_name %> <%= @event.creator.last_name %></p>
+        <p><%= @event.date.to_time.strftime("%A %e %B %Y")%> | Host: <%= @event.creator.first_name %> <%= @event.creator.last_name %></p>
       </div>
       <% if policy(@event).update? %>
         <ul class="list-unstyled">

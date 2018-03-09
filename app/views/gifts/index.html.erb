@@ -30,7 +30,7 @@
       </div>
     </div>
     <% if policy(@event).destroy? %>
-      <div class="gift-links"><%= link_to "- Delete an event", event_path(@event), method: :delete %></div>
+      <div class="gift-links text-center"><%= link_to "- Delete an event", event_path(@event), method: :delete %></div>
     <% end %>
   </div>
 

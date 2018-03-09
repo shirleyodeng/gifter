@@ -84,7 +84,7 @@
 
 .modal-content {
   padding: 30px;
-  text-align: left;
+  text-align: center;
   color: $dark-gray;
   box-shadow: none;
   border: none;
@@ -92,6 +92,7 @@
 
 .modal-header {
   padding: 0px;
+  text-align: left;
   border-bottom: none;
 }
 
@@ -121,6 +122,7 @@
 .modal-info {
   width: 40%;
   margin-right: 20px;
+  text-align: left;
   img {
     margin-top: 0px;
   }
@@ -177,6 +179,7 @@
   font-size: 14px;
   color: $dark-gray;
   padding: 10px;
+  text-align: center;
 }
 
 .avatar-xs {

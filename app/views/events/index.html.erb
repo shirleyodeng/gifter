@@ -12,7 +12,7 @@
                   <%= cl_image_tag guest.event.child_photo, height: 50, width: 50, class: "avatar-lg" %>
                   <div class="event-title">
                     <h4><%= guest.event.child_name.capitalize %>'s <%= guest.event.name %></h4>
-                    <p>Date: <%= guest.event.date.to_time.strftime("%A %e %B %Y") %></p>
+                    <p><%= guest.event.date.to_time.strftime("%A %e %B %Y") %></p>
                     <p>Invited by: <%= guest.event.creator.first_name %> <%= guest.event.creator.last_name %></p>
                   </div>
                   <div class="event-box">
@@ -54,8 +54,7 @@
                 <%= cl_image_tag event.child_photo, height: 50, width: 50, class: "avatar-lg" %>
                 <div class="event-title">
                   <h4><%= event.child_name.capitalize %>'s <%= event.name.capitalize %></h4>
-                  <p>Date: <%= event.date.to_time.strftime("%A %e %B %Y") %></p>
-                  <p>Invited by: <%= event.creator.first_name.capitalize %> <%= event.creator.last_name.capitalize %></p>
+                  <p><%= event.date.to_time.strftime("%A %e %B %Y") %></p>
                 </div>
 
                 <div class="event-box">

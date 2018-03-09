@@ -2,25 +2,23 @@
   <canvas id="canvas"></canvas>
   <div class="other-info">
     <div class="text-center-test">
-    <h1 class="red confetti-red">Thank you!</h1>
-    <ul class="list-unstyled">
-      <p>You'r contribution to <%=  @participation.gift.event.child_name%>'s' gift was successfully made.</p>
-      <li>Status: <%= @participation.state %></li>
-      <li>Item: <%= @participation.gift.name %></li>
-      <li>Amount: <%= humanized_money_with_symbol(@participation.amount) %></li>
-    <ul>
-
-    <div class="stripe-payment">
-      <div id="participation-form-1">
-        <%= simple_form_for [@participation], html: { id: :message_form } do |f| %>
-          <div class="gift-form-inputs">
-            <%= f.input :gift_message, placeholder: "(Optional) Write some words to accompany your contribution", input_html: {id: "stuff"} %>
-          </div>
-          <!-- <div class="gift-form-action"> -->
+      <h1 class="red confetti-red">Thank you!</h1>
+      <ul class="list-unstyled">
+        <p>You'r contribution to <%= @participation.gift.event.child_name%>'s' gift was successfully made.</p>
+        <li>Status: <%= @participation.state %></li>
+        <li>Item: <%= @participation.gift.name %></li>
+        <li>Amount: <%= humanized_money_with_symbol(@participation.amount) %></li>
+      <ul>
+      <div class="stripe-payment">
+        <div id="participation-form-1">
+          <%= simple_form_for [@participation], html: { id: :message_form } do |f| %>
+            <div class="gift-form-inputs">
+              <%= f.input :gift_message, label: "Gift message (optional)", placeholder: "Send #{@participation.gift.event.child_name} a message with your gift", input_html: {id: "stuff"} %>
+            </div>
             <div class="gift-form-actions">
-            <%= f.button :submit, "Send", class: "form-btn" %>
-          </div>
-        <% end %>
+              <%= f.button :submit, "Send", class: "form-btn" %>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>

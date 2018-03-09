@@ -2,10 +2,8 @@
   <div class="row">
     <div class="col-xs-4 col-xs-offset-4">
       <div class="form-container">
-        <h2 class="red">Edit your profile</h2>
-
+        <h2 class="red padding-bottom">Edit your profile</h2>
         <%= simple_form_for(@user) do |f| %>
-
           <div class="form-inputs">
             <%= cl_image_tag @user.photo, class: "avatar-lg" %>
             <%= f.input :photo, label: false %>
@@ -13,7 +11,6 @@
             <%= f.input :first_name, required: true, label: false %>
             <%= f.input :last_name, required: true, label: false %>
           </div>
-
           <div class="form-actions">
             <%= f.button :submit, "Update your profile", class: "form-btn" %>
           </div>

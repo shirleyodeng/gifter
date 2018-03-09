@@ -9,7 +9,8 @@
       <% if policy(@event).update? %>
         <ul class="list-unstyled">
           <li class="gift-links"><%= link_to "+ Add a new gift", new_event_gift_path %></li>
-          <li class="gift-links"><a href data-toggle="modal" data-target="#myModal" id="edit">Send invites</a></li>
+          <li class="gift-links">
+            <a href data-toggle="modal" data-target="#myModal" id="edit">Send invites</a></li>
         </ul>
       <% end %>
     </div>

@@ -156,6 +156,9 @@
   .gift-photo {
     margin-top: 15px;
   }
+    .padding-bottom {
+    padding-bottom: 5px;
+  }
 
 </style>
 
@@ -284,7 +287,7 @@
                                 <tr>
                                   <td class="mini-block">
                                     <strong><p><%= @invite.event.gifts.first.name %></p></strong>
-                                    <p><%= cl_image_tag @invite.event.gifts.first.photo, width: 190, height: 190, crop: :fill, class: "gift-photo" %></p>
+                                    <p><%= cl_image_tag @invite.event.gifts.first.photo, width: 190, height: 190, crop: :fill, class: "gift-photo padding-bottom" %></p>
                                   </td>
                                 </tr>
                               </table>
@@ -311,7 +314,7 @@
               </td>
             </tr>
             <td>
-              <div style="background-color:#EB5757;border-radius:5px;color:#fffffF;display:inline-block;font-family:'Quicksand', sans-serif;font-size:16px;font-weight:regular;line-height:45px;text-align:center;text-decoration:none;width:155px;-webkit-text-size-adjust:none;mso-hide:all;">
+              <div class="padding-bottom" style="background-color:#EB5757;border-radius:5px;color:#fffffF;display:inline-block;font-family:'Quicksand', sans-serif;font-size:16px;font-weight:regular;line-height:45px;text-align:center;text-decoration:none;width:155px;-webkit-text-size-adjust:none;mso-hide:all;">
                 <strong><%= link_to "Visit Gifter", event_gifts_url(@invite.event), class:"white-font"%></strong>
               </div>
             </td>

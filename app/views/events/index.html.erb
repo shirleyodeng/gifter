@@ -12,7 +12,7 @@
                   <%= cl_image_tag guest.event.child_photo, height: 50, width: 50, class: "avatar-lg" %>
                   <div class="event-title">
                     <h4><%= guest.event.child_name.capitalize %>'s <%= guest.event.name %></h4>
-                    <p>Date: <%= guest.event.date %></p>
+                    <p>Date: <%= guest.event.date.to_time.strftime("%A %e %B %Y") %></p>
                     <p>Invited by: <%= guest.event.creator.first_name %> <%= guest.event.creator.last_name %></p>
                   </div>
                   <div class="event-box">
@@ -34,19 +34,20 @@
                   </div>
                 </div>
               </div>
-            <% end %>
-      <% else %>
-        <p> You are currently not invited to any events. </p>
-      <% end %>
-    </div>
-
-
-      <!-- <div class="red-banner">
+            </div>
+          <% end %>
+        <% else %>
+        <p>You are currently not invited to any events.</p>
+        <% end %>
       </div>
-   -->
-      <div class=events-container>
+
+      <hr style="width:35%">
+
+      <div class="events-container">
         <h2>You are hosting</h2>
-        <%= link_to "Add event", new_event_path, class: "btn-grey user-index-button" %>
+        <%= link_to new_event_path do %>
+          <strong><p class="events-add">+ Add a new event</p></strong>
+        <% end %>
         <% if current_user.is_parent? %>
           <% @events.each do |event| %>
               <div class="event-card light-gray hover-red">
@@ -56,7 +57,7 @@
                   <%= cl_image_tag event.child_photo, height: 50, width: 50, class: "avatar-lg" %>
                     <div class="event-title">
                       <h4><%= event.child_name.capitalize %>'s <%= event.name.capitalize %></h4>
-                      <p>Date: <%= event.date %></p>
+                      <p>Date: <%= event.date.to_time.strftime("%A %e %B %Y") %></p>
                       <p>Invited by: <%= event.creator.first_name.capitalize %> <%= event.creator.last_name.capitalize %></p>
                     </div>
 
@@ -84,21 +85,20 @@
                         </div>
                       </div>
                     </div>
-
-                    <div class="event-box">
-                      <%= cl_image_tag "mail", height: 50, width: 50, crop: :thumb, gravity: :face, class: "user-dashboard-icon" %>
-                      <p class="icon-hover-text red">View messages</p>
-                    </div>
-
                   </div>
-                  <div class="delete-button red"><%= link_to "x", event_path(event), method: :delete %></div>
                 </div>
+                <div class="event-box">
+                  <%= cl_image_tag "mail", height: 50, width: 50, crop: :thumb, gravity: :face, class: "user-dashboard-icon" %>
+                  <p class="icon-hover-text red">View messages</p>
+                </div>
+              </div>
+              <div class="delete-button red"><%= link_to "x", event_path(event), method: :delete %></div>
+            </div>
           <% end %>
         <% else %>
-          <h2> You are currently not hosting any events.</h2> <% link_to "Add an event!", new_event_path(@events) %>
+          <p>You are currently not hosting any events.</p> <% link_to "Add an event!", new_event_path(@events) %>
         <% end %>
       </div>
-
     </div>
   </div>
 </div>

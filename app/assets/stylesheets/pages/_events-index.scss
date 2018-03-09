@@ -75,8 +75,16 @@
   }
 }
 
-.event-card:hover {
-  box-shadow: 2px 2px 2px $red;
+.hover-red {
+  &:hover {
+    box-shadow: 2px 2px 2px $red;
+  }
+}
+
+.hover-yellow {
+  &:hover {
+  box-shadow: 2px 2px 2px $yellow;
+  }
 }
 
 .event-icons {

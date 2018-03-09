@@ -1,22 +1,24 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-4 col-xs-offset-4">
-      <h2>Edit your profile</h2>
+      <div class="form-container">
+        <h2 class="red">Edit your profile</h2>
 
-      <%= simple_form_for(@user) do |f| %>
+        <%= simple_form_for(@user) do |f| %>
 
-        <div class="form-inputs">
-          <%= cl_image_tag @user.photo %>
-          <%= f.input :photo %>
-          <%= f.input :photo_cache, as: :hidden %>
-          <%= f.input :first_name, required: true %>
-          <%= f.input :last_name, required: true %>
-        </div>
+          <div class="form-inputs">
+            <%= cl_image_tag @user.photo, class: "avatar-lg" %>
+            <%= f.input :photo, label: false %>
+            <%= f.input :photo_cache, as: :hidden %>
+            <%= f.input :first_name, required: true, label: false %>
+            <%= f.input :last_name, required: true, label: false %>
+          </div>
 
-        <div class="form-actions">
-          <%= f.button :submit, "Update your profile" %>
-        </div>
-      <% end %>
+          <div class="form-actions">
+            <%= f.button :submit, "Update your profile", class: "form-btn" %>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

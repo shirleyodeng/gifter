@@ -11,4 +11,23 @@
 
 .form-container {
   padding: 40px 0;
+  a:hover {
+    text-decoration: none;
+  }
+}
+
+.form-btn {
+  border-radius: 4px;
+  background-color: $red;
+  border: none;
+  color: $white;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 7px 15px;
+  &:hover {
+    background-color: $red;
+    color: $white;
+    opacity: 0.8;
+  }
 }

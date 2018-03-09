@@ -2,6 +2,12 @@
   text-align: center;
   padding: 30;
   margin-top: 40px;
+  hr {
+    border-top: 1px solid;
+  }
+  a:hover {
+    text-decoration: none;
+  }
 }
 
 .user-dashboard-icon {
@@ -126,4 +132,15 @@
   width: 100px;
   opacity: 0;
   transition: opacity 0.4s;
+}
+
+.events-add {
+  display: inline-block;
+  color: $dark-gray;
+  &:hover {
+    color: $red;
+  }
+  p {
+    text-decoration: none !important;
+  }
 }

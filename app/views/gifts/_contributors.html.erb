@@ -5,24 +5,20 @@
       <% participations = Participation.where(gift_id: gift.id).where(state: 'paid').last(1)  %>
       <% user1 = User.find(participations[0].user.id) %>
       <p><%= user1.first_name.capitalize %> has contributed.</p>
-      <p>Contribute too!</p>
   <% elsif Participation.where(gift_id: gift.id).where(state: 'paid').count == 2 %>
       <% participations = Participation.where(gift_id: gift.id).where(state: 'paid').last(2)  %>
       <% user3 = User.find(participations[0].user.id) %>
       <% user4 = User.find(participations[1].user.id) %>
       <p><%= user3.first_name.capitalize %> and <%= user4.first_name.capitalize %> have contributed.</p>
-      <p>Contribute too!</p>
   <% elsif Participation.where(gift_id: gift.id).where(state: 'paid').count == 3 %>
       <% participations = Participation.where(gift_id: gift.id).where(state: 'paid').last(2)  %>
       <% user7 = User.find(participations[0].user.id) %>
       <% user8 = User.find(participations[1].user.id) %>
       <p><%= user7.first_name.capitalize %>, <%= user8.first_name.capitalize %> and <%= Participation.where(gift_id: gift.id).where(state: 'paid').count - 2 %> other have contributed.</p>
-      <p>Contribute too!</p>
   <% elsif Participation.where(gift_id: gift.id).where(state: 'paid').count >= 4 %>
       <% participations = Participation.where(gift_id: gift.id).where(state: 'paid').last(2)  %>
       <% user5 = User.find(participations[0].user.id) %>
       <% user6 = User.find(participations[1].user.id) %>
       <p><%= user5.first_name.capitalize %>, <%= user6.first_name.capitalize %> and <%= Participation.where(gift_id: gift.id).where(state: 'paid').count - 2 %> others have contributed.</p>
-      <p>Contribute too!</p>
   <% end %>
 </div>

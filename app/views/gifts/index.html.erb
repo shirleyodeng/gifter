@@ -29,7 +29,9 @@
         <% end %>
       </div>
     </div>
-    <div class="gift-links"><%= link_to "- Delete an event", event_path(@event), method: :delete %></div>
+    <% if policy(@event).destroy? %>
+      <div class="gift-links"><%= link_to "- Delete an event", event_path(@event), method: :delete %></div>
+    <% end %>
   </div>
 
   <div class="modal fade" id="myModal" role="dialog">

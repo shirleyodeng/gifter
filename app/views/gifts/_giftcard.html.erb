@@ -40,7 +40,7 @@
                     </div>
                     <%= render 'contributors', gift: gift %>
                   </div>
-                  <div class="modal-padding">£<%= gift.price %></div>
+                  <div class="modal-padding"><strong>£<%= gift.price %></strong></div>
                     <%= form_tag participations_path do %>
                       <%= hidden_field_tag 'gift_id', gift.id %>
                       <%= submit_tag 'Contribute', class: 'btn-red' %>

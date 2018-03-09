@@ -84,7 +84,7 @@
 
 .modal-content {
   padding: 30px;
-  text-align: left;
+  text-align: center;
   color: $dark-gray;
   box-shadow: none;
   border: none;
@@ -92,6 +92,7 @@
 
 .modal-header {
   padding: 0px;
+  text-align: left;
   border-bottom: none;
 }
 
@@ -120,6 +121,8 @@
 
 .modal-info {
   width: 40%;
+  margin-right: 20px;
+  text-align: left;
   img {
     margin-top: 0px;
   }
@@ -133,7 +136,6 @@
 
 .modal-pay {
   text-align: center;
-  width: 60%;
   img {
     width: 80px;
     height: 80px;
@@ -151,21 +153,24 @@
 
 .avatar-container {
   display: flex;
-  margin-left: 45px;
-  img {
-    margin-left: -45px;
-  }
+  align-items: center;
+  justify-content: center;
+  margin-right: 5px;
 }
 
 .contributor-avatars {
+  text-align: center;
   display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: 16px;
   color: $dark-gray;
-  padding-top: 10px;
+  margin-right: 0px;
   p {
     margin-bottom: 0px;
+    text-align: left;
+    font-size: 14px;
+  }
+  img {
+    margin-right: 0px;
   }
 }
 
@@ -174,12 +179,14 @@
   font-size: 14px;
   color: $dark-gray;
   padding: 10px;
+  text-align: center;
 }
 
 .avatar-xs {
   border-radius: 50%;
   height: 22px !important;
   width: 22px !important;
+  margin-right: 0px;
 }
 
 .modal-padding {

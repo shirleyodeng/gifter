@@ -1,61 +1,65 @@
 <%= cl_image_tag gift.photo, width: 190, height: 190, crop: :fill, class: "gift-photo" %>
-  <div class="gift-info">
-    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal<%= gift.id %>"><%=gift.name %></button>
-    <div id="myModal<%= gift.id %>" class="modal" role="dialog">
-      <div class="modal-dialog modal-background-color">
-        <div class="modal-content">
-
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
+<div class="gift-info">
+  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal<%= gift.id %>">
+    <%= gift.capitalized_name %>
+  </button>
+  <div id="myModal<%= gift.id %>" class="modal" role="dialog">
+    <div class="modal-dialog modal-background-color">
+      <div class="modal-content">
+      <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <div class="modal-body">
+          <div>
             <div class="modal-title">
-              <p>You have selected:</p>
-              <h4><%= gift.name %></h4>
+              <p>You have selected</p>
+              <h4><%= gift.capitalized_name %></h4>
             </div>
-          </div>
-
-          <div class="modal-body">
-           <div class="modal-info">
+            <div class="modal-info">
              <%= cl_image_tag (gift.photo), width: 200, height: 200, crop: :fill, class: "gift-photo" %>
              <p><%= gift.description %></p>
-           </div>
-            <div class="modal-pay">
-             <div class="jar"><%= image_tag "jamjar.jpg" %></div>
-              <div class=contributions>
-                <% if Participation.where(gift_id: gift.id).where(state: 'paid').count == 0 %>
-                   <p>Be the first to contribute!</p>
-                   <%= form_tag participations_path do %>
-                      <%= hidden_field_tag 'gift_id', gift.id %>
-                      <%= submit_tag 'Contribute', class: 'btn-red' %>
-                    <% end %>
-                <% else %>
-                  <div class="contributor-avatars">
-                    <div class="avatar-container">
-                      <% gift.participations.where(gift_id: gift.id).where(state: 'paid').last(4).each do |participation| %>
-                        <% if participation.user.photo? %>
-                           <%= cl_image_tag participation.user.photo, width: 10, height: 10, crop: :thumb, gravity: :face, class: "avatar-xs" %>
-                        <% else %>
-                           <%= cl_image_tag 'default-profile-image', width: 10, height: 10, crop: :thumb, gravity: :face, class: "avatar-xs" %>
-                        <% end %>
-                      <% end %>
-                    </div>
-                    <%= render 'contributors', gift: gift %>
-                  </div>
-                  <div class="modal-padding"><strong>£<%= gift.price %></strong></div>
-                    <%= form_tag participations_path do %>
-                      <%= hidden_field_tag 'gift_id', gift.id %>
-                      <%= submit_tag 'Contribute', class: 'btn-red' %>
-                    <% end %>
+            </div>
+          </div>
+          <div class="modal-pay">
+           <div class="jar"><%= image_tag "jamjar.jpg" %></div>
+            <div class="contributions">
+              <% if gift.participations.where(state: 'paid').empty? %>
+                <p>Be the first to contribute!</p>
+                <div class="modal-padding"><strong>£<%= gift.price %></strong></div>
+                <%= simple_form_for @participation do |f| %>
+                  <%= f.hidden_field :gift_id, value: gift.id %>
+                  <%= f.input :amount %>
+                  <%= f.submit 'Contribute', class: 'btn-red' %>
                 <% end %>
-              </div>
+              <% else %>
+                <div class="contributors">
+                  <div class="contributors-container">
+                    <% gift.participations.where(state: 'paid').each do |participation| %>
+                      <% if participation.user.photo? %>
+                        <%= cl_image_tag participation.user.photo, class: "contributor-avatar" %>
+                      <% else %>
+                        <%= cl_image_tag 'default-profile-image', class: "contributor-avatar" %>
+                      <% end %>
+                    <% end %>
+                  </div>
+                  <%= render 'contributors', gift: gift %>
+                </div>
+                <div class="modal-padding">
+                  <strong>£<%= gift.price %></strong></br>
+                  <strong>Remaining: £<%= gift.amount_left %></strong>
+                </div>
+                <% if gift.amount_left.zero? %>
+                  <p>This gift has been fulfilled!</p>
+                <% else %>
+                  <%= simple_form_for @participation do |f| %>
+                    <%= f.hidden_field :gift_id, value: gift.id %>
+                    <%= f.input :amount %>
+                    <%= f.submit 'Contribute', class: 'btn-red' %>
+                  <% end %>
+                <% end %>
+              <% end %>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-
-
-
-
-
-
+</div>

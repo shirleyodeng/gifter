@@ -9,7 +9,7 @@ class User < ApplicationRecord
   has_many :participations
   has_many :events, through: :guests
   has_many :gifts, through: :events
-  has_many :participations
+  has_many :host_events, class_name: "Event", foreign_key: 'user_id'
   has_many :invitations, class_name: "Invite", foreign_key: 'recipient_id'
   has_many :sent_invites, class_name: "Invite", foreign_key: 'sender_id'
 
@@ -20,6 +20,12 @@ class User < ApplicationRecord
   def is_guest?
     Guest.where(user: self).any? ? true : false
   end
+
+  def full_name
+    self.first_name.capitalize + " " + self.last_name.capitalize
+  end
+
+  private
 
   def self.find_for_facebook_oauth(auth)
     user_params = auth.slice(:provider, :uid)

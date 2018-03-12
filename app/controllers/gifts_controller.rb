@@ -1,7 +1,8 @@
 class GiftsController < ApplicationController
-  before_action :set_gift, only: [:show, :edit, :update, :destroy]
+  before_action :set_gift, only: [:edit, :update, :destroy]
 
   def index
+    @participation = Participation.new
     @event = Event.find(params[:event_id])
     @gifts = @event.gifts
     @gifts = policy_scope(@gifts)
@@ -10,9 +11,6 @@ class GiftsController < ApplicationController
     else
       redirect_to root_path
     end
-  end
-
-  def show
   end
 
   def new

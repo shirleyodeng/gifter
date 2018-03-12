@@ -1,13 +1,13 @@
 <div class="min-container">
   <div class="payment-container">
     <div class="payment-head red">
-      <h1>You are about to make <%=@participation.gift.event.child_name.capitalize%>'s day!</h1>
+      <h1>You are about to make <%= @participation.gift.event.child%>'s day!</h1>
     </div>
 
     <div class="payment-box">
-       <div class="payment-info">
+      <div class="payment-info">
         <p>You are contributing to</p>
-        <h4><%= @participation.gift.name.downcase %></h4>
+        <h4><%= @participation.gift.capitalized_name %></h4>
         <%= cl_image_tag (@participation.gift.photo), width: 190, height: 190, crop: :fill, class: "gift-photo" %>
       </div>
 

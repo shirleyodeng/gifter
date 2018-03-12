@@ -10,7 +10,7 @@ class ParticipationPolicy < ApplicationPolicy
   end
 
   def create?
-    true
+    true unless record.gift.event.creator == user
   end
 
   def update?

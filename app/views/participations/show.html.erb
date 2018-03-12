@@ -4,9 +4,9 @@
     <div class="text-center-test">
       <h1 class="red confetti-red">Thank you!</h1>
       <ul class="list-unstyled">
-        <p>You'r contribution to <%= @participation.gift.event.child_name%>'s' gift was successfully made.</p>
+        <p>Your contribution to <%= @participation.gift.event.child%>'s' gift was successfully made.</p>
         <li>Status: <%= @participation.state %></li>
-        <li>Item: <%= @participation.gift.name %></li>
+        <li>Item: <%= @participation.gift.capitalized_name %></li>
         <li>Amount: <%= humanized_money_with_symbol(@participation.amount) %></li>
       <ul>
       <div class="stripe-payment">

@@ -5,8 +5,12 @@
   <% elsif participations.count == 2 %>
     <p><%= participations[0].user.first_name.capitalize %> and <%= participations[1].user.first_name.capitalize %> have contributed.</p>
   <% elsif participations.count == 3 %>
-    <p><%= participations[0].user.first_name.capitalize %>, <%= participations[1].user.first_name.capitalize %> and 1 other have contributed.</p>
+    <p><%= participations[0].user.first_name.capitalize %>, <%= participations[1].user.first_name.capitalize %></p>
+     <div id="popup">
+        <a>and 1 other have contributed.<span><%= participations[2].user.first_name %></span></a>
+    </div>
   <% else %>
     <p><%= participations[0].user.first_name.capitalize %>, <%= participations[1].user.first_name.capitalize %> and <%= participations.count - 2 %> others have contributed.</p>
+
   <% end %>
 </div>

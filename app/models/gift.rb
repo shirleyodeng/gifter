@@ -5,4 +5,16 @@ class Gift < ApplicationRecord
   validates :name, presence: true
   validates :description, presence: true
   mount_uploader :photo, PhotoUploader
+
+  def amount_left
+    sum = 0
+    self.participations.where(state: 'paid').each do |participation|
+      sum += participation.amount
+    end
+    self.price - sum
+  end
+
+  def capitalized_name
+    self.name.split.map(&:capitalize).join(' ')
+  end
 end

@@ -6,13 +6,13 @@
         <%= simple_form_for [@event, @gift] do |f| %>
           <div class="form-inputs">
             Photo:
-            <%= f.input :photo,label:false %>
+            <%= f.input :photo, label: false %>
             <%= f.input :photo_cache, as: :hidden %>
             Gift name:
             <%= f.input :name, required: true, label: false  %>
             Gift description:
             <%= f.input :description, required: true, label: false, placeholder: "Amazing experiences and things that don't contain plastic ;)"  %>
-            Price:
+            Price (£):
             <%= f.input :price, label: false %>
           </div>
           <div class="form-actions">

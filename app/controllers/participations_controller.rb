@@ -2,14 +2,12 @@ class ParticipationsController < ApplicationController
   before_action :set_participation, only: [:show, :update]
 
   def show
-    unless @participation.state == "paid"
-      redirect_to :root
-    end
+    redirect_to :root unless @participation.state == "paid"
   end
 
   def create
-    @gift = Gift.find(params[:gift_id])
-    @participation = Participation.create!(user: current_user, gift: @gift, amount: @gift.price, state: 'pending')
+    @gift = Gift.find(params[:participation][:gift_id])
+    @participation = Participation.create!(user: current_user, gift: @gift, amount: params[:participation][:amount].to_i, state: 'pending')
     authorize @participation
     redirect_to new_participation_payment_path(@participation)
   end

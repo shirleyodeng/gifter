@@ -2,35 +2,40 @@
   <div class="background-yellow">
     <div class="event-dashboard">
       <div class="event-info-header">
-        <%= cl_image_tag @event.child_photo, crop: :fill, class: "avatar-lg"%>
+        <%= cl_image_tag @event.child_photo, width: 70, height: 70, crop: :thumb, gravity: :face, class: "avatar-lg"%>
         <h1>Welcome to <%= @event.child_name.capitalize %>'s <%=@event.name %></h1>
-        <p><%= @event.date.to_time.strftime("%A %e %B %Y")%> | Host: <%= @event.creator.first_name %> <%= @event.creator.last_name %></p>
+        <p><%= @event.date.to_time.strftime("%A %e %B %Y")%> | Host: <%= @event.creator.full_name %></p>
       </div>
       <% if policy(@event).update? %>
         <ul class="list-unstyled">
           <li class="gift-links"><%= link_to "+ Add a new gift", new_event_gift_path %></li>
-          <li class="gift-links">
-            <a href data-toggle="modal" data-target="#myModal" id="edit">Send invites</a></li>
+          <li class="gift-links"><a href data-toggle="modal" data-target="#myModal" id="edit">Send invites</a></li>
         </ul>
       <% end %>
     </div>
 
     <div class="container fill-high">
       <div class="row">
-        <% if @gifts.length == 0 %>
-        <% else %>
-          <% @gifts.each do |gift| %>
-            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-              <div class="gift-card">
-                <%= render 'giftcard', gift: gift %>
+        <% @gifts.each do |gift| %>
+          <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+            <div class="gift-card">
+              <%= render 'giftcard', gift: gift %>
+              <div class="gift-card-contributors">
+                <% gift.participations.where(state: 'paid').each do |participation| %>
+                  <% if participation.user.photo? %>
+                    <%= cl_image_tag participation.user.photo, class: "contributor-avatar" %>
+                  <% else %>
+                    <%= cl_image_tag 'default-profile-image', class: "contributor-avatar" %>
+                  <% end %>
+                <% end %>
               </div>
             </div>
-          <% end %>
+          </div>
         <% end %>
       </div>
     </div>
     <% if policy(@event).destroy? %>
-      <div class="gift-links text-center"><%= link_to "- Delete an event", event_path(@event), method: :delete %></div>
+      <div class="gift-links text-center"><%= link_to "- Delete event", event_path(@event), method: :delete %></div>
     <% end %>
   </div>
 
@@ -50,6 +55,3 @@
     </div>
   </div>
 </div>
-
-
-

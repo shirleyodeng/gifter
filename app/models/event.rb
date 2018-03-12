@@ -11,4 +11,8 @@ class Event < ApplicationRecord
   validates :sort_code, presence: true
   validates :account_number, presence: true
   mount_uploader :child_photo, PhotoUploader
+
+  def child
+    self.child_name.capitalize
+  end
 end

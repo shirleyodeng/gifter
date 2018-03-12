@@ -41,23 +41,31 @@
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 40px;
+  position: relative;
   &:hover {
-  box-shadow: 1px 1px 1px;
-  color: $red;
+    box-shadow: 3px 3px 3px $red;
   }
 }
 
-.gift-card:hover {
-  box-shadow: 3px 3px 3px $red;
+.gift-card-contributors {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  .contributor-avatar {
+    margin-left: -15px;
+    // border: 1px solid $red;
+    border-radius: 50%;
+    overflow: hidden;
+    width: 30px;
+    height: 30px;
+  }
 }
 
-.gift-info {
-  h3 {
-    margin-top: 10px;
-    font-size: 20px;
-    margin-bottom: 5px;
-    font-weight: 500;
-  }
+.gift-info h3 {
+  margin-top: 10px;
+  font-size: 20px;
+  margin-bottom: 5px;
+  font-weight: 500;
 }
 
 .gift-photo {
@@ -97,7 +105,9 @@
 }
 
 .modal-title {
+  text-align: left;
   font-family: "Poppins";
+  padding-bottom: 20px;
   h4 {
     font-size: 24px;
     font-weight: 700;
@@ -114,9 +124,9 @@
 
 .modal-body {
   padding: 0px;
-  align-items: center;
   display: flex;
   margin-top: 15px;
+  justify-content: space-between;
 }
 
 .modal-info {
@@ -136,10 +146,6 @@
 
 .modal-pay {
   text-align: center;
-  img {
-    width: 80px;
-    height: 80px;
-  }
 }
 
 .button.close {
@@ -151,27 +157,26 @@
   padding: 20px;
 }
 
-.avatar-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-right: 5px;
+.contributors-container {
+  display: inline-flex;
+  flex-direction: row-reverse;
+  padding-left: 17px;
+  padding-right: 10px;
 }
 
-.contributor-avatars {
-  text-align: center;
+.contributor-avatar {
+  margin-left: -12px;
+  position: relative;
+  border-radius: 50%;
+  overflow: hidden;
+  width: 30px;
+  height: 30px;
+}
+
+.contributors {
   display: flex;
   align-items: center;
-  color: $dark-gray;
-  margin-right: 0px;
-  p {
-    margin-bottom: 0px;
-    text-align: left;
-    font-size: 14px;
-  }
-  img {
-    margin-right: 0px;
-  }
+  padding-bottom: 10px;
 }
 
 .contributions {
@@ -180,6 +185,14 @@
   color: $dark-gray;
   padding: 10px;
   text-align: center;
+}
+
+.contributor-names {
+  text-align: left;
+  font-size: 14px;
+  p {
+    margin-bottom: 0;
+  }
 }
 
 .avatar-xs {
@@ -191,4 +204,9 @@
 
 .modal-padding {
   padding: 10px;
+}
+
+.jar img {
+  width: 80px;
+  height: 80px;
 }

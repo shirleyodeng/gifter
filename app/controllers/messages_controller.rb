@@ -7,7 +7,9 @@ class MessagesController < ApplicationController
     @messages = policy_scope(@conversation.messages)
     if @messages.last
       if @messages.last.user_id != current_user.id
-        @messages.last.read = true;
+        message = @messages.last
+        message.read = true
+        message.save!
       end
     end
     @message = @conversation.messages.new

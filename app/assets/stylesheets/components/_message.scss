@@ -2,9 +2,8 @@
   margin-top: 0;
   display: flex;
   align-items: center;
-  border: 1px solid #DBE0E0;
+  justify-content: space-even;
   padding: 20px;
-  border: 1px solid rgba(230,230,230,0.3);
   p {
     font-size: 14px;
   }
@@ -18,14 +17,17 @@
   font-size: 12px;
   padding-left: 10px;
   width: 150px;
+  color: $dark-gray
   p {
     margin-top: -10px;
   }
 }
 
 .message-body {
-  color: rgba(0,0,0,0.6);
-  font-size: 14px;
+  a {
+    color: rgba(0,0,0,0.6) !important;
+    font-size: 14px;
+  }
   padding-left: 30px;
   flex-grow: 1;
   line-height: 10px;
@@ -35,3 +37,26 @@
   font-size: 14px;
   width: 80px;
 }
+
+.message-time {
+  font-size: 14px;
+}
+
+.message-item {
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.message-text {
+  font-size: 15px;
+  line-height: 15px;
+  margin-left: 0px;
+  padding-left: 0px;
+  color: $dark-gray;
+}
+
+.form-container a {
+  color: $dark-gray !important;
+  font-size: 14px;
+}
+

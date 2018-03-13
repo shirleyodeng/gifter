@@ -1,3 +1,4 @@
+// Event Dashboard
 .event-dashboard {
   text-align: center;
   color: $red;
@@ -18,21 +19,17 @@
   font-size: 16px;
 }
 
-.gift-links {
-  font-weight: 600;
-  a {
-    color: $dark-gray;
+.event-info-title {
+  h1 {
+    display: inline-block;
   }
-}
-
-.gift-links:hover {
-  a {
-    color: $red;
+  i {
+    color: $dark-gray;
+    display: inline-block;
   }
 }
 
 // Gift Card SCSS
-
 .gift-card {
   text-align: center;
   background-color: rgb(253, 253, 253);
@@ -47,20 +44,6 @@
   }
 }
 
-.gift-card-contributors {
-  position: absolute;
-  top: -10px;
-  right: -10px;
-  .contributor-avatar {
-    margin-left: -15px;
-    // border: 1px solid $red;
-    border-radius: 50%;
-    overflow: hidden;
-    width: 30px;
-    height: 30px;
-  }
-}
-
 .gift-info h3 {
   margin-top: 10px;
   font-size: 20px;
@@ -72,8 +55,40 @@
   margin-top: 15px;
 }
 
+.static-add-gift a:hover {
+  text-decoration: none;
+}
+
+.new-gift-card {
+  text-align: center;
+  background-color: rgb(253, 253, 253);
+  width: 220px;
+  height: 250px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &:hover {
+    box-shadow: 3px 3px 3px $red;
+  }
+  h3 {
+    margin: 0;
+    color: $dark-gray;
+  }
+  h4 {
+    margin-top: 0;
+    color: $dark-gray;
+  }
+}
+
+.gifts-tab {
+  padding-top: 30px;
+}
+
 .btn.btn-info.btn-lg {
-  background-color: white;
+  background-color: transparent;
   color: $dark-gray;
   border: none;
   border-style: none;
@@ -81,17 +96,22 @@
   font-weight: 700;
   font-size: 18px;
   width: 220px;
+  height: 250px;
   text-align: center;
   padding: 0px;
-  margin-top: 10px;
+  margin-top: -205px;
   :focus {outline:0 !important;}
+}
+
+.gift-modal-name {
+  padding-top: 200px;
 }
 
 
 // Modal SCSS
 
 .modal-content {
-  padding: 30px;
+  padding: 20px;
   text-align: center;
   color: $dark-gray;
   box-shadow: none;
@@ -100,7 +120,7 @@
 
 .modal-header {
   padding: 0px;
-  text-align: left;
+  text-align: center;
   border-bottom: none;
 }
 
@@ -125,19 +145,18 @@
 .modal-body {
   padding: 0px;
   display: flex;
-  margin-top: 15px;
-  justify-content: space-between;
+  align-items: center;
+  justify-content: space-around;
 }
 
 .modal-info {
-  width: 40%;
-  margin-right: 20px;
+  width: 200px;
   text-align: left;
   img {
     margin-top: 0px;
   }
   p {
-    font-size: 15px;
+    font-size: 14px;
     margin-top: 13px;
     margin-bottom: 0px;
     line-height: 20px;
@@ -209,4 +228,95 @@
 .jar img {
   width: 80px;
   height: 80px;
+}
+
+// HOVER
+#popup {
+  color: $dark-gray;
+  background-color: $white;
+  text-align: center;
+}
+
+#popup a, #popup a:visited {
+  width: 220px;
+  position: relative;
+  text-decoration: none;
+}
+
+#popup a span {
+  display: none;
+  border: 1px solid $yellow;
+}
+
+#popup a:hover {
+  background-color: $white;
+}
+
+.pop-up-info {
+  font-size: 14px;
+  color: $dark-gray;
+}
+
+/* the IE correction rule */
+#popup a:hover  {
+  color: $dark-gray;
+  background-color: $white;
+  text-indent: 0; /* added the default value */
+}
+
+#popup a:hover span {
+  display: block;
+  position: absolute;
+  top: -90px;
+  width: 220px;
+  height: 250px;
+  padding: 35px;
+  font-weight: normal;
+  background: $white;
+}
+
+.small-jar img {
+  width: 60px;
+  height: 60px;
+}
+
+// Contributor Pop-up
+
+#others-popup {
+  color: $dark-gray;
+  background-color: transparent;
+  border: none;
+}
+
+#others-popup a, #others-popup a:visited {
+  position: relative;
+  text-align: left;
+  margin: 0;
+  text-decoration: none;
+  font-weight: bold;
+  color: $red;
+}
+
+#others-popup a span {
+  display: none;
+}
+
+/* the IE correction rule */
+#others-popup a:hover  {
+  color: $dark-gray;
+  background-color: $white;
+}
+
+#others-popup a:hover span {
+  display: block;
+  position: absolute;
+  margin: 0px;
+  width: 100px;
+  padding: 10px;
+  color: $dark-gray;
+  border: 1px solid $red;
+  font-weight: normal;
+  background: $white;
+  text-align: left;
+  font-size: 12px;
 }

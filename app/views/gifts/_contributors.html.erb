@@ -1,12 +1,31 @@
 <div class="contributor-names">
   <% participations = gift.participations.where(state: 'paid') %>
   <% if participations.count == 1 %>
-    <p><%= participations[0].user.first_name.capitalize %> has contributed.</p>
+    <p><%= participations[0].user.full_name %> has contributed.</p>
   <% elsif participations.count == 2 %>
-    <p><%= participations[0].user.first_name.capitalize %> and <%= participations[1].user.first_name.capitalize %> have contributed.</p>
+    <p><%= participations[0].user.full_name %> and <%= participations[1].user.full_name %> have contributed.</p>
   <% elsif participations.count == 3 %>
-    <p><%= participations[0].user.first_name.capitalize %>, <%= participations[1].user.first_name.capitalize %> and 1 other have contributed.</p>
+    <p><%= participations[0].user.full_name %>, <%= participations[1].user.full_name %> and
+      <div id="others-popup", style="display: inline">
+        <a>1 other
+          <span>
+            <%= participations[2].user.full_name %>
+          </span>
+        </a>
+      </div>have contributed.
+    </p>
   <% else %>
-    <p><%= participations[0].user.first_name.capitalize %>, <%= participations[1].user.first_name.capitalize %> and <%= participations.count - 2 %> others have contributed.</p>
+    <p><%= participations[0].user.full_name %>, <%= participations[1].user.full_name %> and
+      <div id="others-popup", style="display: inline">
+        <a><%= participations.count - 2 %> others
+          <span>
+            <% participations.each do |participation| %>
+              <%= participation.user.full_name %>
+            <% end %>
+          </span>
+        </a>
+      </div>
+      have contributed.
+    </p>
   <% end %>
 </div>

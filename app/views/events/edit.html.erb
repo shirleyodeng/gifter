@@ -1,41 +1,46 @@
-<div class="white">
-  <div class="col-xs-6 col-xs-offset-3 ">
-    <h2 class="red">Edit your edit event</h2>
-    <%= simple_form_for @event, :html => {:"runat" => 'server'} do |f| %>
-    Upload your child's photo
-    <div class="form-inputs">
-      <img id="blah" class= "avatar-child src="#" alt="your image" style="visibility: hidden;" />
-          <%= f.input :child_photo_cache, as: :hidden %>
-          <%= f.input :child_photo %>
+<div class="min-container">
+  <div class="container">
+    <div class="col-xs-6 col-xs-offset-3">
+      <div class="edit-event-form padding-bottom">
+        <h2 class="red">Edit your edit event</h2>
+        <%= simple_form_for @event, :html => {:"runat" => 'server'} do |f| %>
+          Upload your child's photo:
+          <div class="form-inputs">
+            <img id="blah" class= "avatar-child src="#" alt="your image" style="visibility: hidden;" />
+            <%= f.input :child_photo_cache, as: :hidden %>
+            <%= f.input :child_photo, label: false %>
+              <!-- <div class="form-group file optional event_child_photo">
+                <label class="control-label file optional" for="event_child_photo"></label>
+                <input class="file optional" type="file" name="event[child_photo]" id="event_child_photo">
+              </div> -->
+            <p>Child's name:</p>
+            <%= f.input :child_name, required: true, label: false %>
+            Event name:
+            <%= f.input :name, required: true, label: false %>
+            Event date:
+            <%= f.input :date, required: true, label: false %>
+            <strong><p>Add bank account details where you would like to receive gift contributions</p></strong>
+            Account name:
+            <%= f.input :account_name, label: false %>
+            Sort code:
+            <%= f.input :sort_code, label: false %>
+            Account number:
+            <%= f.input :account_number, label: false %>
+          </div>
 
-        <!-- <div class="form-group file optional event_child_photo">
-          <label class="control-label file optional" for="event_child_photo"></label>
-          <input class="file optional" type="file" name="event[child_photo]" id="event_child_photo">
-        </div> -->
-
-      <p>Child's name:</p>
-      <%= f.input :child_name, required: true, label: false %>
-      Event name:
-      <%= f.input :name, required: true, label: false %>
-      Event date:
-      <%= f.input :date, required: true, label: false %>
-      <strong><p>Add bank account details where you would like to receive gift contributions</p></strong>
-      Account name:
-      <%= f.input :account_name, label: false %>
-      Sort code:
-      <%= f.input :sort_code, label: false %>
-      Account number:
-      <%= f.input :account_number, label: false %>
-    </div>
-
-    <div class="form-actions">
-      <label class="btn-red">
-        Submit
-        <span style="display: none">
-          <%= f.button :submit %>
-        </span>
-      </label>
-      <% end %>
+          <div class="form-actions">
+            <label class="btn-grey">
+              Update
+              <span style="display: none">
+                <%= f.submit %>
+              </span>
+            </label>
+          </div>
+        <% end %>
+      </div>
+      <div class="delete-event-btn">
+        <%= link_to "Delete event", event_path(@event), class: "btn-red", method: :delete %>
+      </div>
     </div>
   </div>
 </div>

@@ -48,7 +48,8 @@
                 <%= simple_form_for @participation do |f| %>
                   <%= f.hidden_field :gift_id, value: gift.id %>
                   <%= f.hidden_field :invite_token, value: token %>
-                  <%= f.input :amount %>
+                  <p><strong>Amount (£)</strong></p>
+                  <input class="form-control string optional" type="text" name="participation[amount]" id="participation_amount" placeholder="0.00">
                   <%= f.submit 'Contribute', class: 'btn-red' %>
                 <% end %>
               <% else %>
@@ -73,7 +74,8 @@
                 <% else %>
                   <%= simple_form_for @participation do |f| %>
                     <%= f.hidden_field :gift_id, value: gift.id %>
-                    <%= f.input :amount %>
+                    <p><strong>Amount (£)</strong></p>
+                    <input class="form-control string optional" type="text" name="participation[amount]" id="participation_amount" placeholder="0.00">
                     <%= f.submit 'Contribute', class: 'btn-red' %>
                   <% end %>
                 <% end %>

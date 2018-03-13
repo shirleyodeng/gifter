@@ -1,0 +1,36 @@
+<div class="min-container">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-4 col-xs-offset-4">
+        <div class="form-container">
+          <h3>Conversation with <%= @other_user.full_name %></h3>
+          <% @messages.each do |message| %>
+            <% if message.body %>
+              <% user = User.find(message.user_id) %>
+              <div class="item">
+                <div class="content">
+                  <div class="header">
+                    <strong><%= user.first_name %></strong>
+                    <%= message.message_time %>
+                  </div>
+                  <div class="list">
+                    <div class="item">
+                      <i class="right triangle icon"></i>
+                      <%= message.body %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+          <%= simple_form_for [@event, @conversation, @message] do |f| %>
+            <%= f.input :body, label: false %>
+            <%= f.hidden_field :event_id, value: @event.id %>
+            <%= f.submit "Add Reply" %>
+          <% end %>
+          <%= link_to "Back to inbox", event_conversations_path(@event) %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

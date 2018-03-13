@@ -11,7 +11,6 @@
                 <% if guest.event.child_photo.present? %>
                   <%= image_tag guest.event.child_photo.url(:event_avatar) %>
                 <% end %>
-                <%#= cl_image_tag guest.event.child_photo, height: 50, width: 50, class: "avatar-lg" %>
                 <div class="event-title">
                   <h4><%= guest.event.child %>'s <%= guest.event.name %></h4>
                   <p><%= guest.event.date.to_time.strftime("%A %e %B %Y") %></p>
@@ -31,7 +30,7 @@
                   <% end %>
                 </div>
                 <div class="event-box">
-                  <%= cl_image_tag "mail", height: 50, width: 50, class: "user-dashboard-icon" %>
+                  <%= link_to (cl_image_tag "mail", height: 50, width: 50, class: "user-dashboard-icon"), event_conversations_path(guest.event) %>
                   <p class="icon-hover-text red">View messages</p>
                 </div>
               </div>
@@ -86,7 +85,7 @@
                   </div>
                 </div>
                 <div class="event-box">
-                  <%= cl_image_tag "mail", height: 50, width: 50, class: "user-dashboard-icon" %>
+                  <%= link_to (cl_image_tag "mail", height: 50, width: 50, class: "user-dashboard-icon"), event_conversations_path(event) %>
                   <p class="icon-hover-text red">View messages</p>
                 </div>
               </div>

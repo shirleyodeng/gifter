@@ -4,6 +4,7 @@ class Event < ApplicationRecord
   has_many :guests, dependent: :destroy
   has_many :users, through: :guests
   has_many :invites
+  has_many :conversations, dependent: :destroy
   validates :name, presence: true
   validates :date, presence: true
   validates :child_name, presence: true

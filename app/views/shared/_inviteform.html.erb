@@ -1,6 +1,5 @@
 <%= simple_form_for [event, invite], id: 'invite-form', remote: true do |f| %>
   <%= f.hidden_field :event_id, value: params[:event_id] %>
-  <%= f.label :email %>
-  <%= f.email_field :email %>
+  <%= f.email_field :email, placeholder: "Email address" %>
   <%= f.submit 'Invite', class: "form-btn" %>
 <% end %>

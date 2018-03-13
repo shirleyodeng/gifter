@@ -1,6 +1,6 @@
 <div class="container text-center">
   <h4>Invite your friends and family</h4>
-  <%= render 'shared/form', event: @event, invite: @invite %>
+  <%= render 'shared/inviteform', event: @event, invite: @invite %>
   <div id="invites-list">
     <% if @event.invites.blank? %>
       You haven't invited anyone - start inviting!

@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-xs-4 col-xs-offset-4">
         <div class="form-container">
-          <%= link_to "< Back to inbox", event_conversations_path(@event) %>
+          <%= link_to "< Back to inbox", event_conversations_path(@event), class: "inbox-back" %>
           <h3 class="yellow">Conversation with <%= @other_user.full_name %></h3>
           <% @messages.each do |message| %>
             <% if message.body %>

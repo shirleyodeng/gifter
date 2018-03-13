@@ -165,3 +165,9 @@
   -webkit-transform: rotate(45deg);
   box-shadow:2px 8px 4px -6px hsla(0,0%,0%,.3);
 }
+
+
+.btn:focus, .btn:active {
+   outline: none !important;
+   box-shadow: none;
+}

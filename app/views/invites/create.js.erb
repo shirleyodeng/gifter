@@ -3,9 +3,9 @@ var inviteForm = document.getElementById("new_invite");
   newInvite = "<%= j render 'invites/show', invite: @invite %>";
   invites = document.getElementById("invites-list");
   invites.insertAdjacentHTML('afterbegin', newInvite);
-  inviteForm.innerHTML = "<%= j render 'shared/form', event: @event, invite: Invite.new %>"
+  inviteForm.innerHTML = "<%= j render 'shared/inviteform', event: @event, invite: Invite.new %>"
   var inviteInput = document.getElementById('invite_email')
   inviteInput.value = ''
 <% else %>
-  inviteForm.innerHTML = "<%= j render 'shared/form', event: @event, invite: Invite.new %>"
+  inviteForm.innerHTML = "<%= j render 'shared/inviteform', event: @event, invite: Invite.new %>"
 <% end %>

@@ -3,20 +3,26 @@
     <div class="row">
       <div class="col-xs-4 col-xs-offset-4">
         <div class="form-container">
-          <h3>Conversation with <%= @other_user.full_name %></h3>
+          <%= link_to "< Back to inbox", event_conversations_path(@event) %>
+          <h3 class="yellow">Conversation with <%= @other_user.full_name %></h3>
           <% @messages.each do |message| %>
             <% if message.body %>
               <% user = User.find(message.user_id) %>
-              <div class="item">
+              <% if user == current_user %>
+                <%  message_background = "body-gray" %>
+              <% else %>
+                <% message_background = "body-light-gray" %>
+              <% end %>
+              <div class="message-item <%= message_background %>">
                 <div class="content">
                   <div class="header">
-                    <strong><%= user.first_name %></strong>
-                    <%= message.message_time %>
+                      <strong><%= user.first_name %></strong>
+                      <p class="message-time", style="display: inline;"><%= message.message_time %></p>
                   </div>
                   <div class="list">
                     <div class="item">
                       <i class="right triangle icon"></i>
-                      <%= message.body %>
+                      <p class="message-text"><%= message.body %></p>
                     </div>
                   </div>
                 </div>
@@ -26,9 +32,8 @@
           <%= simple_form_for [@event, @conversation, @message] do |f| %>
             <%= f.input :body, label: false %>
             <%= f.hidden_field :event_id, value: @event.id %>
-            <%= f.submit "Add Reply" %>
+            <%= f.submit "Add Reply", class: "btn-yellow" %>
           <% end %>
-          <%= link_to "Back to inbox", event_conversations_path(@event) %>
         </div>
       </div>
     </div>

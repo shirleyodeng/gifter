@@ -16,7 +16,12 @@
                     <% else %>
                       <% recipient = User.find(conversation.sender_id) %>
                     <% end %>
-                    <li class="message">
+                    <% if conversation.messages.last.read == false %>
+                      <% message_backgroud = "body-light-yellow" %>
+                    <% else %>
+                      <% message_backgroud = "body-light-gray" %>
+                    <% end %>
+                    <li class="message <%= message_backgroud %>">
                       <div class="message-avatar">
                         <%= cl_image_tag recipient.photo, height: 50, width: 50, class: "avatar-lg" %>
                       </div>
@@ -28,8 +33,9 @@
                         <p><%= link_to conversation.messages.last.body, event_conversation_messages_path(@event, conversation) %></p>
                       </div>
                       <div class="message-contribution">
-                        <% participation = recipient.participations.where(gift_id: @event.gifts).last %>
-                        <%= participation.gift.name %> - £<%= participation.amount %>
+                        <% if participation = recipient.participations.where(gift_id: @event.gifts).last %>
+                          <%= participation.gift.name %> - £<%= participation.amount %>
+                        <% end %>
                       </div>
                     </li>
                   <% end %>

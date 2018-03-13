@@ -8,6 +8,13 @@ body {
     background: white;
 }
 
+// .other-info {
+//   display: block;
+//   height: 100vh;
+//   align-items: center;
+//   justify-content: center;
+// }
+
 #canvas {
     //display: block;
     position: absolute;
@@ -25,5 +32,15 @@ body {
   right: 0;
   margin-left: auto;
   margin-right: auto;
-  width: 30%;
+  width: 50%;
+  height: 100vh;
+  text-align: center;
+}
+
+.confetti-red {
+    margin-top: 10% !important;
+}
+
+.list-unstyled {
+  margin-bottom: 10px;
 }

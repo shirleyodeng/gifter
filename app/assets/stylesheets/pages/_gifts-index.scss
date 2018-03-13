@@ -264,3 +264,44 @@
   width: 60px;
   height: 60px;
 }
+
+// Contributor Pop-up
+
+#others-popup {
+  color: $dark-gray;
+  background-color: transparent;
+  border: none;
+}
+
+#others-popup a, #others-popup a:visited {
+  position: relative;
+  text-align: left;
+  margin: 0;
+  text-decoration: none;
+  font-weight: bold;
+  color: $red;
+}
+
+#others-popup a span {
+  display: none;
+}
+
+/* the IE correction rule */
+#others-popup a:hover  {
+  color: $dark-gray;
+  background-color: $white;
+}
+
+#others-popup a:hover span {
+  display: block;
+  position: absolute;
+  margin: 0px;
+  width: 100px;
+  padding: 10px;
+  color: $dark-gray;
+  border: 1px solid $red;
+  font-weight: normal;
+  background: $white;
+  text-align: left;
+  font-size: 12px;
+}

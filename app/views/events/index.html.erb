@@ -53,7 +53,9 @@
           <% @events.each do |event| %>
             <div class="event-card light-gray hover-red">
               <div class="event-flex">
-                <%= image_tag event.child_photo.url(:event_avatar) %>
+                <% if event.child_photo.present? %>
+                  <%= image_tag event.child_photo.url(:event_avatar) %>
+                <% end %>
                 <%#= cl_image_tag event.child_photo, height: 50, width: 50, class: "avatar-lg" %>
                 <div class="event-title">
                   <h4><%= event.child %>'s <%= event.name.capitalize %></h4>

@@ -1,7 +1,8 @@
 // Specific CSS for your home-page
 
 .increase-font {
-  font-size: 30px;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .padding {
@@ -9,32 +10,75 @@
   padding-right: 100px;
 }
 
+.margin-top {
+  margin-top: 0px;
+}
+
 .home-container {
   margin: 0 auto;
 }
 
-.red-background {
-  background-color: $red;
-  min-height: 100vh;
-  color: $yellow;
+.white-background {
+  background: $red;
+  min-height: calc(100vh - 130px);
+  color: $red;
   padding-top: 7.5rem;
-  padding-bottom: 7.5rem;
+
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.welcome-container {
-  width: 70%;
-  margin-top: -80px;
-  p {
-    font-weight: 500;
-    font-size: 20px;
-  }
+.yellow-container {
+  height: 420px;
+  text-align: center;
+  background-color: $yellow;
+  position:absolute;
+  left:0;
+  right:0;
+  top: 70px;
+}
+
+.welcome-container h2 {
+  z-index: 6;
+  margin: 100px 300px 50px;
+}
+
+.boy-container {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+}
+
+
+.boy {
+  transition: ease 0.8s;
+  text-align: left !important;
+  z-index: 5;
+}
+// .welcome-container {
+//   width: 70%;
+//   margin-top: -80px;
+//   p {
+//     font-weight: 500;
+//     font-size: 20px;
+//   }
+// }
+
+.boy-animation {
+  transform: translateX(50px) translateY(-50px);
+  transition: ease 0.8s;
+}
+
+.wecome-container {
+  height: auto;
+  margin: auto;
+  text-align: center;
 }
 
 .banner-font {
   font-size: 70px;
+  margin: 20px;
 }
 
 .content-section {
@@ -42,6 +86,14 @@
   padding-bottom: 40px;
   background-color: $white;
 }
+
+.button-container {
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-top: 40px;
+}
+//
 
 .explainer {
   padding: 10px 0;
@@ -65,7 +117,7 @@
 }
 
 .padding-bottom {
-  padding-bottom: 20px;
+  padding-bottom: 10px;
 }
 
 .cause-item {
@@ -147,4 +199,8 @@
 .padding-top-btn {
   position: relative;
   top: 300px;
+}
+
+.opacity {
+  opacity: 0.7;
 }

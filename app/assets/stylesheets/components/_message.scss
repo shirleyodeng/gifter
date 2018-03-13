@@ -1,0 +1,37 @@
+.message {
+  margin-top: 0;
+  display: flex;
+  align-items: center;
+  border: 1px solid #DBE0E0;
+  padding: 20px;
+  border: 1px solid rgba(230,230,230,0.3);
+  p {
+    font-size: 14px;
+  }
+}
+
+.message-avatar {
+  padding: 0 15px;
+}
+
+.message-info {
+  font-size: 12px;
+  padding-left: 10px;
+  width: 150px;
+  p {
+    margin-top: -10px;
+  }
+}
+
+.message-body {
+  color: rgba(0,0,0,0.6);
+  font-size: 14px;
+  padding-left: 30px;
+  flex-grow: 1;
+  line-height: 10px;
+}
+
+.message-contribution {
+  font-size: 14px;
+  width: 80px;
+}

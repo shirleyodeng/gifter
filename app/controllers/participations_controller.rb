@@ -14,6 +14,12 @@ class ParticipationsController < ApplicationController
 
   def update
     @participation.update(participation_params)
+    @conversation = Conversation.where(sender_id: current_user.id, recipient_id: @participation.gift.event.creator.id, event_id: @participation.gift.event.id).first
+    @conversation = Conversation.create!(sender_id: current_user.id, recipient_id: @participation.gift.event.creator.id, event_id: @participation.gift.event.id) if @conversation.nil?
+    @message = @conversation.messages.new(body: participation_params[:gift_message])
+    @message.user = current_user
+    @message.conversation = @conversation
+    @message.save
     redirect_to events_path
   end
 

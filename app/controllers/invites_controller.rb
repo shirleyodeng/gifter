@@ -1,5 +1,12 @@
 class InvitesController < ApplicationController
+  def new
+    @event = Event.find(params[:event_id])
+    @invite = Invite.new
+    authorize @invite
+  end
+
   def create
+    @event = Event.find(params[:event_id])
     @invite = Invite.new(invite_params)
     @invite.sender_id = current_user.id
     authorize @invite
@@ -7,13 +14,18 @@ class InvitesController < ApplicationController
       if @invite.recipient != nil
         InviteMailer.existing_user_invite(@invite).deliver
         @invite.recipient.events.push(@invite.event)
-        #js that it's email's been sent
       else
         InviteMailer.new_user_invite(@invite, new_user_registration_url(:invite_token => @invite.token)).deliver
-        #js that it's email's been sent
+      end
+      respond_to do |format|
+        format.html { redirect_to event_gifts_path(params[:event_id]) }
+        format.js
       end
     else
-      #Creating an new invitation failed
+      respond_to do |format|
+        format.html { render 'gifts/index' }
+        format.js
+      end
     end
   end
 

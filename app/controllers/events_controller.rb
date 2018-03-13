@@ -24,7 +24,7 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
     @event.creator = current_user
     authorize @event
-    @event.save
+    @event.save!
     redirect_to event_gifts_path(@event)
   end
 

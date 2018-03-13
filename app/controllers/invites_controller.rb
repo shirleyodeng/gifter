@@ -9,7 +9,8 @@ class InvitesController < ApplicationController
         @invite.recipient.events.push(@invite.event)
         #js that it's email's been sent
       else
-        InviteMailer.new_user_invite(@invite, new_user_registration_url(:invite_token => @invite.token)).deliver
+        # InviteMailer.new_user_invite(@invite, new_user_registration_url(:invite_token => @invite.token)).deliver
+        InviteMailer.invite_to_event(@invite, @invite.token).deliver
         #js that it's email's been sent
       end
     else

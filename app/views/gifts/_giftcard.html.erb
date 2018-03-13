@@ -9,7 +9,6 @@
           <% elsif gift.participations.count == 1%>
             <p class="pop-up-info"><%gift.participations.first%> has contributed to <%gift.name%><strong class="larger-text"><%= gift.name %></strong>!</p>
           <% else %>
-            <!-- <p class="pop-up-info"><%= gift.participations.first.user.first_name%> and <%=gift.participations.count - 1%> others have contributed to <strong class="larger-text"><%= gift.name %></strong></p> -->
             <p class="pop-up-info"><%=gift.participations.count%> people have contributed to <strong class="larger-text"><%= gift.name %></strong></p>
             <div class="small-jar"><%= image_tag "jamjar.jpg" %></div>
             <p class="pop-up-info"> Amount needed: £<%= gift.amount_left %></p>

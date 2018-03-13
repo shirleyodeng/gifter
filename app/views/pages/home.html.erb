@@ -1,22 +1,32 @@
 <div class="min-container">
   <div class="home-container">
-    <section class="red-background">
-      <div class="welcome-container text-center padding">
-        <div class="row">
-          <div class="mx-auto mb-5">
-            <h2 class="banner-font">Let's gift something meaningful</h2>
-            <p class="padding-bottom increase-font">Help your child get a head start with Gifter</p>
-            <%= link_to "Get started", events_path, class: "btn-grey" %>
-          </div>
+    <section class="white-background">
+      <div class="boy-container">
+        <div class="boy">
+          <%= cl_image_tag("http://res.cloudinary.com/dj2d1zdlv/image/upload/v1520935404/tommy.png", height: 550) %>
         </div>
+      </div>
+      <div class="yellow-container">
+
+        <div class="welcome-container">
+
+          <h2 class="banner-font">Let's gift something meaningful</h2>
+          <p class="increase-font">Help your child get a head start with Gifter</p>
+          <p>Invite family and friends to contribute towards gifts and experiences</p>
+        </div>
+        <div class="margin-top button-container">
+        <h5><%= link_to "Get started", events_path, class: "btn-home" %></h5>
+        <h5><a href="#explainer" class="btn-home">Find out more</a></h5>
+      </div>
+        <p><a href="#explainer" class="arrow-down"></a></p>
       </div>
     </section>
     <section class="content-section">
       <div class="container text-center">
         <div class="row">
           <div class="mx-auto mb-5">
-            <h3 class="red">What we do & why we do it</h3>
-            <p class="padding-bottom">Gifter makes it easy to start investing in your child’s future by encouraging friends and family to fundraise towards purposeful gifts and experiences.</p>
+            <h3 class="red" id="explainer">What we do & why we do it</h3>
+            <p class="padding-bottom opacity">Gifter makes it easy to start investing in your child’s future by encouraging friends and family to fundraise towards purposeful gifts and experiences.</p>
           </div>
         </div>
       </div>
@@ -108,14 +118,14 @@
         </div>
       </div>
 
-    <div class="text-center">
-      <%= mail_to "info@gifter.tech" do %>
-      <strong class="btn-red">Send us an email</strong>
-      <% end %>
-      <a href="mailto:info@gifter.tech"></a>
+      <div class="text-center">
+        <%= mail_to "info@gifter.tech" do %>
+        <strong class="btn-red">Send us an email</strong>
+        <% end %>
+        <a href="mailto:info@gifter.tech"></a>
+      </div>
     </div>
   </div>
-</div>
 
 
 

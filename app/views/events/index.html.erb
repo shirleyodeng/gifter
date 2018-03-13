@@ -11,7 +11,6 @@
                 <% if guest.event.child_photo.present? %>
                   <%= image_tag guest.event.child_photo.url(:event_avatar) %>
                 <% end %>
-                <%#= cl_image_tag guest.event.child_photo, height: 50, width: 50, class: "avatar-lg" %>
                 <div class="event-title">
                   <h4><%= guest.event.child %>'s <%= guest.event.name %></h4>
                   <p><%= guest.event.date.to_time.strftime("%A %e %B %Y") %></p>
@@ -26,12 +25,12 @@
                     <%= link_to (cl_image_tag "sad_face", height: 50, width: 50, class: "user-dashboard-icon"), event_gifts_path(guest.event) %>
                     <p class="icon-hover-text gray">Contribute</p>
                   <% else %>
-                    <%= link_to (cl_image_tag "happy", height: 50, width: 50, class: "user-dashboard-icon"), event_gifts_path(guest.event) %>
-                    <p class="icon-hover-text gray">Thank you</p>
+                    <%= link_to (cl_image_tag "smilegreen", height: 50, width: 50, class: "user-dashboard-icon"), event_gifts_path(guest.event) %>
+                    <p class="icon-hover-text font-green">Thank you</p>
                   <% end %>
                 </div>
                 <div class="event-box">
-                  <%= cl_image_tag "mail", height: 50, width: 50, class: "user-dashboard-icon" %>
+                  <%= link_to (cl_image_tag "mail", height: 50, width: 50, class: "user-dashboard-icon"), event_conversations_path(guest.event) %>
                   <p class="icon-hover-text red">View messages</p>
                 </div>
               </div>
@@ -56,7 +55,7 @@
                 <% if event.child_photo.present? %>
                   <%= image_tag event.child_photo.url(:event_avatar) %>
                 <% end %>
-                <%#= cl_image_tag event.child_photo, height: 50, width: 50, class: "avatar-lg" %>
+
                 <div class="event-title">
                   <h4><%= event.child %>'s <%= event.name.capitalize %></h4>
                   <p><%= event.date.to_time.strftime("%A %e %B %Y") %></p>
@@ -68,30 +67,16 @@
                 </div>
 
                 <div class="event-box">
-                  <a href data-toggle="modal" data-target="#myModal-<%= event.id %>" id="edit">
+                  <%= link_to event_gifts_path(event_id: event.id, invites: 'true') do %>
                     <%= cl_image_tag "envelope", height: 50, width: 50, class: "user-dashboard-icon" %>
+                  <% end %>
                     <p class="icon-hover-text gray">Send invites</p>
-                  </a>
-                  <div class="modal fade" id="myModal-<%= event.id %>" role="dialog">
-                    <div class="modal-dialog modal-md">
-                      <div class="modal-content">
-                        <div class="modal-header text-center">
-                          <button type="button" class="close" data-dismiss="modal">x</button>
-                          <h3 class="form-title spacing text-center">Invite your friends and family</h3>
-                        </div>
-                        <div class="modal-body text-center">
-                          <%= render 'shared/eventpageform', event_id: event.id %>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
                 </div>
                 <div class="event-box">
-                  <%= cl_image_tag "mail", height: 50, width: 50, class: "user-dashboard-icon" %>
+                  <%= link_to (cl_image_tag "mail", height: 50, width: 50, class: "user-dashboard-icon"), event_conversations_path(event) %>
                   <p class="icon-hover-text red">View messages</p>
                 </div>
               </div>
-              <div class="delete-button red"><%= link_to "x", event_path(event), method: :delete %></div>
             </div>
           <% end %>
         <% else %>

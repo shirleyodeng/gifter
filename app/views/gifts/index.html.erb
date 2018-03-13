@@ -3,55 +3,62 @@
     <div class="event-dashboard">
       <div class="event-info-header">
         <%= cl_image_tag @event.child_photo, width: 70, height: 70, crop: :thumb, gravity: :face, class: "avatar-lg"%>
-        <h1>Welcome to <%= @event.child_name.capitalize %>'s <%=@event.name %></h1>
+        <div class="event-info-title text-center">
+          <h1>Welcome to <%= @event.child %>'s <%=@event.name %></h1>
+          <% if policy(@event).update? %>
+            <%= link_to edit_event_path(@event) do %>
+              <i class="fa fa-pencil edit-event"></i>
+            <% end %>
+          <% end %>
+        </div>
         <p><%= @event.date.to_time.strftime("%A %e %B %Y")%> | Host: <%= @event.creator.full_name %></p>
       </div>
-      <% if policy(@event).update? %>
-        <ul class="list-unstyled">
-          <li class="gift-links"><%= link_to "+ Add a new gift", new_event_gift_path %></li>
-          <li class="gift-links"><a href data-toggle="modal" data-target="#myModal" id="edit">Send invites</a></li>
-        </ul>
-      <% end %>
     </div>
 
     <div class="container fill-high">
-      <div class="row">
-        <% @gifts.each do |gift| %>
-          <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="gift-card">
-              <%= render 'giftcard', gift: gift %>
-              <div class="gift-card-contributors">
-                <% gift.participations.where(state: 'paid').each do |participation| %>
-                  <% if participation.user.photo? %>
-                    <%= cl_image_tag participation.user.photo, class: "contributor-avatar" %>
-                  <% else %>
-                    <%= cl_image_tag 'default-profile-image', class: "contributor-avatar" %>
-                  <% end %>
+      <% if policy(@event).update? %>
+        <ul class="nav nav-tabs">
+          <li class="<%= params[:invites] == 'true' ? '' : 'active' %>"><a data-toggle="tab" href="#home">Gifts</a></li>
+          <li class="<%= params[:invites] == 'true' ? 'active' : '' %>"><a data-toggle="tab" href="#invites">Send Invites</a></li>
+        </ul>
+        <div class="tab-content">
+          <div id="home" class="tab-pane fade <%= params[:invites] == 'true' ? '' : 'in active' %>">
+            <div class="gifts-tab">
+              <div class="row">
+                <% @gifts.each do |gift| %>
+                  <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                    <div class="gift-card">
+                      <%= render 'giftcard', gift: gift, token: @token %>
+                    </div>
+                  </div>
                 <% end %>
+                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                  <div class="static-add-gift">
+                    <%= link_to new_event_gift_path do %>
+                      <div class="new-gift-card">
+                        <div><h3>+</h3><h4>Add a new gift</h4></div>
+                      </div>
+                    <% end %>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-        <% end %>
-      </div>
-    </div>
-    <% if policy(@event).destroy? %>
-      <div class="gift-links text-center"><%= link_to "- Delete event", event_path(@event), method: :delete %></div>
-    <% end %>
-  </div>
-
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog modal-md">
-      <div class="modal-content">
-        <div class="modal-header text-center">
-          <button type="button" class="close" data-dismiss="modal">x</button>
-          <h3 class="form-title spacing blue-font text-center">Invite your friends and family</h3>
-        </div>
-        <div class="modal-body text-center">
-          <div class="">
-            <%= render 'shared/giftpageform' %>
+          <div id="invites" class="tab-pane fade <%= params[:invites] == 'true' ? 'in active' : '' %>">
+            <%= render 'shared/invite' %>
           </div>
         </div>
-      </div>
+      <% else %>
+        <div class="row">
+          <% @gifts.each do |gift| %>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+              <div class="gift-card">
+                <%= render 'giftcard', gift: gift %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

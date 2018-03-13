@@ -1,14 +1,19 @@
 class GiftsController < ApplicationController
   before_action :set_gift, only: [:edit, :update, :destroy]
+  skip_before_action :authenticate_user!, only: [:index]
 
   def index
     @participation = Participation.new
     @event = Event.find(params[:event_id])
+    @token = params[:token]
     @gifts = @event.gifts
     @gifts = policy_scope(@gifts)
-    if @event.guests.where(user: current_user).present? || @event.creator == current_user
+    if @event.uid == params["uid"]
+      @invite = Invite.new
+    elsif @event.guests.where(user: current_user).present? || @event.creator == current_user
       @invite = Invite.new
     else
+      flash[:alert] = "You don't have access to this event!"
       redirect_to root_path
     end
   end

@@ -1,0 +1,19 @@
+.nav-tabs > li, .nav-pills > li {
+  float: none;
+  display: inline-block;
+  *display: inline;
+  zoom: 1;
+}
+
+.nav-tabs, .nav-pills {
+  text-align: center;
+}
+
+.nav-tabs > li.active > a {
+  background: $yellow !important;
+}
+
+.nav-tabs > li > a {
+  background: #FFE47A !important;
+  color: black;
+}

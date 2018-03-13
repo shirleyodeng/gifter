@@ -4,10 +4,14 @@ Rails.application.routes.draw do
   resources :users, only: [:edit, :update]
   resources :events, except: [:show] do
     resources :gifts
+    resources :conversations, only: [:index, :create] do
+      resources :messages, only: [:index, :create]
+    end
   end
   resources :participations, only: [:show, :create, :update] do
     resources :payments, only: [:new, :create]
   end
 
   resources :invites
+
 end

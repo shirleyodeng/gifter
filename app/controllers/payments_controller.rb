@@ -18,6 +18,12 @@ class PaymentsController < ApplicationController
     )
     @participation.update(payment: charge.to_json, state: 'paid')
     authorize @participation
+    @conversation = Conversation.where(sender_id: current_user.id, recipient_id: @participation.gift.event.creator.id, event_id: @participation.gift.event.id).first
+    @conversation = Conversation.create!(sender_id: current_user.id, recipient_id: @participation.gift.event.creator.id, event_id: @participation.gift.event.id) if @conversation.nil?
+    @message = @conversation.messages.new(body: "-- #{current_user.full_name} contributed £#{@participation.amount} towards #{@participation.gift.name} --")
+    @message.user = current_user
+    @message.conversation = @conversation
+    @message.save
     redirect_to participation_path(@participation)
 
   rescue Stripe::CardError => e

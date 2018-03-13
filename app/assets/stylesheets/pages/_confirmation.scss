@@ -8,13 +8,6 @@ body {
     background: white;
 }
 
-// .other-info {
-//   display: block;
-//   height: 100vh;
-//   align-items: center;
-//   justify-content: center;
-// }
-
 #canvas {
     //display: block;
     position: absolute;
@@ -43,4 +36,8 @@ body {
 
 .list-unstyled {
   margin-bottom: 10px;
+}
+
+.stripe-payment {
+  margin-top: 38px !important;
 }

@@ -15,7 +15,7 @@ class InvitesController < ApplicationController
         InviteMailer.existing_user_invite(@invite).deliver
         @invite.recipient.events.push(@invite.event)
       else
-        InviteMailer.new_user_invite(@invite, new_user_registration_url(:invite_token => @invite.token)).deliver
+        InviteMailer.invite_to_event(@invite, @invite.token).deliver
       end
       respond_to do |format|
         format.html { redirect_to event_gifts_path(params[:event_id]) }

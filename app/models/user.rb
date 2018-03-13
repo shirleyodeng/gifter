@@ -5,7 +5,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: [:facebook]
-  has_many :guests
+  has_many :guests, dependent: :destroy
   has_many :participations
   has_many :events, through: :guests
   has_many :gifts, through: :events

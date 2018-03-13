@@ -51,6 +51,7 @@
                 <div class="modal-padding"><strong>£<%= gift.price %></strong></div>
                 <%= simple_form_for @participation do |f| %>
                   <%= f.hidden_field :gift_id, value: gift.id %>
+                  <%= f.hidden_field :invite_token, value: token %>
                   <%= f.input :amount %>
                   <%= f.submit 'Contribute', class: 'btn-red' %>
                 <% end %>

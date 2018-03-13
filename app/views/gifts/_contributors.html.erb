@@ -20,7 +20,7 @@
         <a><%= participations.count - 2 %> others
           <span>
             <% participations.each do |participation| %>
-              <%= participation.user.first_name.capitalize %>
+              <%= participation.user.full_name %>
             <% end %>
           </span>
         </a>

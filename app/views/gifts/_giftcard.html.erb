@@ -3,15 +3,19 @@
     <span>
       <div class="pop-up-box">
         <div class="pop-up-info">
-          <% if gift.participations.count == 0 %>
-            <p class="pop-up-info">Be the first to contribute to <strong class="larger-text"><%= gift.name %></strong>!</p>
+          <% if gift.participations.empty? %>
+            <p class="pop-up-info">Be the first to contribute to <strong class="larger-text"><%= gift.capitalized_name %></strong>!</p>
             <div class="small-jar"><%= image_tag "jamjar.jpg" %></div>
-          <% elsif gift.participations.count == 1%>
-            <p class="pop-up-info"><%gift.participations.first%> has contributed to <%gift.name%><strong class="larger-text"><%= gift.name %></strong>!</p>
+          <% elsif gift.participations.count == 1 %>
+            <p class="pop-up-info"><%= gift.participations.first.user.first_name.capitalize %> has contributed to <strong class="larger-text"><%= gift.name %></strong>!</p>
           <% else %>
-            <p class="pop-up-info"><%=gift.participations.count%> people have contributed to <strong class="larger-text"><%= gift.name %></strong></p>
-            <div class="small-jar"><%= image_tag "jamjar.jpg" %></div>
-            <p class="pop-up-info"> Amount needed: £<%= gift.amount_left %></p>
+            <p class="pop-up-info"><%= gift.participations.count %> people have contributed to <strong class="larger-text"><%= gift.capitalized_name %></strong></p>
+            <div class="small-jar padding-bottom"><%= image_tag "jamjar.jpg" %></div>
+            <% if gift.amount_left.zero? %>
+              <p class="pop-up-info">This gift has been fulfilled!</p>
+            <% else %>
+              <p class="pop-up-info">Amount needed: £<%= gift.amount_left %></p>
+            <% end %>
           <% end %>
         </div>
       </div>

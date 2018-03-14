@@ -17,7 +17,7 @@
                         <!-- <p class="message-time"><%= message.message_time %></p> -->
                       </div>
                       <div class="list">
-                        <p class="message-text"><%= message.body %></p>
+                        <h6 class="message-text"><%= message.body %></h6>
                       </div>
                       <div>
                         <p class="message-time"><%= message.message_time %></p>
@@ -53,11 +53,13 @@
               <% end %>
             <% end %>
           <% end %>
-          <%= simple_form_for [@event, @conversation, @message] do |f| %>
-            <%= f.input :body, label: false %>
-            <%= f.hidden_field :event_id, value: @event.id %>
-            <%= f.submit "Add Reply", class: "btn-yellow" %>
-          <% end %>
+           <div class="text-center form-inline">
+              <%= simple_form_for [@event, @conversation, @message] do |f| %>
+              <%= f.input :body, label: false %>
+              <%= f.hidden_field :event_id, value: @event.id %>
+              <%= f.submit "Add Reply", class: "btn-yellow" %>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>

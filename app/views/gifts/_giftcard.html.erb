@@ -57,6 +57,7 @@
             <div class="modal-info">
               <%= cl_image_tag (gift.photo), width: 200, height: 200, crop: :fill, class: "gift-photo" %>
               <p><%= gift.description %></p>
+              <p><strong>£<%= gift.price %></strong></p>
             </div>
           </div>
           <div class="modal-pay">
@@ -64,7 +65,6 @@
             <div class="contributions">
               <% if gift.participations.where(state: 'paid').empty? %>
                 <p>Be the first to contribute!</p>
-                <div class="modal-padding"><strong>£<%= gift.price %></strong></div>
                 <%= simple_form_for @participation do |f| %>
                   <%= f.hidden_field :gift_id, value: gift.id %>
                   <%= f.hidden_field :invite_token, value: @token %>
@@ -85,7 +85,6 @@
                   <%= render 'contributors', gift: gift %>
                 </div>
                 <div class="modal-padding">
-                  <strong>£<%= gift.price %></strong></br>
                   <strong>Remaining: £<%= gift.amount_left %></strong>
                   <div id="amount-raised" data-date="<%= gift.amount_raised %>"></div>
                 </div>

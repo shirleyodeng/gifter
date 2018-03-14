@@ -13,6 +13,10 @@
 .nav-tabs > li.active > a {
   background: $yellow !important;
   color: $dark-gray !important;
+  border-left: 1px solid $red !important;
+  border-right: 1px solid $red !important;
+  border-top: 1px solid $red !important;
+  border-bottom: 1px solid $yellow! important;
 }
 
 .nav-tabs > li > a {
@@ -23,3 +27,23 @@
 .invite-header {
   margin-top: 30px;
 }
+
+.gifts-tab {
+  border-top: none !important;
+}
+
+.nav.nav-tabs {
+  border-bottom: 1px solid $red !important;
+  a {
+    border-bottom: 1px solid $red;
+  }
+  a:hover {
+    border-right: 1px solid $red !important;
+    border-top: 1px solid $red !important;
+    border-bottom: 1px solid $yellow !important;
+    border-left: 1px solid $red !important;
+    background-color: $yellow !important;
+  }
+}
+
+

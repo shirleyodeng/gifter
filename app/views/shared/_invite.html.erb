@@ -1,12 +1,19 @@
-<div class="container text-center">
-  <h4>Invite your friends and family</h4>
-  <%= render 'shared/inviteform', event: @event, invite: @invite %>
+<div class="messages-tab container text-center">
+  <div>
+    <h4 class="text-left gray">Invite your friends and family</h4>
+    <%= render 'shared/inviteform', event: @event, invite: @invite %>
+  </div>
   <div id="invites-list">
+    <h4 class="text-left">Guest List</h4>
+    <div class="email-line"></div>
     <% if @event.invites.blank? %>
-      You haven't invited anyone - start inviting!
+      <p>You haven't invited anyone - start inviting!</p>
     <% else %>
       <% @event.invites.order("created_at DESC").each do |invite| %>
-        <p><%= invite.email %></p>
+        <div class="invites-sent">
+          <p class="text-left"><%= invite.email %></p>
+          <p class="resend"> + </p>
+        </div>
       <% end %>
     <% end %>
   </div>

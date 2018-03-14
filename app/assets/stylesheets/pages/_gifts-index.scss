@@ -325,6 +325,58 @@
   margin-bottom: 20px;
 }
 
+// Invites Tab
 #invites-list {
-  padding-top: 20px;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 10px;
+  background-color: $white;
+  box-shadow: 1px 1px 1px $red;
+  p {
+    margin-bottom: 3px !important;
+    font-size: 16px;
+    margin-top: 3px
+  }
+  h4 {
+    margin-bottom: 0px;
+  }
+}
+
+.messages-tab {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 40px;
+}
+
+.invite-btn {
+  border-radius: 4px;
+  background-color: $red;
+  padding: 3px 7px;
+  border: none;
+  color: $white;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: bold;
+  &:hover {
+    background-color: $red;
+    color: $white;
+    opacity: 0.8;
+  }
+}
+
+.email-line {
+  height: 3px;
+  width: 93px;
+  background-color: $red;
+  margin-bottom: 3px;
+  margin-top: 3px;
+}
+
+.invites-sent {
+  display: flex;
+  justify-content: space-between;
+}
+
+.resend {
+  margin-left: 4px;
 }

@@ -10,34 +10,42 @@
               <% user = User.find(message.user_id) %>
               <% if user == current_user %>
                 <div class="message-section">
-                  <div class="message-item body-gray">
+                  <div class="message-item-right body-gray">
                     <div class="content">
                       <div class="message-header">
-                        <strong class="message-name"><%= user.first_name %></strong>
-                        <p class="message-time"><%= message.message_time %></p>
+                        <!-- <strong class="message-name"><%= user.first_name %></strong> -->
+                        <!-- <p class="message-time"><%= message.message_time %></p> -->
                       </div>
                       <div class="list">
                         <p class="message-text"><%= message.body %></p>
+                      </div>
+                      <div>
+                        <p class="message-time"><%= message.message_time %></p>
                       </div>
                     </div>
                   </div>
                   <div class="message-avatar">
                     <%= cl_image_tag user.photo, height: 50, width: 50, class: "avatar-lg" %>
+                    <!-- <div class="messager-name">
+                      <strong><p class="message-name text-center"><%= user.first_name %></p></strong>
+                    </div> -->
                   </div>
                 </div>
               <% else %>
                 <div class="message-section">
                   <div class="message-avatar">
                     <%= cl_image_tag user.photo, height: 50, width: 50, class: "avatar-lg" %>
+                    <!-- <div class="messager-name">
+                      <strong><p class="message-name text-center"><%= user.first_name %></p></strong>
+                    </div> -->
                   </div>
-                  <div class="message-item body-light-gray">
+                  <div class="message-item-left body-light-gray">
                     <div class="content">
-                      <div class="message-header">
-                        <strong class="message-name"><%= user.first_name %></strong>
-                        <p class="message-time"><%= message.message_time %></p>
-                      </div>
                       <div class="list">
                         <p class="message-text"><%= message.body %></p>
+                      </div>
+                      <div>
+                        <p class="message-time"><%= message.message_time %></p>
                       </div>
                     </div>
                   </div>

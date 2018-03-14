@@ -4,6 +4,7 @@
   align-items: center;
   justify-content: space-even;
   padding: 20px;
+  color: $dark-gray !important;
   p {
     font-size: 14px;
   }
@@ -15,7 +16,8 @@
 
 .message-info {
   font-size: 12px;
-  padding-left: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
   width: 150px;
   color: $dark-gray
   p {
@@ -24,11 +26,15 @@
 }
 
 .message-body {
-  a {
-    color: rgba(0,0,0,0.6) !important;
-    font-size: 14px;
+  h6 {
+    font-size: 16px;
   }
-  padding-left: 30px;
+  a {
+    color: $dark-gray !important;
+    font-size: 16px;
+  }
+  padding-left: 20px;
+  padding-right: 20px;
   flex-grow: 1;
   line-height: 10px;
 }
@@ -107,7 +113,7 @@
   line-height: 15px;
   margin-left: 0px;
   padding-left: 0px;
-  color: $dark-gray;
+  color: $dark-gray !important;
 }
 
 .inbox-back {
@@ -118,10 +124,65 @@
 // Conversations
 .conversation-box {
   display: flex;
-  align-item: center;
-  justify-content: space-around;
+}
+
+.messages {
+  flex: 1;
+  margin-right: 40px;
+}
+
+.event-guests {
+  width: 36%;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 10px;
+  background-color: $white;
+  box-shadow: 1px 1px 1px $yellow;
+  border: 1px solid $light-gray;
+  color: $dark-gray !important;
+  h4 {
+    margin-bottom: 6px;
+    margin-top: 12px;
+  }
+}
+
+.yellow-email-line {
+  width: 263px;
+  height: 2px;
+  background-color: $yellow;
+  margin-bottom: 6px;
 }
 
 .fill-high {
   min-height: 60vh;
+}
+
+.chat-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  a {
+    text-decoration: none !important;
+    color: $dark-gray !important;
+  }
+}
+
+.chat-username {
+  display: flex;
+  align-items: center;
+  p {
+    font-size: 16px;
+    margin-bottom: 0px !important;
+    margin-left: 12px;
+  }
+}
+
+.yellow-long-line {
+  text-align: center;
+  height: 4px;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
 }

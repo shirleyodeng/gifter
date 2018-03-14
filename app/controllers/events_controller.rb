@@ -11,20 +11,26 @@ class EventsController < ApplicationController
     authorize @event
   end
 
-  def edit
-  end
-
-  def update
-    @event.update(event_params)
-    redirect_to event_gifts_path(@event)
-  end
-
   def create
     @event = Event.new(event_params)
     @event.creator = current_user
     authorize @event
-    @event.save!
-    redirect_to event_gifts_path(@event)
+    if @event.save
+      redirect_to event_gifts_path(@event)
+    else
+      render :new
+    end
+  end
+
+  def edit
+  end
+
+  def update
+    if @event.update(event_params)
+      redirect_to event_gifts_path(@event)
+    else
+      render :edit
+    end
   end
 
   def destroy

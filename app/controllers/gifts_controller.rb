@@ -29,8 +29,11 @@ class GiftsController < ApplicationController
     @event = Event.find(params[:event_id])
     @gift.event = @event
     authorize @gift
-    @gift.save
-    redirect_to event_gifts_path(@event)
+    if @gift.save
+      redirect_to event_gifts_path(@event)
+    else
+      render :new
+    end
   end
 
   def edit

@@ -3,6 +3,7 @@
   display: inline-block;
   *display: inline;
   zoom: 1;
+  font-weight: bold;
 }
 
 .nav-tabs, .nav-pills {
@@ -11,9 +12,14 @@
 
 .nav-tabs > li.active > a {
   background: $yellow !important;
+  color: $dark-gray !important;
 }
 
 .nav-tabs > li > a {
-  background: #FFE47A !important;
-  color: black;
+  background: #ffe385 !important;
+  color: $dark-gray !important;
+}
+
+.invite-header {
+  margin-top: 30px;
 }

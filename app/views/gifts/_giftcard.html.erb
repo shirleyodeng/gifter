@@ -8,6 +8,12 @@
             <div class="small-jar"><%= image_tag "jamjar.jpg" %></div>
           <% elsif gift.participations.count == 1 %>
             <p class="pop-up-info"><%= gift.participations.first.user.first_name.capitalize %> has contributed to <strong class="larger-text"><%= gift.name %></strong>!</p>
+            <div class="small-jar padding-bottom"><%= image_tag "jamjar.jpg" %></div>
+            <% if gift.amount_left.zero? %>
+              <p class="pop-up-info">This gift has been fulfilled!</p>
+            <% else %>
+              <p class="pop-up-info">Amount needed: £<%= gift.amount_left %></p>
+            <% end %>
           <% else %>
             <p class="pop-up-info"><%= gift.participations.count %> people have contributed to <strong class="larger-text"><%= gift.capitalized_name %></strong></p>
             <div class="small-jar padding-bottom"><%= image_tag "jamjar.jpg" %></div>

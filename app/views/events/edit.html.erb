@@ -18,7 +18,9 @@
             Event name:
             <%= f.input :name, required: true, label: false %>
             Event date:
-            <%= f.input :date, required: true, label: false %>
+            <div class='daterange'>
+              <%= f.input :date, as: :date_picker, label: false %>
+            </div>
             <strong><p>Add bank account details where you would like to receive gift contributions</p></strong>
             Account name:
             <%= f.input :account_name, label: false %>

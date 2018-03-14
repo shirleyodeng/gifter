@@ -56,14 +56,6 @@
   text-align: left !important;
   z-index: 5;
 }
-// .welcome-container {
-//   width: 70%;
-//   margin-top: -80px;
-//   p {
-//     font-weight: 500;
-//     font-size: 20px;
-//   }
-// }
 
 .boy-animation {
   transform: translateX(50px) translateY(-50px);
@@ -93,20 +85,47 @@
   justify-content: center;
   padding-top: 40px;
 }
-//
+// Explainer
+
+.girl {
+  text-align: center;
+  background-color: $yellow;
+  width: 50%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.explainer-text {
+  width: 50%;
+  background-color: white;
+  border:dashed 5px $yellow;
+    h5 {
+      color: $red;
+      font-size: 20px;
+      padding: 3px;
+    }
+}
+
+.flex {
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+
+}
 
 .explainer {
   padding: 10px 0;
-  background: url("http://res.cloudinary.com/dj2d1zdlv/image/upload/v1520431310/background-image.jpg");
+  background-color: white;
+  // background: url("http://res.cloudinary.com/dj2d1zdlv/image/upload/v1520970661/howitworks1.png");
   background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  min-height: 600px;
+  // background-repeat: no-repeat;
+  // background-size: cover;
+  // min-height: 600px;
 }
 
-.white-font {
-  color: $white;
-}
+// .white-font {
+//   color: $white;
+// }
 
 .how-section {
   background-size: cover;
@@ -125,7 +144,73 @@
   background-color: $yellow;
 }
 
-// CAUSES
+// Arrow animation
+$base: 0.6rem;
+
+.container-arrow {
+ display: flex;
+ justify-content: center;
+ // align-items: center;
+ // width: 100%;
+ margin-bottom: 20px;
+}
+
+.chevron {
+  position: absolute;
+  width: $base * 3.5;
+  height: $base * 0.8;
+  opacity: 0;
+  transform: scale(0.3);
+  animation: move-chevron 3s ease-out infinite;
+}
+
+.chevron:first-child {
+  animation: move-chevron 3s ease-out 1s infinite;
+}
+
+.chevron:nth-child(2) {
+  animation: move-chevron 3s ease-out 2s infinite;
+}
+
+.chevron:before,
+.chevron:after {
+ content: '';
+ position: absolute;
+ top: 0;
+ height: 100%;
+ width: 50%;
+ background: $yellow;
+}
+
+.chevron:before {
+ left: 0;
+ transform: skewY(30deg);
+}
+
+.chevron:after {
+ right: 0;
+ width: 50%;
+ transform: skewY(-30deg);
+}
+
+@keyframes move-chevron {
+ 25% {
+  opacity: 1;
+  }
+ 33.3% {
+  opacity: 1;
+  transform: translateY($base * 3.8);
+ }
+ 66.6% {
+  opacity: 1;
+  transform: translateY($base * 5.2);
+ }
+ 100% {
+  opacity: 0;
+  transform: translateY($base * 8) scale(0.5);
+ }
+}
+
 //Avatar
 
 .people-box {

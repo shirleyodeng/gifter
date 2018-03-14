@@ -1,63 +1,61 @@
-<div class="min-container">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-8 col-xs-offset-2">
-        <div class="messages">
-          <h3 class="text-center">Mailbox for <%= @event.child %>'s <%= @event.name %></h3>
-          <% if @conversations.empty? %>
-            <p>You have no messages.</p>
-          <% else %>
-            <ul class="list-unstyled inbox">
-              <% @conversations.order("created_at DESC").each do |conversation| %>
-                <% if conversation.messages.present? %>
-                  <% if conversation.sender_id == current_user.id || conversation.recipient_id == current_user.id %>
-                    <% if conversation.sender_id == current_user.id %>
-                      <% recipient = User.find(conversation.recipient_id) %>
-                    <% else %>
-                      <% recipient = User.find(conversation.sender_id) %>
-                    <% end %>
-                    <% if conversation.messages.last.read == false && conversation.messages.last.user != current_user %>
-                      <% message_backgroud = "body-light-yellow" %>
-                    <% else %>
-                      <% message_backgroud = "body-light-gray" %>
-                    <% end %>
-                    <li class="message <%= message_backgroud %>">
-                      <div class="message-avatar">
-                        <%= cl_image_tag recipient.photo, height: 50, width: 50, class: "avatar-lg" %>
-                      </div>
-                      <div class="message-info">
-                        <h4><%= recipient.full_name %></h4>
-                        <p><%= conversation.messages.last.message_time %></p>
-                      </div>
-                      <div class="message-body">
-                        <p><%= link_to conversation.messages.last.body, event_conversation_messages_path(@event, conversation) %></p>
-                      </div>
-                      <div class="message-contribution">
-                        <% if participation = recipient.participations.where(gift_id: @event.gifts).last %>
-                          <%= participation.gift.name %> - £<%= participation.amount %>
-                        <% end %>
-                      </div>
-                    </li>
-                  <% end %>
+<div class="container fill-high">
+  <div class="conversation-box">
+    <div class="messages">
+      <h3>Mailbox for <%= @event.child %>'s <%= @event.name %></h3>
+      <% if @conversations.empty? %>
+        <p>You have no messages.</p>
+      <% else %>
+        <ul class="list-unstyled inbox">
+          <% @conversations.order("created_at DESC").each do |conversation| %>
+            <% if conversation.messages.present? %>
+              <% if conversation.sender_id == current_user.id || conversation.recipient_id == current_user.id %>
+                <% if conversation.sender_id == current_user.id %>
+                  <% recipient = User.find(conversation.recipient_id) %>
+                <% else %>
+                  <% recipient = User.find(conversation.sender_id) %>
                 <% end %>
+                <% if conversation.messages.last.read == false && conversation.messages.last.user != current_user %>
+                  <% message_backgroud = "body-light-yellow" %>
+                <% else %>
+                  <% message_backgroud = "body-light-gray" %>
+                <% end %>
+                <li class="message <%= message_backgroud %>">
+                  <div class="message-avatar">
+                    <%= cl_image_tag recipient.photo, height: 50, width: 50, class: "avatar-lg" %>
+                  </div>
+                  <div class="message-info">
+                    <h4><%= recipient.full_name %></h4>
+                    <p><%= conversation.messages.last.message_time %></p>
+                  </div>
+                  <div class="message-body">
+                    <p><%= link_to conversation.messages.last.body, event_conversation_messages_path(@event, conversation) %></p>
+                  </div>
+                  <div class="message-contribution">
+                    <% if participation = recipient.participations.where(gift_id: @event.gifts).last %>
+                      <%= participation.gift.name %> - £<%= participation.amount %>
+                    <% end %>
+                  </div>
+                </li>
               <% end %>
-            </ul>
+            <% end %>
           <% end %>
-        </div>
-        <div class="event-guests">
-          <h3 class="text-center">Event Guests</h3>
-          <ul class="list-unstyled">
-            <% if @event.creator != current_user %>
-              <li>Host: <%= @event.creator.full_name %> - <%= link_to "Message me!", event_conversations_path(@event, sender_id: current_user.id, recipient_id: @event.creator.id), method: :post %></li>
-            <% end %>
-            <% @guests.each do |guest| %>
-              <% if guest.user != current_user %>
-                <li><%= guest.user.full_name %> - <%= link_to "Message me!", event_conversations_path(@event, sender_id: current_user.id, recipient_id: guest.user.id), method: :post %></li>
-              <% end %>
-            <% end %>
-          </ul>
-        </div>
-      </div>
+        </ul>
+      <% end %>
+    </div>
+    <div class="event-guests">
+      <h3>Event Guests</h3>
+      <ul class="list-unstyled">
+        <% if @event.creator != current_user %>
+          <%= cl_image_tag @event.creator.photo %>
+          <li>Host: <%= @event.creator.full_name %> - <%= link_to "Message me!", event_conversations_path(@event, sender_id: current_user.id, recipient_id: @event.creator.id), method: :post %></li>
+        <% end %>
+        <% @guests.each do |guest| %>
+          <% if guest.user != current_user %>
+            <%= cl_image_tag @event.creator.photo %>
+            <li><%= guest.user.full_name %> - <%= link_to "Message me!", event_conversations_path(@event, sender_id: current_user.id, recipient_id: guest.user.id), method: :post %></li>
+          <% end %>
+        <% end %>
+      </ul>
     </div>
   </div>
 </div>

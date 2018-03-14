@@ -6,7 +6,7 @@ class GiftsController < ApplicationController
     if params[:check] && params[:token]
       redirect_to new_user_registration_path(invite_token: params[:token])
     elsif params[:check]
-      redirect_to new_user_session_path
+      redirect_to new_user_session_path(event_id: params[:event_id])
     end
     @participation = Participation.new
     @event = Event.find(params[:event_id])

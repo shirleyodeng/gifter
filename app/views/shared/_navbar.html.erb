@@ -16,6 +16,7 @@
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
+      <%= link_to "Create an event", new_event_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Dashboard", events_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Contact us", "/#people", class: "navbar-wagon-item navbar-wagon-link" %>
 

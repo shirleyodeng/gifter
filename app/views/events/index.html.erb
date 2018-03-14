@@ -1,6 +1,11 @@
 <div class="min-container">
   <div class="container">
     <div class="dashboard-container">
+      <div class="girl-container">
+        <div id="girl">
+          <%= cl_image_tag "girlpink1", width: 300 %>
+        </div>
+      </div>
       <h1 class="user-name text-center"><%= current_user.first_name.capitalize %>'s Dashboard</h1>
       <div class="events-container">
         <h2>You are invited to</h2>
@@ -18,7 +23,7 @@
                 </div>
                 <div class="event-box">
                   <%= link_to (cl_image_tag "box", height: 50, width: 50, class: "user-dashboard-icon"), event_gifts_path(guest.event) %>
-                  <p class="icon-hover-text yellow"><%= guest.event.child_name.capitalize %>'s gifts</p>
+                  <p class="icon-hover-text yellow"><%= guest.event.child %>'s gifts</p>
                 </div>
                 <div class="event-box">
                   <% if current_user.participations.where(gift_id: guest.event.gifts).empty? %>
@@ -62,7 +67,7 @@
 
                 <div class="event-box">
                   <%= link_to (cl_image_tag "box", height: 50, width: 50, class: "user-dashboard-icon"), event_gifts_path(event) %>
-                  <p class="icon-hover-text yellow"><%= event.child_name.capitalize %>'s gifts</p>
+                  <p class="icon-hover-text yellow"><%= event.child %>'s gifts</p>
                 </div>
 
                 <div class="event-box">

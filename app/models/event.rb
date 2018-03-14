@@ -20,7 +20,6 @@ class Event < ApplicationRecord
   end
 
   def generate_uid
-    # raise
     self.uid = Digest::SHA1.hexdigest([self.user_id, Time.now, rand].join)
   end
 end

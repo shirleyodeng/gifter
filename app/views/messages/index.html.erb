@@ -25,7 +25,7 @@
                     </div>
                   </div>
                   <div class="message-avatar">
-                    <%= cl_image_tag user.photo, height: 50, width: 50, class: "avatar-lg" %>
+                    <%= cl_image_tag (current_user.photo.present? ? current_user.photo : 'default-profile-image'), class: "avatar-lg-message" %>
                     <!-- <div class="messager-name">
                       <strong><p class="message-name text-center"><%= user.first_name %></p></strong>
                     </div> -->
@@ -34,7 +34,7 @@
               <% else %>
                 <div class="message-section">
                   <div class="message-avatar">
-                    <%= cl_image_tag user.photo, height: 50, width: 50, class: "avatar-lg" %>
+                    <%= cl_image_tag (current_user.photo.present? ? current_user.photo : 'default-profile-image'), class: "avatar-lg-message" %>
                     <!-- <div class="messager-name">
                       <strong><p class="message-name text-center"><%= user.first_name %></p></strong>
                     </div> -->

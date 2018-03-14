@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   validates :first_name, presence: true
   validates :last_name, presence: true
+  validates :email, uniqueness: true
   mount_uploader :photo, PhotoUploader
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,

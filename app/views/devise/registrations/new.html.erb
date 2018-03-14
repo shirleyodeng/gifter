@@ -14,7 +14,6 @@
             <%= f.input :last_name, required: true, label: false, placeholder: "Last name"%>
             <%= f.input :email, required: true, autofocus: true, label: false, placeholder: "Email" %>
             <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), label: false, placeholder: "Password" %>
-            <%= f.input :password_confirmation, required: true, label: false, placeholder: "Password confirmation" %>
           </div>
           <div class="form-actions">
             <%= f.button :submit, "Sign up", class: "form-btn" %>

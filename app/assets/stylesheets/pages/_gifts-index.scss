@@ -43,12 +43,16 @@
     box-shadow: 3px 3px 3px $red;
   }
 }
-
-.gift-info h3 {
-  margin-top: 10px;
+.gift-link-info {
+  margin-top: 14px;
   font-size: 20px;
-  margin-bottom: 5px;
-  font-weight: 500;
+  font-weight: 700;
+}
+
+.gift-link-name {
+  text-decoration: none !important;
+  color: $dark-gray !important;
+  font-family: "Poppins", "sans-serif";
 }
 
 .gift-photo {
@@ -105,6 +109,10 @@
 
 .gift-modal-name {
   padding-top: 200px;
+  margin-top: 20px;
+  font-size: 20px;
+  margin-bottom: 5px;
+  font-weight: 700;
 }
 
 
@@ -165,6 +173,7 @@
 
 .modal-pay {
   text-align: center;
+  padding-left: 40px;
 }
 
 .button.close {
@@ -380,3 +389,13 @@
 .resend {
   margin-left: 4px;
 }
+
+#progress {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100px;
+  height: 100px;
+  position: relative;
+}
+
+

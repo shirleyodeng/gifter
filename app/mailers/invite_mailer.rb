@@ -6,7 +6,11 @@ class InviteMailer < ApplicationMailer
 
   def invite_to_event(invite, token)
     @invite = invite
-    @token = token
+    if User.find_by_email(@invite.email)
+      @token = nil
+    else
+      @token = token
+    end
     mail(to: @invite.email, subject: "You've been invited to an event on Gifter by #{invite.sender.first_name}!")
   end
 end

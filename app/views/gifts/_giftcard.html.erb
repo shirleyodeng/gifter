@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div id="popup">
   <a><%= cl_image_tag gift.photo, width: 190, height: 190, crop: :fill, class: "gift-photo" %>
     <span>
@@ -28,12 +29,22 @@
     </span>
   </a>
 </div>
-<div class="gift-info">
-  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal<%= gift.id %>">
-    <div class="gift-modal-name">
-      <%= gift.capitalized_name %>
+
+  <% if current_user %>
+    <div class="gift-info">
+    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal<%= gift.id %>">
+      <div class="gift-modal-name">
+          <%= gift.capitalized_name %>
+      </div>
+    </button>
+  </div>
+
+  <% else %>
+    <div class="gift-link-info">
+    <%= link_to gift.capitalized_name, event_gifts_path(event: @event, check: true, token: params[:token]), class: "gift-link-name" %>
     </div>
-  </button>
+  <% end %>
+
   <div id="myModal<%= gift.id %>" class="modal" role="dialog">
     <div class="modal-dialog modal-background-color">
       <div class="modal-content">
@@ -93,5 +104,4 @@
         </div>
       </div>
     </div>
-  </div>
 </div>

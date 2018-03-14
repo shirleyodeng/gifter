@@ -8,9 +8,7 @@ class GiftsController < ApplicationController
     @token = params[:token]
     @gifts = @event.gifts
     @gifts = policy_scope(@gifts)
-    if @event.uid == params["uid"]
-      @invite = Invite.new
-    elsif @event.guests.where(user: current_user).present? || @event.creator == current_user
+    if @event.uid == params["uid"] || @event.guests.where(user: current_user).present? || @event.creator == current_user
       @invite = Invite.new
     else
       flash[:alert] = "You don't have access to this event!"

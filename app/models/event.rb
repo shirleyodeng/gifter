@@ -10,6 +10,7 @@ class Event < ApplicationRecord
   validates :date, presence: true
   validates :child_name, presence: true
   validates :uid, presence: true
+  validates :child_photo, presence: true
   mount_uploader :child_photo, PhotoUploader
 
   def child

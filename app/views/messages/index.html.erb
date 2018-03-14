@@ -1,7 +1,7 @@
 <div class="min-container">
   <div class="container">
     <div class="row">
-      <div class="col-xs-4 col-xs-offset-4">
+      <div class="col-xs-6 col-xs-offset-3">
         <div class="form-container">
           <%= link_to "< Back to inbox", event_conversations_path(@event), class: "inbox-back" %>
           <h3 class="yellow">Conversation with <%= @other_user.full_name %></h3>
@@ -9,24 +9,40 @@
             <% if message.body %>
               <% user = User.find(message.user_id) %>
               <% if user == current_user %>
-                <%  message_background = "body-gray" %>
-              <% else %>
-                <% message_background = "body-light-gray" %>
-              <% end %>
-              <div class="message-item <%= message_background %>">
-                <div class="content">
-                  <div class="header">
-                      <strong><%= user.first_name %></strong>
-                      <p class="message-time", style="display: inline;"><%= message.message_time %></p>
+                <div class="message-section">
+                  <div class="message-item body-gray">
+                    <div class="content">
+                      <div class="message-header">
+                        <strong class="message-name"><%= user.first_name %></strong>
+                        <p class="message-time"><%= message.message_time %></p>
+                      </div>
+                      <div class="list">
+                        <p class="message-text"><%= message.body %></p>
+                      </div>
+                    </div>
                   </div>
-                  <div class="list">
-                    <div class="item">
-                      <i class="right triangle icon"></i>
-                      <p class="message-text"><%= message.body %></p>
+                  <div class="message-avatar">
+                    <%= cl_image_tag user.photo, height: 50, width: 50, class: "avatar-lg" %>
+                  </div>
+                </div>
+              <% else %>
+                <div class="message-section">
+                  <div class="message-avatar">
+                    <%= cl_image_tag user.photo, height: 50, width: 50, class: "avatar-lg" %>
+                  </div>
+                  <div class="message-item body-light-gray">
+                    <div class="content">
+                      <div class="message-header">
+                        <strong class="message-name"><%= user.first_name %></strong>
+                        <p class="message-time"><%= message.message_time %></p>
+                      </div>
+                      <div class="list">
+                        <p class="message-text"><%= message.body %></p>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
+              <% end %>
             <% end %>
           <% end %>
           <%= simple_form_for [@event, @conversation, @message] do |f| %>

@@ -16,7 +16,7 @@
                     <% else %>
                       <% recipient = User.find(conversation.sender_id) %>
                     <% end %>
-                    <% if conversation.messages.last.read == false %>
+                    <% if conversation.messages.last.read == false && conversation.messages.last.user != current_user %>
                       <% message_backgroud = "body-light-yellow" %>
                     <% else %>
                       <% message_backgroud = "body-light-gray" %>

@@ -38,13 +38,26 @@
   width: 80px;
 }
 
+.message-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.message-header {
+  display: flex;
+  justify-content: space-between;
+}
+
 .message-time {
   font-size: 14px;
+  display: inline;
 }
 
 .message-item {
-  padding: 10px;
+  padding: 10px 10px 10px 20px;
   margin-bottom: 10px;
+  flex-grow: 1;
 }
 
 .message-text {

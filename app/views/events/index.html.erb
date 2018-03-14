@@ -14,7 +14,7 @@
             <div class="event-card light-gray hover-yellow">
               <div class="event-flex">
                 <% if guest.event.child_photo.present? %>
-                  <%= image_tag guest.event.child_photo.url(:event_avatar) %>
+                  <%= image_tag guest.event.child_photo.url(:event_avatar), class: "avatar-sm-invite" %>
                 <% end %>
                 <div class="event-title">
                   <h4><%= guest.event.child %>'s <%= guest.event.name %></h4>
@@ -27,7 +27,7 @@
                     <p class="icon-hover-text gray">Contribute</p>
                   <% else %>
                     <%= link_to (cl_image_tag "happy3", height: 50, width: 50, class: "user-dashboard-icon"), event_gifts_path(guest.event) %>
-                    <p class="icon-hover-text yellow">Thank you</p>
+                    <p class="icon-hover-text yellow">You've contributed XXXXX!</p>
                   <% end %>
                 </div>
                 <div class="event-box">
@@ -54,15 +54,21 @@
             <div class="event-card light-gray hover-red">
               <div class="event-flex">
                 <% if event.child_photo.present? %>
-                  <%= image_tag event.child_photo.url(:event_avatar) %>
+                  <%= image_tag event.child_photo.url(:event_avatar), class: "avatar-sm-host" %>
                 <% end %>
                 <div class="event-title">
                   <h4><%= event.child %>'s <%= event.name.capitalize %></h4>
                   <p><%= event.date.to_time.strftime("%A %e %B %Y") %></p>
                 </div>
                 <div class="event-box">
+                  <%= link_to event_gifts_path(event_id: event.id) do %>
+                    <%= cl_image_tag "box", height: 50, width: 50, class: "user-dashboard-icon" %>
+                  <% end %>
+                    <p class="icon-hover-text yellow">View event</p>
+                </div>
+                <div class="event-box">
                   <%= link_to event_gifts_path(event_id: event.id, invites: 'true') do %>
-                    <%= cl_image_tag "envelope2", height: 50, width: 50, class: "user-dashboard-icon" %>
+                    <%= cl_image_tag "envelope", height: 50, width: 50, class: "user-dashboard-icon" %>
                   <% end %>
                     <p class="icon-hover-text gray">Send invites</p>
                 </div>

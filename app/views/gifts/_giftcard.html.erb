@@ -8,7 +8,7 @@
             <div class="small-jar"><%= image_tag "jamjar.jpg" %></div>
           <% elsif gift.participations.count == 1 %>
             <p class="pop-up-info"><%= gift.participations.first.user.first_name.capitalize %> has contributed to <strong class="larger-text"><%= gift.name %></strong>!</p>
-            <div class="small-jar padding-bottom"><%= image_tag "jamjar.jpg" %></div>
+            <div class="small-jar padding-bottom"></div>
             <% if gift.amount_left.zero? %>
               <p class="pop-up-info">This gift has been fulfilled!</p>
             <% else %>
@@ -60,7 +60,7 @@
             </div>
           </div>
           <div class="modal-pay">
-           <div class="jar"><%= image_tag "jamjar.jpg" %></div>
+           <div id="progress"></div>
             <div class="contributions">
               <% if gift.participations.where(state: 'paid').empty? %>
                 <p>Be the first to contribute!</p>
@@ -87,6 +87,7 @@
                 <div class="modal-padding">
                   <strong>£<%= gift.price %></strong></br>
                   <strong>Remaining: £<%= gift.amount_left %></strong>
+                  <div id="amount-raised" data-date="<%= gift.amount_raised %>"></div>
                 </div>
                 <% if gift.amount_left.zero? %>
                   <p>This gift has been fulfilled!</p>
@@ -104,3 +105,5 @@
       </div>
     </div>
 </div>
+
+<%= javascript_pack_tag 'progress' %>

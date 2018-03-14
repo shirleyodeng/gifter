@@ -3,6 +3,11 @@ class GiftsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
 
   def index
+    if params[:check] && params[:token]
+      redirect_to new_user_registration_path(invite_token: params[:token])
+    elsif params[:check]
+      redirect_to new_user_session_path
+    end
     @participation = Participation.new
     @event = Event.find(params[:event_id])
     @token = params[:token]
@@ -13,8 +18,8 @@ class GiftsController < ApplicationController
     elsif @event.guests.where(user: current_user).present? || @event.creator == current_user
       @invite = Invite.new
     else
-      flash[:alert] = "You don't have access to this event!"
-      redirect_to root_path
+      flash[:alert] = "You do not have access to this event!"
+      # redirect_to root_path
     end
   end
 

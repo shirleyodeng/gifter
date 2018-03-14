@@ -1,6 +1,6 @@
 class ParticipationsController < ApplicationController
   before_action :set_participation, only: [:show, :update]
-  skip_before_action :authenticate_user!, only: [:create]
+  # skip_before_action :authenticate_user!, only: [:create]
 
   def show
     redirect_to :root unless @participation.state == "paid"

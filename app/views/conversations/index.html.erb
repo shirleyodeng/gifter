@@ -1,9 +1,9 @@
  <div class="min-container">
   <div class="container fill-high padding-bottom">
-    <h3>Mailbox</h3>
-    <h4><%= @event.child %>'s <%= @event.name %></h4>
     <div class="conversation-box">
       <div class="messages">
+        <h3>Mailbox</h3>
+        <h4><%= @event.child %>'s <%= @event.name %></h4>
         <% if @conversations.empty? %>
           <p>You have no messages.</p>
         <% else %>

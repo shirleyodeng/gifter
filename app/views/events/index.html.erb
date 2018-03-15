@@ -14,7 +14,7 @@
             <div class="event-card light-gray hover-red">
               <div class="event-flex">
                 <%= cl_image_tag (guest.event.child_photo.present? ? guest.event.child_photo : 'avatar-yellow'), class: "avatar-sm-dashboard" %>
-                <div class="event-title-invited">
+                <div class="event-title">
                   <%= link_to event_gifts_path(guest.event) do %>
                     <h4><%= guest.event.child %>'s <%= guest.event.name %></h4>
                   <% end %>
@@ -71,8 +71,8 @@
                   <p class="icon-hover-text gray">View messages</p>
                 </div>
                 <div class="event-box">
-                    <div class="total" data-integer="<%= event.total_raised %>"></div>
-                    <p class="icon-hover-text gray">Amount Raised</p>
+                    <div class="total event-box:hover user-dashboard-icon" data-integer="<%= event.total_raised %>"></div>
+                    <p class="icon-hover-text red">Amount Raised</p>
                 </div>
               </div>
             </div>

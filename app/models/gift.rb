@@ -4,6 +4,8 @@ class Gift < ApplicationRecord
   monetize :price_cents
   validates :name, presence: true
   validates :description, presence: true
+  validates :photo, presence: true
+  validates :price, presence: true
   mount_uploader :photo, PhotoUploader
 
   def amount_left
@@ -12,6 +14,14 @@ class Gift < ApplicationRecord
       sum += participation.amount
     end
     self.price - sum
+  end
+
+  def amount_raised
+    sum = 0
+    self.participations.where(state: 'paid').each do |participation|
+      sum += participation.amount
+    end
+    return sum / self.price
   end
 
   def capitalized_name

@@ -12,12 +12,8 @@
                 <div class="message-section">
                   <div class="message-item-right body-gray">
                     <div class="content">
-                      <div class="message-header">
-                        <!-- <strong class="message-name"><%= user.first_name %></strong> -->
-                        <!-- <p class="message-time"><%= message.message_time %></p> -->
-                      </div>
                       <div class="list">
-                        <p class="message-text"><%= message.body %></p>
+                        <h6 class="message-text"><%= message.body %></h6>
                       </div>
                       <div>
                         <p class="message-time"><%= message.message_time %></p>
@@ -25,19 +21,13 @@
                     </div>
                   </div>
                   <div class="message-avatar">
-                    <%= cl_image_tag user.photo, height: 50, width: 50, class: "avatar-lg" %>
-                    <!-- <div class="messager-name">
-                      <strong><p class="message-name text-center"><%= user.first_name %></p></strong>
-                    </div> -->
+                    <%= cl_image_tag (current_user.photo.present? ? current_user.photo : 'default-profile-image'), class: "avatar-sm-dashboard" %>
                   </div>
                 </div>
               <% else %>
                 <div class="message-section">
                   <div class="message-avatar">
-                    <%= cl_image_tag user.photo, height: 50, width: 50, class: "avatar-lg" %>
-                    <!-- <div class="messager-name">
-                      <strong><p class="message-name text-center"><%= user.first_name %></p></strong>
-                    </div> -->
+                    <%= cl_image_tag (current_user.photo.present? ? current_user.photo : 'default-profile-image'), class: "avatar-sm-dashboard" %>
                   </div>
                   <div class="message-item-left body-light-gray">
                     <div class="content">
@@ -53,11 +43,13 @@
               <% end %>
             <% end %>
           <% end %>
-          <%= simple_form_for [@event, @conversation, @message] do |f| %>
-            <%= f.input :body, label: false %>
-            <%= f.hidden_field :event_id, value: @event.id %>
-            <%= f.submit "Add Reply", class: "btn-yellow" %>
-          <% end %>
+           <div class="text-center form-inline">
+              <%= simple_form_for [@event, @conversation, @message] do |f| %>
+              <%= f.input :body, label: false %>
+              <%= f.hidden_field :event_id, value: @event.id %>
+              <%= f.submit "Add Reply", class: "btn-yellow" %>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>

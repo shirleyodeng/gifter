@@ -5,13 +5,15 @@
         <%= cl_image_tag @event.child_photo, width: 70, height: 70, crop: :thumb, gravity: :face, class: "avatar-lg"%>
         <div class="event-info-title text-center">
           <h1>Welcome to <%= @event.child %>'s <%=@event.name %></h1>
+        </div>
+        <p>
+          <%= @event.date.to_time.strftime("%A %e %B %Y")%> | Host: <%= @event.creator.full_name %>
           <% if policy(@event).update? %>
             <%= link_to edit_event_path(@event) do %>
               <i class="fa fa-pencil edit-event"></i>
             <% end %>
           <% end %>
-        </div>
-        <p><%= @event.date.to_time.strftime("%A %e %B %Y")%> | Host: <%= @event.creator.full_name %></p>
+        </p>
       </div>
     </div>
 

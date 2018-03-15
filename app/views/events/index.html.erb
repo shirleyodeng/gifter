@@ -14,35 +14,29 @@
             <div class="event-card light-gray hover-yellow">
               <div class="event-flex">
                 <% if guest.event.child_photo.present? %>
-                  <%= image_tag guest.event.child_photo.url(:event_avatar) %>
+                  <%= image_tag guest.event.child_photo.url(:event_avatar), class: "avatar-sm-dashboard" %>
                 <% end %>
                 <div class="event-title">
-                  <h4><%= guest.event.child %>'s <%= guest.event.name %></h4>
+                  <%= link_to event_gifts_path(guest.event) do %>
+                    <h4><%= guest.event.child %>'s <%= guest.event.name %></h4>
+                  <% end %>
                   <p><%= guest.event.date.to_time.strftime("%A %e %B %Y") %></p>
                   <p>Invited by: <%= guest.event.creator.full_name %></p>
                 </div>
                 <div class="event-box">
-                  <%= link_to (cl_image_tag "box", height: 50, width: 50, class: "user-dashboard-icon"), event_gifts_path(guest.event) %>
-                  <p class="icon-hover-text yellow"><%= guest.event.child %>'s gifts</p>
+                  <%= link_to (cl_image_tag "envelope2", height: 50, width: 50, class: "user-dashboard-icon"), event_conversations_path(guest.event) %>
+                  <p class="icon-hover-text gray">View messages</p>
                 </div>
                 <div class="event-box">
-                  <%= link_to (cl_image_tag "mail", height: 50, width: 50, class: "user-dashboard-icon"), event_conversations_path(guest.event) %>
-                  <p class="icon-hover-text red">View messages</p>
-                </div>
-                <div class="event-box">
-                  <% event_participations = current_user.participations.where(gift_id: guest.event.gifts) %>
-                  <% if event_participations.empty? %>
-                    <%= link_to (cl_image_tag "sad_face", height: 50, width: 50, class: "user-dashboard-icon"), event_gifts_path(guest.event) %>
+                  <% if current_user.participations.where(gift_id: guest.event.gifts).empty? %>
+                    <%= cl_image_tag "sad_face", height: 50, width: 50, class: "user-dashboard-icon" %>
                     <p class="icon-hover-text gray">Contribute</p>
                   <% else %>
-                    <% total_amount = 0 %>
-                    <% event_participations.each do |participation| %>
-                      <% total_amount += participation.amount %>
-                    <% end %>
-                    <%= link_to (cl_image_tag "smilegreen", height: 50, width: 50, class: "user-dashboard-icon"), event_gifts_path(guest.event) %>
-                    <p class="icon-hover-text font-green">£<%= total_amount %> contributed</p>
+                    <%= cl_image_tag "happy3", height: 50, width: 50, class: "user-dashboard-icon" %>
+                    <p class="icon-hover-text yellow">You've contributed XXXXX!</p>
                   <% end %>
                 </div>
+
               </div>
             </div>
           <% end %>
@@ -63,24 +57,20 @@
             <div class="event-card light-gray hover-red">
               <div class="event-flex">
                 <% if event.child_photo.present? %>
-                  <%= image_tag event.child_photo.url(:event_avatar) %>
+                  <%= image_tag event.child_photo.url(:event_avatar), class: "avatar-sm-dashboard" %>
                 <% end %>
                 <div class="event-title">
-                  <h4><%= event.child %>'s <%= event.name.capitalize %></h4>
+                  <%= link_to event_gifts_path(event_id: event.id) do %>
+                    <h4><%= event.child %>'s <%= event.name.capitalize %></h4>
+                  <% end %>
                   <p><%= event.date.to_time.strftime("%A %e %B %Y") %></p>
                 </div>
                 <div class="event-box">
-                  <%= link_to (cl_image_tag "box", height: 50, width: 50, class: "user-dashboard-icon"), event_gifts_path(event) %>
-                  <p class="icon-hover-text yellow"><%= event.child %>'s gifts</p>
+                  <%= link_to (cl_image_tag "envelope2", height: 50, width: 50, class: "user-dashboard-icon"), event_conversations_path(event) %>
+                  <p class="icon-hover-text gray">View messages</p>
                 </div>
                 <div class="event-box">
-                  <%= link_to (cl_image_tag "mail", height: 50, width: 50, class: "user-dashboard-icon"), event_conversations_path(event) %>
-                  <p class="icon-hover-text red">View messages</p>
-                </div>
-                <div class="event-box">
-                  <%= link_to event_gifts_path(event_id: event.id, invites: 'true') do %>
                     <%= cl_image_tag "envelope", height: 50, width: 50, class: "user-dashboard-icon" %>
-                  <% end %>
                     <p class="icon-hover-text gray">Send invites</p>
                 </div>
               </div>

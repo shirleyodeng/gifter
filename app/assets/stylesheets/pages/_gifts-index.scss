@@ -17,15 +17,15 @@
 .event-info-header {
   margin-bottom: 10px;
   font-size: 16px;
+  i {
+    color: $dark-gray;
+  }
 }
 
 .event-info-title {
   h1 {
     display: inline-block;
-  }
-  i {
-    color: $dark-gray;
-    display: inline-block;
+    margin-bottom: 12px;
   }
 }
 
@@ -109,10 +109,11 @@
 
 .gift-modal-name {
   padding-top: 200px;
-  margin-top: 20px;
+  margin-top: 10px;
   font-size: 20px;
-  margin-bottom: 5px;
   font-weight: 700;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 
@@ -335,7 +336,7 @@
 }
 
 // Invites Tab
-#invites-list {
+.invites-list {
   padding-left: 40px;
   padding-right: 40px;
   padding-bottom: 10px;
@@ -365,7 +366,7 @@
   color: $white;
   display: inline-block;
   font-size: 16px;
-  font-weight: bold;
+  font-weight: 400;
   &:hover {
     background-color: $red;
     color: $white;
@@ -387,12 +388,29 @@
 }
 
 .resend {
-  margin-left: 4px;
+  a {
+    color: $red;
+  }
+  margin-left: 20px;
 }
 
+#progress {
+  width: 100px;
+  height: 100px;
+  position: relative;
+}
 
+.progress-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-
-
-
+.progress-info {
+  margin-left: 10px;
+  p {
+    font-size: 12px;
+    margin: 0px;
+  }
+}
 

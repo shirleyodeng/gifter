@@ -5,11 +5,25 @@
 .alert {
   margin: 0;
   text-align: center;
-  color: white;
+  color: black !important;
 }
 .alert-info {
   background: $green;
 }
 .alert-warning {
   background: $red;
+}
+
+.alert-danger {
+  background-color: $white !important;
+  border-color: $white !important;
+}
+
+.has-error .form-control {
+  border-color: $red !important;
+}
+
+.has-error .help-block {
+  color: $red !important;
+  font-size: 16px !important;
 }

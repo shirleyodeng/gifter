@@ -1,7 +1,8 @@
 .dashboard-container {
   text-align: center;
-  padding: 30;
+  padding: 30px;
   margin-top: 40px;
+  margin-bottom: 50px;
   a:hover {
     text-decoration: none;
   }
@@ -90,6 +91,9 @@
   width: 30%;
   text-align: center;
   line-height: 15px;
+  a {
+    color: black;
+  }
   h4 {
     margin-top: 3px;
     margin-bottom: 3px;

@@ -21,7 +21,7 @@ class Gift < ApplicationRecord
     self.participations.where(state: 'paid').each do |participation|
       sum += participation.amount
     end
-    return (sum / self.price).to_f
+    return (sum / self.price.to_f).to_f
   end
 
   def capitalized_name

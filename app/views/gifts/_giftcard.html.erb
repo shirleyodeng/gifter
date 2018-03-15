@@ -1,32 +1,69 @@
 <div id="popup">
-  <a><%= cl_image_tag gift.photo, width: 190, height: 190, crop: :fill, class: "gift-photo" %>
-    <span>
-      <div class="pop-up-box" data-toggle="modal" data-target="#myModal<%= gift.id %>">
-        <div class="pop-up-info">
-          <% if gift.participations.empty? %>
-            <p class="pop-up-info">Be the first to contribute to <strong class="larger-text"><%= gift.capitalized_name %></strong>!</p>
-            <div class="small-jar"><%= image_tag "jamjar.jpg" %></div>
-          <% elsif gift.participations.count == 1 %>
-            <p class="pop-up-info"><%= gift.participations.first.user.first_name.capitalize %> has contributed to <strong class="larger-text"><%= gift.name %></strong>!</p>
-            <div class="small-jar padding-bottom"></div>
-            <% if gift.amount_left.zero? %>
-              <p class="pop-up-info">This gift has been fulfilled!</p>
-            <% else %>
+  <% if current_user %>
+    <a><%= cl_image_tag gift.photo, width: 190, height: 190, crop: :fill, class: "gift-photo" %>
+      <span>
+        <div class="pop-up-box" data-toggle="modal" data-target="#myModal<%= gift.id %>">
+          <div class="pop-up-info">
+            <% if gift.participations.empty? %>
+               <% if @event.creator == current_user %>
+                <p class="pop-up-info">No one has contributed to <strong class="larger-text"><%= gift.capitalized_name %></strong> yet!</p>
+              <% else %>
+                <p class="pop-up-info">Be the first to contribute to <strong class="larger-text"><%= gift.capitalized_name %></strong>!</p>
+              <% end %>
+              <div class="small-jar padding-bottom"><%= image_tag "jamjar.jpg" %></div>
               <p class="pop-up-info">Amount needed: £<%= gift.amount_left %></p>
-            <% end %>
-          <% else %>
-            <p class="pop-up-info"><%= gift.participations.count %> people have contributed to <strong class="larger-text"><%= gift.capitalized_name %></strong></p>
-            <div class="small-jar padding-bottom"><%= image_tag "jamjar.jpg" %></div>
-            <% if gift.amount_left.zero? %>
-              <p class="pop-up-info">This gift has been fulfilled!</p>
+            <% elsif gift.participations.count == 1 %>
+              <p class="pop-up-info"><%= gift.participations.first.user.first_name.capitalize %> has contributed to <strong class="larger-text"><%= gift.name %></strong>!</p>
+              <div class="small-jar padding-bottom"><%= image_tag "jamjar.jpg" %></div>
+              <% if gift.amount_left.zero? %>
+                <p class="pop-up-info">This gift has been fulfilled!</p>
+              <% else %>
+                <p class="pop-up-info">Amount needed: £<%= gift.amount_left %></p>
+              <% end %>
             <% else %>
-              <p class="pop-up-info">Amount needed: £<%= gift.amount_left %></p>
+              <p class="pop-up-info"><%= gift.participations.count %> people have contributed to <strong class="larger-text"><%= gift.capitalized_name %></strong></p>
+              <div class="small-jar padding-bottom"><%= image_tag "jamjar.jpg" %></div>
+              <% if gift.amount_left.zero? %>
+                <p class="pop-up-info">This gift has been fulfilled!</p>
+              <% else %>
+                <p class="pop-up-info">Amount needed: £<%= gift.amount_left %></p>
+              <% end %>
             <% end %>
-          <% end %>
+          </div>
         </div>
-      </div>
-    </span>
-  </a>
+      </span>
+    </a>
+
+  <% else %>
+    <a><%= cl_image_tag gift.photo, width: 190, height: 190, crop: :fill, class: "gift-photo" %>
+      <span>
+        <div class="pop-up-box" data-toggle="modal" data-target="#myModal<%= gift.id %>">
+          <div class="pop-up-info">
+            <% if gift.participations.empty? %>
+              <p class="pop-up-info">Be the first to contribute to <strong class="larger-text"><%= gift.capitalized_name %></strong>!</p>
+              <div class="small-jar"><%= image_tag "jamjar.jpg" %></div>
+            <% elsif gift.participations.count == 1 %>
+              <p class="pop-up-info"><%= gift.participations.first.user.first_name.capitalize %> has contributed to <strong class="larger-text"><%= gift.name %></strong>!</p>
+              <div class="small-jar padding-bottom"><%= image_tag "jamjar.jpg" %></div>
+              <% if gift.amount_left.zero? %>
+                <p class="pop-up-info">This gift has been fulfilled!</p>
+              <% else %>
+                <p class="pop-up-info">Amount needed: £<%= gift.amount_left %></p>
+              <% end %>
+            <% else %>
+              <p class="pop-up-info"><%= gift.participations.count %> people have contributed to <strong class="larger-text"><%= gift.capitalized_name %></strong></p>
+              <div class="small-jar padding-bottom"><%= image_tag "jamjar.jpg" %></div>
+              <% if gift.amount_left.zero? %>
+                <p class="pop-up-info">This gift has been fulfilled!</p>
+              <% else %>
+                <p class="pop-up-info">Amount needed: £<%= gift.amount_left %></p>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      </span>
+    </a>
+  <% end %>
 </div>
 
   <% if current_user %>
@@ -71,12 +108,23 @@
             </div>
             <div class="contributions">
               <% if gift.participations.where(state: 'paid').empty? %>
-                <p>Be the first to contribute!</p>
-                <%= simple_form_for @participation do |f| %>
-                  <%= f.hidden_field :gift_id, value: gift.id %>
-                  <%= f.hidden_field :invite_token, value: @token %>
-                  <%= f.input :amount, label: "Amount (£)" %>
-                  <%= f.submit 'Contribute', class: 'btn-red' %>
+                <% if @event.creator == current_user %>
+                  <p>No one has contributed yet!</p>
+                <% else %>
+                  <p>Be the first to contribute!</p>
+                <% end %>
+                <div class="modal-padding">
+                  <p><strong>Amount needed: £<%= gift.amount_left %></strong></p>
+                  <div id="amount-raised" data-date="<%= gift.amount_raised %>"></div>
+                </div>
+                <% if @event.creator == current_user %>
+                <% else %>
+                  <%= simple_form_for @participation do |f| %>
+                    <%= f.hidden_field :gift_id, value: gift.id %>
+                    <%= f.hidden_field :invite_token, value: @token %>
+                    <%= f.input :amount, label: "Amount (£)" %>
+                    <%= f.submit 'Contribute', class: 'btn-red' %>
+                  <% end %>
                 <% end %>
               <% else %>
                 <div class="contributors">
@@ -91,8 +139,16 @@
                   </div>
                   <%= render 'contributors', gift: gift %>
                 </div>
+<<<<<<< HEAD
+=======
+                <div class="modal-padding">
+                  <strong>Amount needed: £<%= gift.amount_left %></strong>
+                  <div id="amount-raised" data-date="<%= gift.amount_raised %>"></div>
+                </div>
+>>>>>>> ac4582d2de0e0c3aba5051b0843b4aa9edeae865
                 <% if gift.amount_left.zero? %>
                   <p>This gift has been fulfilled!</p>
+                <% elsif @event.creator == current_user %>
                 <% else %>
                   <%= simple_form_for @participation do |f| %>
                     <%= f.hidden_field :gift_id, value: gift.id %>

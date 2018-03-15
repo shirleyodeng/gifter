@@ -9,7 +9,7 @@ class InvitePolicy < ApplicationPolicy
     true
   end
 
-  def destroy?
-    record.user == user
+  def resend?
+    record.event.creator == user
   end
 end

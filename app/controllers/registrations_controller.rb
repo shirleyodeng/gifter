@@ -8,8 +8,14 @@ class RegistrationsController < Devise::RegistrationsController
     @user = User.create(user_params)
     if @user.save
       @token = params[:invite_token]
-      unless @token.nil?
-        event =  Invite.find_by_token(@token).event
+      @uid = params[:uid]
+      if @token.present?
+        event = Invite.find_by_token(@token).event
+        @user.events.push(event)
+        sign_in @user
+        redirect_to event_gifts_path(event)
+      elsif @uid.present?
+        event = Event.find_by_uid(@uid)
         @user.events.push(event)
         sign_in @user
         redirect_to event_gifts_path(event)

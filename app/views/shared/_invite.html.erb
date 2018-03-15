@@ -1,21 +1,36 @@
-<div class="messages-tab container text-center">
+<div class="messages-tab container text-left">
   <div>
-    <h4 class="text-left gray">Invite your friends and family</h4>
+    <h4 class="text-left gray text-left padding-bottom">Invite your friends and family</h4>
     <%= render 'shared/inviteform', event: @event, invite: @invite %>
+    <hr class="hr-text">
+    <h4 class="text-left gray text-left padding-bottom">Share your event</h4>
+    <div class="content">
+      <% url = event_gifts_url + "?uid=" + @event.uid %>
+      <input type="text" id="visible-input" value="<%= url %>">
+      <input type="button" id="visible-button" value="Copy" class="invite-btn">
+    </div>
   </div>
-  <div id="invites-list">
+
+  <div class="invites-list">
     <h4 class="text-left">Guest List</h4>
     <div class="email-line"></div>
-    <% if @event.invites.blank? %>
-      <p>You haven't invited anyone - start inviting!</p>
-    <% else %>
-      <% @event.invites.order("created_at DESC").each do |invite| %>
-        <div class="invites-sent">
-          <p class="text-left"><%= invite.email %></p>
-          <p class="resend"> + </p>
-        </div>
+    <div id="invites-list">
+      <% if @event.invites.blank? %>
+        <p>You haven't invited anyone - start inviting!</p>
+      <% else %>
+        <% @event.invites.order("created_at DESC").each do |invite| %>
+          <div class="invites-sent">
+            <p class="text-left"><%= invite.email %></p>
+            <p class="resend">
+              <%= link_to resend_event_invites_path(event_id: @event.id, email: invite.email) do %>
+                <i class="fa fa-paper-plane"></i>
+              <% end %>
+            </p>
+          </div>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
   </div>
 </div>
 
+<%= javascript_pack_tag 'copyToClipboard' %>

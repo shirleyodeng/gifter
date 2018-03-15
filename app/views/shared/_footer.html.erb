@@ -1,10 +1,10 @@
-<% if params[:controller] == "gifts" && params[:action] == "index" %>
+<% if params[:controller] == "gifts" && params[:action] == "index" || params[:action] == "home" %>
   <div class="footer-yellow">
 <% else %>
   <div class="footer-red">
 <% end %>
   <div class="footer-content text-center">
-    <% if params[:controller] == "gifts" && params[:action] == "index" %>
+    <% if params[:controller] == "gifts" && params[:action] == "index" || params[:action] == "home"  %>
       <%= cl_image_tag "logo-yellow", width: 100 %>
     <% else %>
       <%= cl_image_tag "logo-red", width: 100 %>
@@ -17,7 +17,7 @@
       <input id="q" name="email" type="text" />
       <input name="commit" class="btn-subscribe" type="submit" value="Subscribe" />
     </form>
-    <% if params[:controller] == "gifts" && params[:action] == "index" %>
+    <% if params[:controller] == "gifts" && params[:action] == "index" || params[:action] == "home" %>
       <div class="footer-links-yellow">
     <% else %>
       <div class="footer-links-red">

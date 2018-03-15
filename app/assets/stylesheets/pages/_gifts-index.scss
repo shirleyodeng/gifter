@@ -109,10 +109,11 @@
 
 .gift-modal-name {
   padding-top: 200px;
-  margin-top: 20px;
+  margin-top: 10px;
   font-size: 20px;
-  margin-bottom: 5px;
   font-weight: 700;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 
@@ -394,11 +395,22 @@
 }
 
 #progress {
-  margin-left: auto;
-  margin-right: auto;
   width: 100px;
   height: 100px;
   position: relative;
 }
 
+.progress-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.progress-info {
+  margin-left: 10px;
+  p {
+    font-size: 12px;
+    margin: 0px;
+  }
+}
 

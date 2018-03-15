@@ -97,7 +97,15 @@
             </div>
           </div>
           <div class="modal-pay">
-           <div id="progress"></div>
+            <div class="progress-box">
+              <div id="progress"></div>
+              <div class="progress-info text-left">
+                <p><strong>Price: </strong>£<%= gift.price %></p>
+                <p><strong>Remaining: </strong> £<%= gift.amount_left %></p>
+                <p><strong>Remaining: </strong> £<%= gift.amount_raised %></p>
+                <div id="amount-raised" data-integer="<%= gift.amount_raised %>"></div>
+              </div>
+            </div>
             <div class="contributions">
               <% if gift.participations.where(state: 'paid').empty? %>
                 <% if @event.creator == current_user %>
@@ -131,10 +139,13 @@
                   </div>
                   <%= render 'contributors', gift: gift %>
                 </div>
+<<<<<<< HEAD
+=======
                 <div class="modal-padding">
                   <strong>Amount needed: £<%= gift.amount_left %></strong>
                   <div id="amount-raised" data-date="<%= gift.amount_raised %>"></div>
                 </div>
+>>>>>>> ac4582d2de0e0c3aba5051b0843b4aa9edeae865
                 <% if gift.amount_left.zero? %>
                   <p>This gift has been fulfilled!</p>
                 <% elsif @event.creator == current_user %>

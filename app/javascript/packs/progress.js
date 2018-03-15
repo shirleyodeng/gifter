@@ -7,15 +7,15 @@ var bar = new ProgressBar.Circle(progress, {
   color: '#EB5757',
   // This has to be the same size as the maximum width to
   // prevent clipping
-  strokeWidth: 20,
-  trailWidth: 5,
+  strokeWidth: 10,
+  trailWidth: 1,
   easing: 'easeInOut',
-  duration: 2800,
+  duration: 2400,
   text: {
     autoStyleContainer: false
   },
-  from: { color: '#EB5757', width: 5 },
-  to: { color: '#EB5757', width: 20 },
+  from: { color: '#EB5757', width: 3 },
+  to: { color: '#EB5757', width: 10 },
   // Set default step function for all animate calls
   step: function(state, circle) {
     circle.path.setAttribute('stroke', state.color);
@@ -23,7 +23,7 @@ var bar = new ProgressBar.Circle(progress, {
 
     var value = Math.round(circle.value() * 100);
     if (value === 0) {
-      circle.setText('');
+      circle.setText('0%');
     } else {
       circle.setText(`${value}%`);
     }
@@ -34,10 +34,10 @@ bar.text.style.fontFamily = 'Quicksand", sans-serif';
 bar.text.style.fontSize = '2rem';
 
 
-const amountRaised = document.getElementById("amount-raised").dataset.date;
+document.querySelectorAll("#amount-raised").forEach
 console.log(amountRaised);
 
 setTimeout(function() {
-  bar.animate(amountRaised / 100);  // Number from 0.0 to 1.0
+  bar.animate(amountRaised);  // Number from 0.0 to 1.0
 })
 

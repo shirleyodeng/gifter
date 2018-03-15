@@ -21,13 +21,13 @@
                     </div>
                   </div>
                   <div class="message-avatar">
-                    <%= cl_image_tag (current_user.photo.present? ? current_user.photo : 'default-profile-image'), class: "avatar-sm-dashboard" %>
+                    <%= cl_image_tag (current_user.photo.present? ? current_user.photo : 'avatar-pink'), class: "avatar-sm-dashboard" %>
                   </div>
                 </div>
               <% else %>
                 <div class="message-section">
                   <div class="message-avatar">
-                    <%= cl_image_tag (current_user.photo.present? ? current_user.photo : 'default-profile-image'), class: "avatar-sm-dashboard" %>
+                    <%= cl_image_tag (current_user.photo.present? ? current_user.photo : 'avatar-pink'), class: "avatar-sm-dashboard" %>
                   </div>
                   <div class="message-item-left body-light-gray">
                     <div class="content">

@@ -40,7 +40,7 @@
 
 .welcome-container h2 {
   z-index: 6;
-  margin: 100px 300px 50px;
+  margin: 60px 200px 20px;
 }
 
 .boy-container {
@@ -72,7 +72,7 @@
 }
 
 .banner-font {
-  font-size: 70px;
+  font-size: 100px;
   margin: 20px;
 }
 
@@ -80,13 +80,14 @@
   padding-top: 40px;
   padding-bottom: 40px;
   background-color: $white;
+  height: 100vh;
 }
 
 .button-container {
   display:flex;
   flex-direction: row;
   justify-content: center;
-  padding-top: 40px;
+  padding-top: 70px;
 }
 // Explainer
 
@@ -119,23 +120,7 @@
 .explainer {
   padding: 10px 0;
   background-color: white;
-  // background: url("http://res.cloudinary.com/dj2d1zdlv/image/upload/v1520970661/howitworks1.png");
   background-position: center center;
-  // background-repeat: no-repeat;
-  // background-size: cover;
-  // min-height: 600px;
-}
-
-// .white-font {
-//   color: $white;
-// }
-
-.how-section {
-  background-size: cover;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .padding-bottom {
@@ -148,7 +133,7 @@
 }
 
 // Arrow animation
-$base: 0.6rem;
+$base: 0.8rem;
 
 .container-arrow {
  display: flex;
@@ -156,14 +141,15 @@ $base: 0.6rem;
  // align-items: center;
  // width: 100%;
  margin-bottom: 20px;
+ padding-top: 0px;
 }
 
 .chevron {
   position: absolute;
-  width: $base * 3.5;
+  width: $base * 4;
   height: $base * 0.8;
   opacity: 0;
-  transform: scale(0.3);
+  transform: scale(0.5);
   animation: move-chevron 3s ease-out infinite;
 }
 

@@ -87,26 +87,6 @@
   align-items: center;
 }
 
-.event-title-invited {
-  width: 36%;
-  text-align: center;
-  line-height: 15px;
-  a {
-    color: black;
-  }
-  h4 {
-    margin-top: 3px;
-    margin-bottom: 3px;
-    &:hover {
-      color: $yellow;
-    }
-  }
-  p {
-    font-size: 14px;
-    margin-bottom: 3px;
-  }
-}
-
 .event-title {
   width: 36%;
   text-align: center;
@@ -118,9 +98,6 @@
     display: inline;
     margin-top: 3px;
     margin-bottom: 3px;
-    &:hover {
-      color: $red;
-    }
   }
   p {
     font-size: 14px;
@@ -156,7 +133,7 @@
 }
 
 .event-box:hover .user-dashboard-icon {
-  transform: translateY(-8px);
+  transform: translateY(-9px);
 }
 
 .event-box:hover .icon-hover-text {
@@ -230,6 +207,6 @@
   height: 50px;
   position: relative;
   border: 0px !important;
-  background-color: white !important;
+  background-color: transparent !important;
   box-shadow: none !important;
 }

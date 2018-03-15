@@ -5,9 +5,9 @@
   <% elsif participations.count == 2 %>
     <p><%= participations[0].user.full_name %> and <%= participations[1].user.full_name %> have contributed.</p>
   <% elsif participations.count == 3 %>
-    <p><%= participations[0].user.full_name %>, <%= participations[1].user.full_name %> and
+    <p style="display: inline"><%= participations[0].user.full_name %>, <%= participations[1].user.full_name %> and
       <div id="others-popup", style="display: inline">
-        <a>1 other
+        <a> 1 other
           <span>
             <%= participations[2].user.full_name %>
           </span>
@@ -15,7 +15,7 @@
       </div>have contributed.
     </p>
   <% else %>
-    <p><%= participations[0].user.full_name %>, <%= participations[1].user.full_name %> and
+    <p style="display: inline"><%= participations[0].user.full_name %>, <%= participations[1].user.full_name %> and
       <div id="others-popup", style="display: inline">
         <a><%= participations.count - 2 %> others
           <span>

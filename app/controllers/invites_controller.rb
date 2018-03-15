@@ -8,6 +8,7 @@ class InvitesController < ApplicationController
   def create
     @event = Event.find(params[:event_id])
     @invite = Invite.new(invite_params)
+    @invite.recipient = User.find_by_email(params[:invite][:email])
     authorize @invite
     if not_invited_yet?
       @invite.sender_id = current_user.id

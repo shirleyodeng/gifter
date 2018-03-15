@@ -73,15 +73,11 @@
 }
 
 .hover-red {
-  &:hover {
-    box-shadow: 2px 2px 2px $red;
-  }
+  box-shadow: 2px 2px 2px $red;
 }
 
 .hover-yellow {
-  &:hover {
   box-shadow: 2px 2px 2px $yellow;
-  }
 }
 
 .event-icons {
@@ -134,7 +130,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  width: 100px;
+  width: 200px;
   opacity: 0;
   transition: opacity 0.4s;
 }

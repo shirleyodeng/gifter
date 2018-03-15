@@ -115,6 +115,7 @@
     color: black;
   }
   h4 {
+    display: inline;
     margin-top: 3px;
     margin-bottom: 3px;
     &:hover {
@@ -124,6 +125,18 @@
   p {
     font-size: 14px;
     margin-bottom: 3px;
+  }
+}
+
+.hover-red .event-title {
+  a:hover {
+    color: $yellow;
+  }
+}
+
+.hover-yellow .event-title {
+  a:hover {
+    color: $red;
   }
 }
 

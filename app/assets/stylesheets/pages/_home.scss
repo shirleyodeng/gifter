@@ -101,6 +101,7 @@
 .explainer-boxes {
   background-color: $yellow;
 }
+
 .explainer-text-box {
   padding: 12px;
 }
@@ -116,18 +117,20 @@
 .explainer-text {
   width: 50%;
   background-color: white;
-  border:dashed 5px $yellow;
+  border:dashed 5px $red;
   padding: 30px;
   h1 {
     font-size: 40px;
     margin-bottom: 20px;
+    margin-top: 10px;
   }
   p {
     color: $dark-gray;
   }
-  h5 {
+  a {
     margin-top: 20px;
   }
+}
 
 .flex {
   display:flex;
@@ -137,7 +140,7 @@
 }
 
 .explainer {
-  padding: 10px 0;
+  padding: 70px;
   background-color: white;
   background-position: center center;
 }

@@ -28,4 +28,17 @@ class Event < ApplicationRecord
     end
     participations > 0 ? true : false
   end
+
+  def total_raised
+    sum = 0
+    total = 0
+    self.gifts.each do |gift|
+      total += gift.price
+      gift.participations.where(state: 'paid').each do |participation|
+        sum += participation.amount
+      end
+    end
+    return (sum / total).to_f
+  end
+
 end

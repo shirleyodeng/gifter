@@ -2,23 +2,23 @@
 // // Docs: http://progressbarjs.readthedocs.org/en/1.0.0/
 import ProgressBar from 'progressbar.js'
 
-var progressElements = document.querySelectorAll('.progress')
+var totalElements = document.querySelectorAll('.total')
 
-progressElements.forEach((progress) => {
+totalElements.forEach((total) => {
 
-  var bar = new ProgressBar.Circle(progress, {
+  var bar = new ProgressBar.Circle(total, {
     color: '#EB5757',
     // This has to be the same size as the maximum width to
     // prevent clipping
-    strokeWidth: 6,
-    trailWidth: 1,
+    strokeWidth: 8,
+    trailWidth: 2,
     easing: 'easeInOut',
     duration: 3600,
     text: {
       autoStyleContainer: false
     },
-    from: { color: '#EB5757', width: 1 },
-    to: { color: '#EB5757', width: 6 },
+    from: { color: '#EB5757', width: 5 },
+    to: { color: '#EB5757', width: 8 },
     // Set default step function for all animate calls
     step: function(state, circle) {
       circle.path.setAttribute('stroke', state.color);
@@ -34,12 +34,12 @@ progressElements.forEach((progress) => {
     }
   });
   bar.text.style.fontFamily = '"Quicksand", sans-serif';
-  bar.text.style.fontSize = '2rem';
+  bar.text.style.fontSize = '1rem';
 
-  var amountRaised = progress.getAttribute('data-integer')
+  var totalRaised = total.getAttribute('data-integer')
 
   setTimeout(function() {
-    bar.animate(amountRaised);  // Number from 0.0 to 1.0
+    bar.animate(totalRaised);  // Number from 0.0 to 1.0
   })
 })
 

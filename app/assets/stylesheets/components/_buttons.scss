@@ -67,14 +67,13 @@
   font-weight: bold;
   border-radius: 10px;
   transition:all .5s ease;
-  box-shadow: 20px 38px 34px -26px hsla(0,0%,0%,.2);
+  // box-shadow: 20px 38px 34px -26px hsla(0,0%,0%,.2);
   border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
   margin: 10px;
 }
 
 .btn-home:hover {
   border:dashed 5px $yellow;
-  // background-color: $light-gray;
   color: $yellow;
   padding: 15px 32px;
   text-align: center;
@@ -83,7 +82,7 @@
   font-size: 20px;
   font-weight: bold;
   border-radius: 10px;
-  box-shadow:2px 8px 4px -6px hsla(0,0%,0%,.3);
+  // box-shadow:2px 8px 4px -6px hsla(0,0%,0%,.3);
   margin: 10px;
 }
 

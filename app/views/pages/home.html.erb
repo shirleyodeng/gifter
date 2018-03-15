@@ -1,28 +1,29 @@
 <div class="min-container">
   <div class="home-container">
-    <section class="white-background">
-      <div class="boy-container">
-        <div class="boy">
-          <%= cl_image_tag("http://res.cloudinary.com/dj2d1zdlv/image/upload/v1521116064/tommy1.png", class: "boy-img") %>
-        </div>
+    <div class="boy-container">
+      <div class="boy">
+        <%= cl_image_tag("http://res.cloudinary.com/dj2d1zdlv/image/upload/v1520935404/tommy.png", class: "boy-img") %>
       </div>
+    </div>
+
+    <div class="welcome-container">
       <div class="yellow-container">
-        <div class="welcome-container">
-          <h2 class="banner-font">Let's gift something meaningful</h2>
-          <p class="increase-font">Help your child get a head start with Gifter</p>
-          <p>Invite family and friends to contribute towards gifts and experiences</p>
-        </div>
-        <div class="margin-top button-container">
+        <h2 class="banner-font">Let's gift<br>something<br>meaningful</h2>
+        <p><strong>Help your child get a head start with Gifter</strong></p>
+        <p>Invite family and friends to contribute towards gifts and experiences</p>
+      </div>
+      <div class="red-container">
+       <div class="button-container">
           <h5><%= link_to "Get started", events_path, class: "btn-home" %></h5>
-          <h5><a href="#explainer" class="btn-home">Find out more</a></h5>
+          <!-- <h5><a href="#explainer" class="btn-home">Find out more</a></h5> -->
         </div>
-        <a href="#explainer"><div class="row">
+        <a href="#explainer">
           <div class="container-arrow">
             <div class="chevron"></div>
             <div class="chevron"></div>
             <div class="chevron"></div>
           </div>
-        </div>
+        </a>
       </div>
     </a>
   </section>

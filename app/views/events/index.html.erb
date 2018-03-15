@@ -71,8 +71,8 @@
                   <p class="icon-hover-text gray">View messages</p>
                 </div>
                 <div class="event-box">
-                    <%= cl_image_tag "envelope", height: 50, width: 50, class: "user-dashboard-icon" %>
-                    <p class="icon-hover-text gray">Send invites</p>
+                    <div class="total" data-integer="<%= event.total_raised %>"></div>
+                    <p class="icon-hover-text gray">Amount Raised</p>
                 </div>
               </div>
             </div>
@@ -85,3 +85,5 @@
     </div>
   </div>
 </div>
+
+<%= javascript_pack_tag 'total' %>

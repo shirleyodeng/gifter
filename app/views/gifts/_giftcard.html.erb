@@ -98,12 +98,10 @@
           </div>
           <div class="modal-pay">
             <div class="progress-box">
-              <div id="progress"></div>
+              <div class="progress" data-integer="<%= gift.amount_raised %>"></div>
               <div class="progress-info text-left">
                 <p><strong>Price: </strong>£<%= gift.price %></p>
                 <p><strong>Remaining: </strong> £<%= gift.amount_left %></p>
-                <p><strong>Remaining: </strong> £<%= gift.amount_raised %></p>
-                <div id="amount-raised" data-integer="<%= gift.amount_raised %>"></div>
               </div>
             </div>
             <div class="contributions">
@@ -113,10 +111,6 @@
                 <% else %>
                   <p>Be the first to contribute!</p>
                 <% end %>
-                <div class="modal-padding">
-                  <p><strong>Amount needed: £<%= gift.amount_left %></strong></p>
-                  <div id="amount-raised" data-date="<%= gift.amount_raised %>"></div>
-                </div>
                 <% if @event.creator == current_user %>
                 <% else %>
                   <%= simple_form_for @participation do |f| %>
@@ -139,13 +133,6 @@
                   </div>
                   <%= render 'contributors', gift: gift %>
                 </div>
-<<<<<<< HEAD
-=======
-                <div class="modal-padding">
-                  <strong>Amount needed: £<%= gift.amount_left %></strong>
-                  <div id="amount-raised" data-date="<%= gift.amount_raised %>"></div>
-                </div>
->>>>>>> ac4582d2de0e0c3aba5051b0843b4aa9edeae865
                 <% if gift.amount_left.zero? %>
                   <p>This gift has been fulfilled!</p>
                 <% elsif @event.creator == current_user %>
@@ -163,5 +150,3 @@
       </div>
     </div>
 </div>
-
-<%= javascript_pack_tag 'progress' %>

@@ -1,4 +1,4 @@
-<div class="contributor-names">
+<div class="contributor-names padding-bottom">
   <% participations = gift.participations.where(state: 'paid') %>
   <% if participations.count == 1 %>
     <p><%= participations[0].user.full_name %> has contributed.</p>

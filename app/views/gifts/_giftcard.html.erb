@@ -95,8 +95,7 @@
               <% else %>
                 <p>Be the first to contribute!</p>
               <% end %>
-              <% if @event.creator == current_user %>
-              <% else %>
+              <% if @event.creator != current_user %>
                 <%= simple_form_for @participation do |f| %>
                   <%= f.hidden_field :gift_id, value: gift.id %>
                   <%= f.hidden_field :invite_token, value: @token %>

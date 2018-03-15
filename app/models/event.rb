@@ -20,4 +20,12 @@ class Event < ApplicationRecord
   def generate_uid
     self.uid = Digest::SHA1.hexdigest([self.user_id, Time.now, rand].join)
   end
+
+  def has_contributions?
+    participations = 0
+    self.gifts.each do |gift|
+      participations += 1 if gift.participations.present?
+    end
+    participations > 0 ? true : false
+  end
 end

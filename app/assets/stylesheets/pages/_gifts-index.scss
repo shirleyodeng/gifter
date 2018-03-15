@@ -200,6 +200,7 @@
   overflow: hidden;
   width: 30px;
   height: 30px;
+  background-color: $light-gray;
 }
 
 .contributors {
@@ -394,10 +395,13 @@
   margin-left: 20px;
 }
 
-#progress {
+.progress {
   width: 100px;
   height: 100px;
   position: relative;
+  border: 0px !important;
+  background-color: white !important;
+  box-shadow: none !important;
 }
 
 .progress-box {

@@ -11,12 +11,10 @@
         <h2>You are invited to</h2>
         <% if current_user.is_guest? %>
           <% @guests.each do |guest| %>
-            <div class="event-card light-gray hover-yellow">
+            <div class="event-card light-gray hover-red">
               <div class="event-flex">
-                <% if guest.event.child_photo.present? %>
-                  <%= image_tag guest.event.child_photo.url(:event_avatar), class: "avatar-sm-dashboard" %>
-                <% end %>
-                <div class="event-title">
+                <%= cl_image_tag (guest.event.child_photo.present? ? guest.event.child_photo : 'avatar-yellow'), class: "avatar-sm-dashboard" %>
+                <div class="event-title-invited">
                   <%= link_to event_gifts_path(guest.event) do %>
                     <h4><%= guest.event.child %>'s <%= guest.event.name %></h4>
                   <% end %>
@@ -28,12 +26,17 @@
                   <p class="icon-hover-text gray">View messages</p>
                 </div>
                 <div class="event-box">
-                  <% if current_user.participations.where(gift_id: guest.event.gifts).empty? %>
+                  <% participations = current_user.participations.where(gift_id: guest.event.gifts) %>
+                  <% if participations.empty? %>
                     <%= cl_image_tag "sad_face", height: 50, width: 50, class: "user-dashboard-icon" %>
                     <p class="icon-hover-text gray">Contribute</p>
                   <% else %>
+                    <% total_amount = 0 %>
+                    <% participations.each do |participation| %>
+                      <% total_amount += participation.amount  %>
+                    <% end %>
                     <%= cl_image_tag "happy3", height: 50, width: 50, class: "user-dashboard-icon" %>
-                    <p class="icon-hover-text yellow">You've contributed XXXXX!</p>
+                    <p class="icon-hover-text yellow">You've contributed £<%= total_amount %>!</p>
                   <% end %>
                 </div>
 
@@ -54,11 +57,9 @@
             <strong><p class="events-add">+ Add a new event</p></strong>
           <% end %>
           <% @events.each do |event| %>
-            <div class="event-card light-gray hover-red">
+            <div class="event-card light-gray hover-yellow">
               <div class="event-flex">
-                <% if event.child_photo.present? %>
-                  <%= image_tag event.child_photo.url(:event_avatar), class: "avatar-sm-dashboard" %>
-                <% end %>
+                <%= cl_image_tag (event.child_photo.present? ? event.child_photo : 'avatar-pink'), class: "avatar-sm-dashboard" %>
                 <div class="event-title">
                   <%= link_to event_gifts_path(event_id: event.id) do %>
                     <h4><%= event.child %>'s <%= event.name.capitalize %></h4>

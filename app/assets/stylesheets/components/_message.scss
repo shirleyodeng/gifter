@@ -124,11 +124,15 @@
 // Conversations
 .conversation-box {
   display: flex;
+  padding-top: 80px;
 }
 
 .messages {
   flex: 1;
   margin-right: 40px;
+  h3 {
+    margin-top: 0;
+  }
 }
 
 .event-guests {

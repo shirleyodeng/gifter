@@ -6,6 +6,7 @@
 
         <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
           <div class="form-inputs">
+            <%= f.hidden_field :event_id, value: @event_id %>
             <%= hidden_field_tag 'event_id', params[:event_id] %>
             <%= f.input :email, required: true, autofocus: true, label: false, placeholder: "Email" %>
             <%= f.input :password, required: true, label: false, placeholder: "Password"%>

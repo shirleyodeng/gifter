@@ -11,7 +11,7 @@
         <h2>You are invited to</h2>
         <% if current_user.is_guest? %>
           <% @guests.each do |guest| %>
-            <div class="event-card light-gray hover-yellow">
+            <div class="event-card light-gray hover-red">
               <div class="event-flex">
                 <% if guest.event.child_photo.present? %>
                   <%= image_tag guest.event.child_photo.url(:event_avatar), class: "avatar-sm-dashboard" %>
@@ -54,7 +54,7 @@
             <strong><p class="events-add">+ Add a new event</p></strong>
           <% end %>
           <% @events.each do |event| %>
-            <div class="event-card light-gray hover-red">
+            <div class="event-card light-gray hover-yellow">
               <div class="event-flex">
                 <% if event.child_photo.present? %>
                   <%= image_tag event.child_photo.url(:event_avatar), class: "avatar-sm-dashboard" %>

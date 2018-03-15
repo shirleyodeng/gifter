@@ -16,14 +16,6 @@
 
 .avatar-lg {
   border-radius: 50%;
-  border: 3px solid $red;
-  width: 80px !important;
-  height: 80px !important;
-}
-
-.avatar-lg-message {
-  border-radius: 50%;
-  border: 3px solid $yellow;
   width: 80px !important;
   height: 80px !important;
 }
@@ -32,21 +24,12 @@
   border-radius: 50%;
   width: 36px;
   height: 36px;
-  border: 2px solid $yellow;
 }
 
-.avatar-sm-invite {
+.avatar-sm-dashboard {
   border-radius: 50%;
   width: 50px;
   height: 50px;
-  border: 2px solid $yellow;
-}
-
-.avatar-sm-host {
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  border: 2px solid $red;
 }
 
 .background-yellow {

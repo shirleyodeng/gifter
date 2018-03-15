@@ -20,11 +20,11 @@
     <div class="container fill-high">
       <% if policy(@event).update? %>
         <ul class="nav nav-tabs">
-          <li class="<%= params[:invites] == 'true' ? '' : 'active' %>"><a data-toggle="tab" href="#home">Gifts</a></li>
-          <li class="<%= params[:invites] == 'true' ? 'active' : '' %>"><a data-toggle="tab" href="#invites">Send Invites</a></li>
+          <li class="active"><a data-toggle="tab" href="#home">Gifts</a></li>
+          <li><a data-toggle="tab" href="#invites">Send Invites</a></li>
         </ul>
         <div class="tab-content">
-          <div id="home" class="tab-pane fade <%= params[:invites] == 'true' ? '' : 'in active' %>">
+          <div id="home" class="tab-pane fade in active">
             <div class="gifts-tab">
               <div class="row">
                 <% @gifts.each do |gift| %>
@@ -46,7 +46,7 @@
               </div>
             </div>
           </div>
-          <div id="invites" class="tab-pane fade <%= params[:invites] == 'true' ? 'in active' : '' %>">
+          <div id="invites" class="tab-pane fade">
             <%= render 'shared/invite' %>
           </div>
         </div>

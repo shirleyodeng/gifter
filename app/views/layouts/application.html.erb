@@ -27,7 +27,7 @@
   <body class="<%= body_class %>">
     <%= render 'shared/navbar' %>
     <%= yield %>
-  <% unless params[:controller] == "devise/sessions" || params[:controller] == "registrations" || params[:controller] == "users" %>
+  <% unless params[:controller] == "devise/sessions" || params[:controller] == "registrations" || params[:controller] == "users" || params[:controller] == "users/sessions"  %>
     <%= render 'shared/footer' %>
   <% end %>
     <%= javascript_include_tag 'application' %>

@@ -13,7 +13,7 @@
           <% @guests.each do |guest| %>
             <div class="event-card light-gray hover-red">
               <div class="event-flex">
-                <%= cl_image_tag (guest.event.child_photo.present? ? guest.event.child_photo : 'avatar-yellow'), class: "avatar-sm-dashboard" %>
+                <%= cl_image_tag (guest.event.child_photo.present? ? guest.event.child_photo : 'avatar-yellow'), radius: 50, width: 50, height: 50, crop: :thumb, gravity: :face %>
                 <div class="event-title">
                   <%= link_to event_gifts_path(guest.event) do %>
                     <h4><%= guest.event.child %>'s <%= guest.event.name %></h4>

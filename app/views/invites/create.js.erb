@@ -1,5 +1,6 @@
 var inviteForm = document.getElementById("new_invite");
-<%# if not_invited_yet? %>
+<% if @invite.exist? == false %>
+<% binding.pry %>
   <% if @invite.persisted? %>
     newInvite = "<%= j render 'invites/show', invite: @invite %>";
     invites = document.getElementById("invites-list");
@@ -7,13 +8,15 @@ var inviteForm = document.getElementById("new_invite");
     inviteForm.innerHTML = "<%= j render 'shared/inviteform', event: @event, invite: Invite.new %>"
     var inviteInput = document.getElementById('invite_email')
     inviteInput.value = ''
-    let erroralert = document.getElementById("email-validation")
-    erroralert.innerHTML = ""
+    document.getElementById("email-validation").remove()
   <% else %>
+    if (document.getElementById("email-validation")) {
+      document.getElementById("email-validation").remove();
+    }
     inviteForm.innerHTML = "<%= j render 'shared/inviteform', event: @event, invite: Invite.new %>"
     inviteForm.insertAdjacentHTML('afterend', "<p id='email-validation'> Please enter a valid email address </p>")
   <% end %>
-<%# else %>
-  // inviteForm.innerHTML = "<%= j render 'shared/inviteform', event: @event, invite: Invite.new %>"
-  // inviteForm.insertAdjacentHTML('afterend', "<p id='email-validation'> Email already invited </p>")
-<%# end %>
+<% else %>
+  console.log("Hello!")
+  inviteForm.insertAdjacentHTML('afterend', "<p id='email-validation'> Email already invited </p>")
+<% end %>

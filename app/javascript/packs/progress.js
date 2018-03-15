@@ -23,6 +23,7 @@ var bar = new ProgressBar.Circle(progress, {
 
     var value = Math.round(circle.value() * 100);
     if (value === 0) {
+      circle.setText('');
       circle.setText('0%');
     } else {
       circle.setText(`${value}%`);
@@ -32,7 +33,6 @@ var bar = new ProgressBar.Circle(progress, {
 });
 bar.text.style.fontFamily = 'Quicksand", sans-serif';
 bar.text.style.fontSize = '2rem';
-
 
 document.querySelectorAll("#amount-raised").forEach
 console.log(amountRaised);

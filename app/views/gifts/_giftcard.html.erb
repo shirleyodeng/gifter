@@ -57,11 +57,18 @@
             <div class="modal-info">
               <%= cl_image_tag (gift.photo), width: 200, height: 200, crop: :fill, class: "gift-photo" %>
               <p><%= gift.description %></p>
-              <p><strong>£<%= gift.price %></strong></p>
             </div>
           </div>
           <div class="modal-pay">
-           <div id="progress"></div>
+            <div class="progress-box">
+              <div id="progress"></div>
+              <div class="progress-info text-left">
+                <p><strong>Price: </strong>£<%= gift.price %></p>
+                <p><strong>Remaining: </strong> £<%= gift.amount_left %></p>
+                <p><strong>Remaining: </strong> £<%= gift.amount_raised %></p>
+                <div id="amount-raised" data-integer="<%= gift.amount_raised %>"></div>
+              </div>
+            </div>
             <div class="contributions">
               <% if gift.participations.where(state: 'paid').empty? %>
                 <p>Be the first to contribute!</p>
@@ -83,10 +90,6 @@
                     <% end %>
                   </div>
                   <%= render 'contributors', gift: gift %>
-                </div>
-                <div class="modal-padding">
-                  <strong>Remaining: £<%= gift.amount_left %></strong>
-                  <div id="amount-raised" data-date="<%= gift.amount_raised %>"></div>
                 </div>
                 <% if gift.amount_left.zero? %>
                   <p>This gift has been fulfilled!</p>

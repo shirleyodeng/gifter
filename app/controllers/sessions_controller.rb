@@ -1,4 +1,5 @@
 # class SessionsController < ApplicationController
+# end
 #   def create
 #     raise
 #     # Have a look at the info returned by the provider by uncommenting the next line:

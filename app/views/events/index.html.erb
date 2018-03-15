@@ -28,12 +28,17 @@
                   <p class="icon-hover-text gray">View messages</p>
                 </div>
                 <div class="event-box">
-                  <% if current_user.participations.where(gift_id: guest.event.gifts).empty? %>
+                  <% participations = current_user.participations.where(gift_id: guest.event.gifts) %>
+                  <% if participations.empty? %>
                     <%= cl_image_tag "sad_face", height: 50, width: 50, class: "user-dashboard-icon" %>
                     <p class="icon-hover-text gray">Contribute</p>
                   <% else %>
+                    <% total_amount = 0 %>
+                    <% participations.each do |participation| %>
+                      <% total_amount += participation.amount  %>
+                    <% end %>
                     <%= cl_image_tag "happy3", height: 50, width: 50, class: "user-dashboard-icon" %>
-                    <p class="icon-hover-text yellow">You've contributed XXXXX!</p>
+                    <p class="icon-hover-text yellow">You've contributed £<%= total_amount %>!</p>
                   <% end %>
                 </div>
 

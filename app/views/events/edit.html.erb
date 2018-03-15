@@ -35,9 +35,11 @@
           </div>
         <% end %>
       </div>
-      <div class="delete-event-btn">
-        <%= link_to "Delete event", event_path(@event), class: "btn-red", method: :delete %>
-      </div>
+      <% if @event.has_contributions? == false %>
+        <div class="delete-event-btn">
+          <%= link_to "Delete event", event_path(@event), class: "btn-red", method: :delete %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

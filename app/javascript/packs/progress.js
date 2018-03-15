@@ -30,6 +30,7 @@ progressElements.forEach((progress) => {
       } else {
         circle.setText(`${value}%`);
       }
+
     }
   });
   bar.text.style.fontFamily = '"Quicksand", sans-serif';
@@ -40,6 +41,7 @@ progressElements.forEach((progress) => {
   setTimeout(function() {
     bar.animate(amountRaised);  // Number from 0.0 to 1.0
   })
+
 })
 
 

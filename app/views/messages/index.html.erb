@@ -43,8 +43,8 @@
               <% end %>
             <% end %>
           <% end %>
-            <div class="text-center form-inline">
-              <%= simple_form_for [@event, @conversation, @message] do |f| %>
+          <div class="text-center form-inline add-reply">
+            <%= simple_form_for [@event, @conversation, @message] do |f| %>
               <%= f.input :body, label: false %>
               <%= f.hidden_field :event_id, value: @event.id %>
               <%= f.submit "Add Reply", class: "btn-yellow" %>

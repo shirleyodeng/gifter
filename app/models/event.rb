@@ -38,7 +38,7 @@ class Event < ApplicationRecord
         sum += participation.amount
       end
     end
-    return (sum / total).to_f
+    return (sum / total.to_f).to_f
   end
 
 end

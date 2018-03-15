@@ -123,12 +123,16 @@
 
 // Conversations
 .conversation-box {
+  padding-top: 50px;
   display: flex;
 }
 
 .messages {
   flex: 1;
   margin-right: 40px;
+  h3 {
+    margin-top: 0;
+  }
 }
 
 .event-guests {
@@ -190,4 +194,9 @@
 .no-guests {
   padding-top: 10px;
   font-size: 15px;
+}
+
+.add-reply {
+  padding-top: 10px;
+  padding-bottom: 40px;
 }

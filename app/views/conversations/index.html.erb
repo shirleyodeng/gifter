@@ -59,15 +59,19 @@
               </div>
             </div>
           <% end %>
-          <% @guests.each do |guest| %>
-            <% if guest.user != current_user %>
-              <div class="chat-list">
-                <div class="chat-username">
-                  <%= cl_image_tag (guest.user.photo? ? guest.user.photo : "avatar-pink"), height: 60, width: 60, crop: :fill, class: "avatar-xs" %>
-                  <p><%= guest.user.full_name %></p>
+          <% if @guests.empty? %>
+            <p class="no-guests">You have no guests yet - start inviting!</p>
+          <% else %>
+            <% @guests.each do |guest| %>
+              <% if guest.user != current_user %>
+                <div class="chat-list">
+                  <div class="chat-username">
+                    <%= cl_image_tag (guest.user.photo? ? guest.user.photo : "avatar-pink"), height: 60, width: 60, crop: :fill, class: "avatar-xs" %>
+                    <p><%= guest.user.full_name %></p>
+                  </div>
+                  <%= link_to (cl_image_tag "message1", height: 30, width: 30), event_conversations_path(@event, sender_id: current_user.id, recipient_id: guest.user.id), method: :post %>
                 </div>
-                <%= link_to (cl_image_tag "message1", height: 30, width: 30), event_conversations_path(@event, sender_id: current_user.id, recipient_id: guest.user.id), method: :post %>
-              </div>
+              <% end %>
             <% end %>
           <% end %>
         </ul>

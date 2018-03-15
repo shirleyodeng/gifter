@@ -27,7 +27,7 @@
               <% else %>
                 <div class="message-section">
                   <div class="message-avatar">
-                    <%= cl_image_tag (current_user.photo.present? ? current_user.photo : 'avatar-pink'), class: "avatar-sm-dashboard" %>
+                    <%= cl_image_tag (@other_user.photo.present? ? @other_user.photo : 'avatar-pink'), class: "avatar-sm-dashboard" %>
                   </div>
                   <div class="message-item-left body-light-gray">
                     <div class="content">

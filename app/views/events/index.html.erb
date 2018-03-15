@@ -19,7 +19,7 @@
                     <h4><%= guest.event.child %>'s <%= guest.event.name %></h4>
                   <% end %>
                   <p><%= guest.event.date.to_time.strftime("%A %e %B %Y") %></p>
-                  <p>Invited by: <%= guest.event.creator.full_name %></p>
+                  <p>Invited by <%= guest.event.creator.full_name %></p>
                 </div>
                 <div class="event-box">
                   <%= link_to (cl_image_tag "envelope2", height: 50, width: 50, class: "user-dashboard-icon"), event_conversations_path(guest.event) %>
@@ -39,7 +39,6 @@
                     <p class="icon-hover-text yellow">You've contributed £<%= total_amount %>!</p>
                   <% end %>
                 </div>
-
               </div>
             </div>
           <% end %>

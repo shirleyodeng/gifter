@@ -87,7 +87,7 @@
   align-items: center;
 }
 
-.event-title {
+.event-title-invited {
   width: 36%;
   text-align: center;
   line-height: 15px;
@@ -97,10 +97,46 @@
   h4 {
     margin-top: 3px;
     margin-bottom: 3px;
+    &:hover {
+      color: $yellow;
+    }
   }
   p {
     font-size: 14px;
     margin-bottom: 3px;
+  }
+}
+
+.event-title {
+  width: 36%;
+  text-align: center;
+  line-height: 15px;
+  a {
+    color: black;
+  }
+  h4 {
+    display: inline;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    &:hover {
+      color: $red;
+    }
+  }
+  p {
+    font-size: 14px;
+    margin-bottom: 3px;
+  }
+}
+
+.hover-red .event-title {
+  a:hover {
+    color: $yellow;
+  }
+}
+
+.hover-yellow .event-title {
+  a:hover {
+    color: $red;
   }
 }
 

@@ -1,34 +1,36 @@
 <div class="min-container">
   <div class="payment-container">
-    <div class="payment-head red">
+    <div class="payment-head red container">
       <h1>You are about to make <%= @participation.gift.event.child%>'s day!</h1>
     </div>
 
-    <div class="payment-box">
-      <div class="payment-info">
-        <p>You are contributing to</p>
-        <h4><%= @participation.gift.capitalized_name %></h4>
-        <%= cl_image_tag (@participation.gift.photo), width: 190, height: 190, crop: :fill, class: "gift-photo" %>
-      </div>
+    <div class=payment-white-box>
+      <div class="payment-box">
+        <div class="payment-info">
+          <p>You are contributing to</p>
+          <h4><%= @participation.gift.capitalized_name %></h4>
+          <%= cl_image_tag (@participation.gift.photo), width: 190, height: 190, crop: :fill, class: "gift-photo" %>
+        </div>
 
-      <div class="stripe-payment">
-        <div id="participation-form-2">
-          <%= form_tag participation_payments_path(@participation) do %>
-            <article>
-              <label class="amount">
-                <span>Amount: <%= humanized_money_with_symbol(@participation.amount) %></span>
-              </label>
-            </article>
+        <div class="stripe-payment">
+          <div id="participation-form-2">
+            <%= form_tag participation_payments_path(@participation) do %>
+              <article>
+                <label class="amount">
+                  <span>Amount: <%= humanized_money_with_symbol(@participation.amount) %></span>
+                </label>
+              </article>
 
-            <script src="https://checkout.stripe.com/checkout.js" class="stripe-button text-center { display: none }"
-              data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-              data-name="Gift"
-              data-email="<%= current_user.email %>"
-              data-description="<%= @participation.gift.description %>"
-              data-amount="<%= @participation.amount_cents %>"
-              data-currency="<%= @participation.amount.currency %>">
-            </script>
-          <% end %>
+              <script src="https://checkout.stripe.com/checkout.js" class="stripe-button text-center { display: none }"
+                data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                data-name="Gift"
+                data-email="<%= current_user.email %>"
+                data-description="<%= @participation.gift.description %>"
+                data-amount="<%= @participation.amount_cents %>"
+                data-currency="<%= @participation.amount.currency %>">
+              </script>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>

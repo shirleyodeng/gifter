@@ -98,9 +98,16 @@
 
 // Explainer
 
+.explainer-boxes {
+  background-color: $yellow;
+}
+.explainer-text-box {
+  padding: 12px;
+}
+
 .girl {
   text-align: center;
-  background-color: $yellow;
+  background-color: $red;
   width: 50%;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -121,7 +128,6 @@
   h5 {
     margin-top: 20px;
   }
-}
 
 .flex {
   display:flex;
@@ -143,6 +149,10 @@
 .cause-item {
   max-width: 530px;
   background-color: $yellow;
+}
+
+.dark-gray {
+  color: $dark-gray;
 }
 
 // Arrow animation

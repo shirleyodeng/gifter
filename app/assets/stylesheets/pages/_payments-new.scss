@@ -1,15 +1,25 @@
+.payment-white-box {
+  // border-radius: 10px;
+  width: 500px;
+  margin: 25px;
+  display: inline-block;
+  justify-content: center;
+  border: 1px $red solid;
+}
+
 .payment-container {
   text-align: center;
 }
 
 .payment-head {
   margin-top: 40px;
+  width: 600px;
 }
 
 .payment-box {
   display: flex;
   justify-content: center;
-  margin-top: 40px;
+  margin-top:25px;
 }
 
 .payment-info {

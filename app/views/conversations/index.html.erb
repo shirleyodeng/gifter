@@ -23,7 +23,7 @@
                   <% end %>
                   <li class="message <%= message_backgroud %>">
                     <div class="message-avatar">
-                       <%= cl_image_tag (recipient.photo? ? recipient.photo : "default-profile-image"), height: 60, width: 60, crop: :fill, class: "avatar-sm-dashboard" %>
+                       <%= cl_image_tag (recipient.photo? ? recipient.photo : "avatar-pink"), height: 60, width: 60, crop: :fill, class: "avatar-sm-dashboard" %>
                     </div>
                     <div class="message-info">
                       <h4><%= recipient.full_name %></h4>
@@ -52,7 +52,7 @@
             <div class="event-guest-list">
               <div class="chat-list">
                 <div class="chat-username">
-                  <%= cl_image_tag (@event.creator.photo.present? ? @event.creator.photo : "default-profile-image"), height: 60, width: 60, crop: :fill, class: "avatar-xs" %>
+                  <%= cl_image_tag (@event.creator.photo.present? ? @event.creator.photo : "avatar-pink"), height: 60, width: 60, crop: :fill, class: "avatar-xs" %>
                   <p><%= @event.creator.full_name %> (Host)</p>
                 </div>
                 <%= link_to (cl_image_tag "message1", height: 30, width: 30), event_conversations_path(@event, sender_id: current_user.id, recipient_id: @event.creator.id), method: :post %>
@@ -63,7 +63,7 @@
             <% if guest.user != current_user %>
               <div class="chat-list">
                 <div class="chat-username">
-                  <%= cl_image_tag (guest.user.photo? ? guest.user.photo : "default-profile-image"), height: 60, width: 60, crop: :fill, class: "avatar-xs" %>
+                  <%= cl_image_tag (guest.user.photo? ? guest.user.photo : "avatar-pink"), height: 60, width: 60, crop: :fill, class: "avatar-xs" %>
                   <p><%= guest.user.full_name %></p>
                 </div>
                 <%= link_to (cl_image_tag "message1", height: 30, width: 30), event_conversations_path(@event, sender_id: current_user.id, recipient_id: guest.user.id), method: :post %>

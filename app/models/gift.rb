@@ -4,6 +4,8 @@ class Gift < ApplicationRecord
   monetize :price_cents
   validates :name, presence: true
   validates :description, presence: true
+  validates :photo, presence: true
+  validates :price, presence: true
   mount_uploader :photo, PhotoUploader
 
   def amount_left

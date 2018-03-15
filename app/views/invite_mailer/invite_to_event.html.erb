@@ -266,7 +266,8 @@
             <td class="free-text">
               <strong><p>Hi there!</p></strong>
               <p><strong class="red"><%= @invite.sender.full_name %></strong> has invited you to contribute to <strong class="red"><%= @invite.event.child %>'s <%= @invite.event.name %></strong> on <%= @invite.event.date.to_time.strftime("%A %e %B %Y") %>.</p>
-              <p>This gift has been handpicked for <%= @invite.event.child %>.<br><strong><%= link_to "Visit Gifter", + "www." + event_gifts_url(@invite.event, uid: @invite.event.uid, token: @token )%></strong> to check out the rest of the gift list.</p>
+              <p>This gift has been handpicked for <%= @invite.event.child %>.<br><strong><%= link_to "Visit Gifter",event_gifts_url(@invite.event, uid: @invite.event.uid, token: @token )%></strong> to check out the rest of the gift list.</p>
+
               <tr>
                 <td class="w320">
                   <table cellpadding="0" cellspacing="0" width="0%" align="center">
@@ -290,7 +291,7 @@
                   <tr>
                     <td>
                       <div class ="padding-bottom" style="background-color:#EB5757;border-radius:5px;color:#fffffF;display:inline-block;font-family:'Quicksand', sans-serif;font-size:16px;font-weight:regular;line-height:45px;text-align:center;text-decoration:none;width:155px;-webkit-text-size-adjust:none;mso-hide:all;">
-                        <strong><%= link_to "Visit Gifter", + "www." + event_gifts_url(@invite.event, uid: @invite.event.uid, token: @token ), class:"white-font"%></strong>
+                        <strong><%= link_to "Visit Gifter", event_gifts_url(@invite.event, uid: @invite.event.uid, token: @token ), class:"white-font"%></strong>
                       </div>
                     </td>
                   </tr>

@@ -43,7 +43,6 @@ class InvitesController < ApplicationController
     authorize @invite
     if @invite.recipient != nil
       InviteMailer.existing_user_invite(@invite).deliver
-      @invite.recipient.events.push(@invite.event)
     else
       InviteMailer.invite_to_event(@invite, @invite.token).deliver
     end

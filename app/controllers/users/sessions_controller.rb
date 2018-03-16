@@ -13,8 +13,12 @@ class Users::SessionsController < Devise::SessionsController
       return events_path
     else
       event = Event.find(params[:event_id])
-      current_user.events.push(event)
-      return event_gifts_path(params[:event_id])
+      if event.guests.find_by_user_id(current_user.id)
+        return event_gifts_path(params[:event_id])
+      else
+        current_user.events.push(event)
+        return event_gifts_path(params[:event_id])
+      end
     end
   end
 end

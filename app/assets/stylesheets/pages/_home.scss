@@ -101,7 +101,9 @@
 .explainer-boxes {
   background-color: $yellow;
 }
-
+.inline {
+  display: inline-block;
+}
 .explainer-text-box {
   padding: 20px;
 }
@@ -109,16 +111,25 @@
 .girl {
   text-align: center;
   background-color: $red;
-  width: 50%;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  width: 100%;
+  padding: 30px;
+  height: 490px;
 }
 
+@media (max-width: 992px) {
+  .explainer-text {
+    width: 76.1vw !important;
+    margin-left: 3.6vw;
+  }
+}
+
+
 .explainer-text {
-  width: 50%;
+  width: 40vw;
   background-color: white;
   border:dashed 5px $red;
   padding: 30px;
+  height: 490px;
   h1 {
     font-size: 40px;
     margin-bottom: 20px;
@@ -310,5 +321,30 @@ $base: 0.8rem;
   margin-right: auto;
   margin-top: 10px;
   margin-bottom: 10px;
+}
+
+
+@media (max-width: 1410px) {
+  .boy{
+    margin-left: 0px;
+  }
+}
+
+@media (max-width: 1190px) {
+  .yellow-container h2 {
+    font-size: 65px;
+  }
+}
+
+@media (max-width: 786px) {
+  .boy-img {
+    visibility: hidden;
+  }
+  .yellow-container h2 {
+    font-size: 40px;
+  }
+  .yellow-container {
+    width: auto;
+  }
 }
 

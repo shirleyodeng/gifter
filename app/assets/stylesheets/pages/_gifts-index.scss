@@ -281,7 +281,7 @@
   top: -90px;
   width: 220px;
   height: 250px;
-  padding: 35px;
+  padding: 30px;
   font-weight: normal;
   background: $white;
 }
@@ -402,19 +402,26 @@
   border: 0px !important;
   background-color: white !important;
   box-shadow: none !important;
+  padding: 10px;
+  margin: 0px;
 }
 
 .progress-box {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
 }
 
 .progress-info {
-  margin-left: 10px;
   p {
-    font-size: 12px;
+    font-size: 14px;
     margin: 0px;
   }
+  padding: 10px;
 }
 
+.fulfilled-text {
+  font-weight: 700;
+  color: $red;
+  margin-top: 30px;
+}

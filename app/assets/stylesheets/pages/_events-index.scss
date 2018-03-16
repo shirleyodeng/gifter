@@ -91,17 +91,14 @@
   width: 36%;
   text-align: center;
   line-height: 15px;
-  a {
-    color: black;
-  }
   h4 {
+    color: black;
     display: inline;
-    margin-top: 3px;
-    margin-bottom: 3px;
+    margin-bottom: 2px !important;
   }
   p {
     font-size: 14px;
-    margin-bottom: 3px;
+    margin-bottom: 2px;
   }
 }
 
@@ -209,4 +206,10 @@
   border: 0px !important;
   background-color: transparent !important;
   box-shadow: none !important;
+}
+
+.auto-margin {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  margin-top: 0px;
 }

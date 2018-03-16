@@ -436,13 +436,35 @@
 
 
 
-  // @media(max-height: 680px) {
-  //   .flip-clock-wrapper ul {
-  //     width: 9%;
-  //     height: 50px;
-  //   }
-  // }
+@media (max-width: 1010px) {
+  #flipclock {
+    display: none;
+  }
+  #event-date-payment {
+    display: block !important;
+  }
+}
 
+#flipclock-text-count-down {
+  color: $red !important;
+  font-size: 20px !important;
+  font-family: Poppins, sans-serif !important;
+}
+
+@media (max-width: 1010px) {
+  #flipclock-text-count-down {
+    display: none;
+  }
+}
+
+
+#event-date-payment {
+  display: none;
+  height: 50px;
+  color: $red;
+  font-size: 20px;
+  font-family: Poppins, sans-serif;
+}
 
 
 

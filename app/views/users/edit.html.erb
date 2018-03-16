@@ -6,7 +6,7 @@
         <p>Email: <%= @user.email %></p>
         <%= simple_form_for(@user) do |f| %>
           <div class="form-inputs">
-            <%= cl_image_tag (current_user.photo.present? ? current_user.photo : 'avatar-pink'), class: "avatar-lg" %>
+            <%= cl_image_tag (current_user.photo.present? ? current_user.photo : 'logo-gifter'), class: "avatar-lg" %>
             <%= f.input :photo, label: false %>
             <%= f.input :photo_cache, as: :hidden %>
             <%= f.input :first_name, required: true, label: false %>

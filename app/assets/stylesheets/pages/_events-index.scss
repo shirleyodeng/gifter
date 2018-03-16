@@ -138,13 +138,13 @@
 }
 
 .hover-red .event-title {
-  a:hover {
+  h4:hover {
     color: $yellow;
   }
 }
 
 .hover-yellow .event-title {
-  a:hover {
+  h4:hover {
     color: $red;
   }
 }

@@ -85,7 +85,9 @@
                   <% unread = 0 %>
                   <% event.conversations.each do |conversation| %>
                     <% if conversation.messages.last != nil %>
-                      <% unread += 1 if conversation.messages.last.read == false && conversation.messages.last.user != current_user %>
+                      <% if conversation.sender_id == current_user.id || conversation.recipient_id == current_user.id  %>
+                        <% unread += 1 if conversation.messages.last.read == false && conversation.messages.last.user != current_user %>
+                      <% end %>
                     <% end %>
                   <% end %>
                   <% if unread.zero? %>

@@ -40,5 +40,4 @@ class Event < ApplicationRecord
     end
     return (sum / total.to_f).to_f
   end
-
 end

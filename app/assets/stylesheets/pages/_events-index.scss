@@ -49,6 +49,41 @@
   }
 }
 
+.event-box-flex {
+  display: flex;
+  justify-content: space-between;
+  width: 200px;
+}
+
+@media (max-width: 992px) {
+  .event-card {
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+  }
+  .event-box-flex {
+    display: flex;
+    justify-content: space-around;
+    width: 150px;
+  }
+}
+
+@media (max-width: 415px) {
+  .event-flex {
+    flex-direction: column;
+    img {
+      margin-bottom: 5px;
+    }
+  }
+  .event-title {
+    width: 100% !important;
+  }
+  .event-box-flex {
+    display: flex;
+    justify-content: space-around;
+    width: 150px;
+  }
+}
+
 .delete-button {
   position: absolute;
   top: 20px;
@@ -206,6 +241,12 @@
   border: 0px !important;
   background-color: transparent !important;
   box-shadow: none !important;
+}
+
+@media (max-width: 1300px) {
+  .girl-img {
+    visibility: hidden;
+  }
 }
 
 .auto-margin {

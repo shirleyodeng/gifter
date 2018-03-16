@@ -74,7 +74,7 @@
                 <%= cl_image_tag (event.child_photo.present? ? event.child_photo : 'avatar-pink'), radius: 50, width: 50, height: 50, crop: :thumb, gravity: :face %>
                 <div class="event-title">
                   <%= link_to event_gifts_path(event_id: event.id) do %>
-                    <h4><%= event.child %>'s <%= event.name.capitalize %></h4>
+                    <h4><%= event.child %>'s <%= event.name %></h4>
                   <% end %>
                   <p><%= event.date.to_time.strftime("%A %e %B %Y") %></p>
                 </div>

@@ -74,19 +74,23 @@
   </div>
 
     <div class="explainer" id="how-it-works">
-      <div class="container flex">
-        <div class="explainer-text text-center">
-          <h1 class="red">How It Works</h1>
-          <p>Create an event for your child</p>
-          <p>Connect to savings account</p>
-          <p>Add gifts</p>
-          <p>Invite family and friends</p>
-          <p>Receive gift contributions</p>
-          <p>Thank all the gifters</p>
-          <%= link_to "Get started", events_path, class: "btn-red" %>
+      <div class="row inline">
+        <div class="col-sm-12 col-md-6"></div>
+          <div class="explainer-text text-center">
+            <h1 class="red">How It Works</h1>
+            <p>Create an event for your child</p>
+            <p>Connect to savings account</p>
+            <p>Add gifts</p>
+            <p>Invite family and friends</p>
+            <p>Receive gift contributions</p>
+            <p>Thank all the gifters</p>
+            <%= link_to "Get started", events_path, class: "btn-red" %>
+          </div>
         </div>
-        <div class="girl">
-          <%= cl_image_tag("http://res.cloudinary.com/dj2d1zdlv/image/upload/v1521110828/howitworks_image.png", height: 430) %>
+        <div class="col-sm-12 col-md-6">
+          <div class="girl">
+            <%= cl_image_tag("http://res.cloudinary.com/dj2d1zdlv/image/upload/v1521110828/howitworks_image.png", height: 430) %>
+          </div>
         </div>
       </div>
     </div>
@@ -130,7 +134,7 @@
             <div class="people-info">
               <h3>Amina</h3>
               <p>Full-Stack Developer</p>
-              <p class="people-description">Tickle monster</p>
+              <p class="people-description">Cookie monster</p>
             </div>
           </div>
         <div class="people-card">

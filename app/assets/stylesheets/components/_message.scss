@@ -19,7 +19,7 @@
   padding-left: 20px;
   padding-right: 20px;
   width: 150px;
-  color: $dark-gray
+  color: $dark-gray;
   p {
     margin-top: -10px;
   }
@@ -132,15 +132,18 @@
   flex: 1;
   margin-right: 40px;
   h3 {
-    margin-top: 0;
+    margin-top: 10px;
+  }
+  a:hover {
+    text-decoration: none;
   }
 }
 
 .event-guests {
   width: 36%;
-  padding-left: 40px;
-  padding-right: 40px;
-  padding-top: 10px;
+  margin-top: 33px;
+  margin-bottom: 50px;
+  padding: 10px 40px;
   background-color: $white;
   box-shadow: 1px 1px 1px $yellow;
   border: 1px solid $light-gray;
@@ -152,7 +155,7 @@
 }
 
 .yellow-email-line {
-  width: 263px;
+  max-width: 263px;
   height: 2px;
   background-color: $yellow;
   margin-bottom: 6px;
@@ -194,7 +197,7 @@
 
 .no-guests {
   padding-top: 10px;
-  font-size: 15px;
+  font-size: 16px;
 }
 
 .add-reply {

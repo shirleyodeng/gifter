@@ -1,11 +1,11 @@
 <div class="min-container">
   <div class="container">
     <div class="dashboard-container">
-      <div class="girl-container">
+<!--       <div class="girl-container">
         <div id="girl">
-          <%= cl_image_tag "girlpink1", width: 300 %>
+          <%#= cl_image_tag "girlpink1", width: 300 %>
         </div>
-      </div>
+      </div> -->
       <h1 class="user-name text-center"><%= current_user.first_name.capitalize %>'s Dashboard</h1>
       <div class="events-container">
         <h2>You are invited to</h2>
@@ -22,8 +22,19 @@
                   <p>Invited by <%= guest.event.creator.full_name %></p>
                 </div>
                 <div class="event-box">
-                  <%= link_to (cl_image_tag "envelope2", height: 50, width: 50, class: "user-dashboard-icon"), event_conversations_path(guest.event) %>
-                  <p class="icon-hover-text gray">View messages</p>
+                  <% unread = 0 %>
+                  <% guest.event.conversations.each do |conversation| %>
+                    <% if conversation.messages.last != nil %>
+                      <% unread += 1 if conversation.messages.last.read == false && conversation.messages.last.user != current_user %>
+                    <% end %>
+                  <% end %>
+                  <% if unread.zero? %>
+                    <%= link_to (cl_image_tag "envelope2", height: 50, width: 50, class: "user-dashboard-icon"), event_conversations_path(guest.event) %>
+                    <p class="icon-hover-text gray">View messages</p>
+                  <% else %>
+                    <%= link_to (cl_image_tag "envelope-red", height: 50, width: 50, class: "user-dashboard-icon"), event_conversations_path(guest.event) %>
+                    <p class="icon-hover-text red">Unread messages</p>
+                  <% end %>
                 </div>
                 <div class="event-box">
                   <% participations = current_user.participations.where(gift_id: guest.event.gifts) %>
@@ -66,8 +77,19 @@
                   <p><%= event.date.to_time.strftime("%A %e %B %Y") %></p>
                 </div>
                 <div class="event-box">
-                  <%= link_to (cl_image_tag "envelope2", height: 50, width: 50, class: "user-dashboard-icon"), event_conversations_path(event) %>
-                  <p class="icon-hover-text gray">View messages</p>
+                  <% unread = 0 %>
+                  <% event.conversations.each do |conversation| %>
+                    <% if conversation.messages.last != nil %>
+                      <% unread += 1 if conversation.messages.last.read == false && conversation.messages.last.user != current_user %>
+                    <% end %>
+                  <% end %>
+                  <% if unread.zero? %>
+                    <%= link_to (cl_image_tag "envelope2", height: 50, width: 50, class: "user-dashboard-icon"), event_conversations_path(event) %>
+                    <p class="icon-hover-text gray">View messages</p>
+                  <% else %>
+                    <%= link_to (cl_image_tag "envelope-red", height: 50, width: 50, class: "user-dashboard-icon"), event_conversations_path(event) %>
+                    <p class="icon-hover-text red">Unread messages</p>
+                  <% end %>
                 </div>
                 <div class="event-box">
                     <div class="total event-box:hover user-dashboard-icon" data-integer="<%= event.total_raised %>"></div>

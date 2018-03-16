@@ -2,9 +2,14 @@
   <div class="container fill-high padding-bottom">
     <div class="conversation-box">
       <div class="messages">
+        <%= link_to "< Back to dashboard", events_path, class: "inbox-back" %>
         <h3>Mailbox</h3>
         <h4><%= @event.child %>'s <%= @event.name %></h4>
-        <% if @conversations.empty? %>
+        <% messages = 0 %>
+        <% @conversations.each do |conversation| %>
+          <% messages += 1 if conversation.messages.present? %>
+        <% end %>
+        <% if messages.zero? %>
           <p>You have no messages.</p>
         <% else %>
           <ul class="list-unstyled inbox">
@@ -45,7 +50,7 @@
           </ul>
         <% end %>
       </div>
-      <div class="event-guests padding-bottom">
+      <div class="event-guests">
         <h4>Chat with an event attendee</h4>
         <div class="yellow-email-line"></div>
           <% if @event.creator != current_user %>

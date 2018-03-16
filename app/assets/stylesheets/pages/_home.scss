@@ -243,6 +243,12 @@ $base: 0.8rem;
   justify-content: space-around;
 }
 
+@media (max-width: 900px) {
+  .people-box {
+    flex-direction: column;
+  }
+}
+
 .people {
   padding: 50px;
   background-color: $white;

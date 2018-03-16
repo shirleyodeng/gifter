@@ -23,13 +23,15 @@
                 </div>
                 <div class="event-box-flex">
                   <div class="event-box">
-                    <% unread = 0 %>
+                    <% @unread = 0 %>
                     <% guest.event.conversations.each do |conversation| %>
                       <% if conversation.messages.last != nil %>
-                        <% unread += 1 if (conversation.messages.last.read == false && conversation.messages.last.user != current_user) %>
+                        <% if conversation.sender_id == current_user.id || conversation.recipient_id == current_user.id  %>
+                          <% @unread += 1 if conversation.messages.last.read == false && conversation.messages.last.user != current_user %>
+                        <% end %>
                       <% end %>
                     <% end %>
-                    <% if unread.zero? %>
+                    <% if @unread.zero? %>
                       <%= link_to (cl_image_tag "envelope2", height: 50, width: 50, class: "user-dashboard-icon"), event_conversations_path(guest.event) %>
                       <p class="icon-hover-text gray">View messages</p>
                     <% else %>
@@ -83,7 +85,9 @@
                   <% unread = 0 %>
                   <% event.conversations.each do |conversation| %>
                     <% if conversation.messages.last != nil %>
-                      <% unread += 1 if (conversation.messages.last.read == false && conversation.messages.last.user != current_user) %>
+                      <% if conversation.sender_id == current_user.id || conversation.recipient_id == current_user.id  %>
+                        <% unread += 1 if conversation.messages.last.read == false && conversation.messages.last.user != current_user %>
+                      <% end %>
                     <% end %>
                   <% end %>
                   <% if unread.zero? %>

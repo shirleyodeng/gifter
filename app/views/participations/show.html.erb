@@ -1,4 +1,4 @@
-<div class="min-container confetti">
+<div class="min-container confetti" id="confetti-confirmation-container">
   <canvas id="canvas"></canvas>
   <div class="other-info">
     <div class="text-center-test">
@@ -8,9 +8,12 @@
         <li>Status: <%= @participation.state %></li>
         <li>Item: <%= @participation.gift.capitalized_name %></li>
         <li>Amount: <%= humanized_money_with_symbol(@participation.amount) %></li>
-      <ul>
+      </ul>
     </div>
+    <p></p>
+    <p id="flipclock-text-count-down"><strong> Count down to <%= @participation.gift.event.child%>'s event:</strong></p>
     <div id="flipclock"></div>
+    <div id="event-date-payment"><strong><%= @participation.gift.event.child %>'s event is on <%= @participation.gift.event.date.to_time.strftime("%A %e %B %Y") %></strong></div>
     <div class="stripe-payment">
       <div id="participation-form-1">
         <%= simple_form_for [@participation], html: { id: :message_form } do |f| %>

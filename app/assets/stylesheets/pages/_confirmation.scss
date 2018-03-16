@@ -26,7 +26,7 @@ body {
   margin-left: auto;
   margin-right: auto;
   width: 50%;
-  height: 100vh;
+  height: calc(100vh - 70px) !important;
   text-align: center;
 }
 
@@ -40,4 +40,8 @@ body {
 
 .stripe-payment {
   margin-top: 38px !important;
+}
+
+#confetti-confirmation-container {
+  margin-bottom: 40px;
 }

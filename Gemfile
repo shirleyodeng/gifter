@@ -19,7 +19,7 @@ gem 'postmark-rails'
 
 gem 'momentjs-rails', '~> 2.9', github: 'derekprior/momentjs-rails'
 gem 'autoprefixer-rails'
-gem 'bootstrap-sass', '~> 3.3'
+gem 'bootstrap-sass', '~> 3.4'
 gem 'datetimepicker-rails', github: 'zpaulovics/datetimepicker-rails', branch: 'master', submodules: true
 gem 'font-awesome-sass', '~> 4.7'
 gem 'sass-rails'

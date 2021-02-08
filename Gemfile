@@ -13,7 +13,7 @@ gem 'redis'
 gem 'pundit'
 gem 'figaro'
 gem 'cloudinary'
-gem 'carrierwave', '~> 1.2'
+gem 'carrierwave', '~> 2.1'
 gem 'omniauth-facebook'
 gem 'postmark-rails'
 
